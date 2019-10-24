@@ -40,8 +40,6 @@ public class ViewMenuOptions {
     private ImageView bandeBottom;
     private ImageView chevrondroit;
 
-
-
     /**
      * Constructeur du menu principal
      *
@@ -52,18 +50,13 @@ public class ViewMenuOptions {
         this.root = root;
         this.model = model;
 
-        //  initListeImage();
-
-
         initBackground();
         initBandeTop();
         initBandeBottom();
         initChevron();
         initChevronDroit();
-      //  initBandeFond();
         initStats();
         initVaisseauxCoin();
-
         setVueCompleteMenu();
 
     }
@@ -80,30 +73,24 @@ public class ViewMenuOptions {
         monLezard.setScaleX(0.2);
         monLezard.setScaleY(0.2);
     }*/
-
     private void initVaisseauxCoin() {
 
         spider = new ImageView(Path.vaisseauxCoin);
-
         spider.setX(600);
         spider.setY(200);
         spider.setFitHeight(750);
         spider.setFitWidth(850);
-
         spider.setPreserveRatio(false);
 
     }
 
-
     private void initChevron() {
 
         chevron = new ImageView(Path.chevrongauche);
-
-       chevron.setX(520);
+        chevron.setX(520);
         chevron.setY(755);
         chevron.setFitHeight(80);
         chevron.setFitWidth(80);
-
         chevron.setPreserveRatio(false);
 
     }
@@ -111,78 +98,59 @@ public class ViewMenuOptions {
     private void initChevronDroit() {
 
         chevrondroit = new ImageView(Path.chevrondroit);
-
         chevrondroit.setX(850);
         chevrondroit.setY(745);
         chevrondroit.setFitHeight(80);
         chevrondroit.setFitWidth(80);
-
         chevrondroit.setPreserveRatio(false);
 
     }
 
-
-
-
     private void initBandeTop() {
 
         bandeTop = new ImageView(Path.bandeTop);
-
         bandeTop.setX(-300);
         bandeTop.setY(0);
         bandeTop.setFitWidth(1500);
-
         bandeTop.setPreserveRatio(true);
-
     }
+
     private void initBandeBottom() {
 
         bandeBottom = new ImageView(Path.bandeBottom);
-
         bandeBottom.setX(500);
         bandeBottom.setY(900);
         bandeBottom.setFitWidth(1500);
-
         bandeBottom.setPreserveRatio(true);
-
     }
 
     private void initBandeFond() {
 
         bandeFond = new ImageView(Path.bandefond);
-
         bandeFond.setX(0);
         bandeFond.setY(-300);
         bandeFond.setFitWidth(1500);
-
         bandeFond.setPreserveRatio(true);
-
     }
 
     private void initStats() {
 
         stats = new ImageView(Path.stats1);
-
         stats.setX(80);
         stats.setY(430);
         stats.setFitWidth(800);
-
         stats.setPreserveRatio(true);
 
     }
 
-
     private void initTitre() {
+
         titre = new Text(10, 220, "La guerre des lezards");
         Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 80);
         titre.setFont(policeTitre);
         titre.setRotate(-20);
+
     }
-
-
-    /**
-     * Mise en place de l'image de fond en fonction de la taille de l'écran de l'utilisateur
-     */
 
     private void initBackground() {
         //imgBg = new ImageView("Asset/Images/fond_menu.jpg");
@@ -190,21 +158,10 @@ public class ViewMenuOptions {
         // imgBg.setFitHeight((int) primaryScreenBounds.getHeight());
         // imgBg.setFitWidth((int) primaryScreenBounds.getWidth());
 
-     /*   videoBackground = new MediaPlayer(new Media(this.getClass().getResource(Path.videobackground1).toExternalForm()));
-
-        videoBackground.setAutoPlay(true);
-
-        media.setMediaPlayer(videoBackground);
-
-       media.setFitHeight((int) primaryScreenBounds.getHeight());
-        media.setFitWidth((int) primaryScreenBounds.getWidth());
-*/
         videoBackground = new MediaPlayer(new Media(this.getClass().getResource(Path.videobackground2).toExternalForm()));
-
         videoBackground.setAutoPlay(true);
         videoBackground.setCycleCount(MediaPlayer.INDEFINITE);
         viewer = new MediaView(videoBackground);
-
         videoBackground.play();
 
         //change width and height to fit video
@@ -228,10 +185,6 @@ public class ViewMenuOptions {
             imageView.setFitHeight(getHeight());
         }
 */
-
-
-
-
     }
 
     /**
@@ -239,34 +192,19 @@ public class ViewMenuOptions {
      */
     void setVueCompleteMenu() {
         root.getChildren().clear();
-        // root.getChildren().add(imgBg);
-        //   root.getChildren().add(media);
         root.getChildren().add(viewer);
-
-
-        // root.getChildren().add(titre);
-        //  root.getChildren().add(monLezard);
-      //  root.getChildren().add(bandeFond);
-
-
         root.getChildren().add(stats);
         root.getChildren().add(chevron);
         root.getChildren().add(chevrondroit);
-
-
         root.getChildren().add(bandeTop);
         root.getChildren().add(bandeBottom);
-
         root.getChildren().add(spider);
-
     }
 
     void setEvents(ControllerMenu mc) {
         //  titre.setOnMouseEntered(mc);
         //  monLezard.setOnMouseClicked(mc);
         // spider.setOnMouseEntered(mc);
-
-
     }
 
     public Text getTitre() {
@@ -275,7 +213,6 @@ public class ViewMenuOptions {
 
     public void setRandomColorForTitle() {
         titre.setFill(new Color(Math.random(), Math.random(), Math.random(), Math.random()));
-
     }
     
 }

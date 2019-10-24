@@ -57,7 +57,7 @@ public class ViewMenuPrincipal {
         initTextChoixVaisseaux();
         initTextJouer();
         initTexteQuitter();
-        // initVaisseauxCoin();
+       // initVaisseauxCoin();
         setVueCompleteMenu();
 
     }
@@ -102,7 +102,7 @@ public class ViewMenuPrincipal {
 private void initTextJouer(){
 
 
-  jouer = new Text(300, 850, "- Jouer -");
+    jouer = new Text(300, 850, "- Jouer -");
     jouer.setFont(Font.font("Dead Kansas", 35));
     jouer.setFill (Color.WHITE);
 
