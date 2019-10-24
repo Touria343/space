@@ -7,6 +7,7 @@ import Tools.Path;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Group;
+import javafx.scene.effect.Reflection;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -17,6 +18,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+
+import static javafx.scene.text.FontWeight.EXTRA_BOLD;
 
 public class ViewMenuOptions {
 
@@ -39,6 +42,7 @@ public class ViewMenuOptions {
     private ImageView chevron;
     private ImageView bandeBottom;
     private ImageView chevrondroit;
+    private Text geoCroiseur;
 
     /**
      * Constructeur du menu principal
@@ -56,6 +60,7 @@ public class ViewMenuOptions {
         initChevron();
         initChevronDroit();
         initStats();
+        initTextGeocroiseur();
         initVaisseauxCoin();
         setVueCompleteMenu();
 
@@ -124,6 +129,15 @@ public class ViewMenuOptions {
         bandeBottom.setPreserveRatio(true);
     }
 
+    private void initTextGeocroiseur() {
+
+        geoCroiseur = new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -");
+        geoCroiseur.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
+        geoCroiseur.setFill(Color.WHITE);
+        Reflection r = new Reflection();
+        r.setFraction(0.7f);
+        geoCroiseur.setEffect(r);
+    }
     private void initBandeFond() {
 
         bandeFond = new ImageView(Path.bandefond);
@@ -199,6 +213,8 @@ public class ViewMenuOptions {
         root.getChildren().add(bandeTop);
         root.getChildren().add(bandeBottom);
         root.getChildren().add(spider);
+        root.getChildren().add(geoCroiseur);
+
     }
 
     void setEvents(ControllerMenu mc) {
