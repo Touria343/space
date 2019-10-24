@@ -57,8 +57,7 @@ public class ViewMenuPrincipal {
         initTextChoixVaisseaux();
         initTextJouer();
         initTexteQuitter();
-
-       // initVaisseauxCoin();
+        // initVaisseauxCoin();
         setVueCompleteMenu();
 
     }
