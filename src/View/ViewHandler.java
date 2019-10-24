@@ -71,7 +71,9 @@ public class ViewHandler extends Application {
 
     mo = new ViewMenuOptions(model, root2);
 
-
+            Text jouer = new Text(300, 850, "- Jouer -");
+            jouer.setFont(Font.font("Dead Kansas", 35));
+            jouer.setFill (Color.WHITE);
 
 
 
@@ -147,6 +149,7 @@ choixVaiss.setOnMousePressed(mouseEvent -> {
             // composition des scènes
 
            // root2.getChildren().addAll(img1);
+            root.getChildren().add(jouer);
             root.getChildren().add(quitter);
 
             root2.getChildren().add(geoCroiseur);
