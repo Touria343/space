@@ -52,36 +52,35 @@ public class ViewHandler extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         this.primaryStage = primaryStage;
-
         // root représente le panel qui va être affiché : tout ce qui doit être affiché doit lui être ajouté
         Group root = new Group();
         Scene menuDemarrage = new Scene(root, Color.BLACK);
-
         model = new Menu();
-
         mp = new ViewMenuPrincipal(model, root);
         controllerMenu = new ControllerMenu(this, model);
-
         Group root2 = new Group();
-
         Scene scene2 = new Scene(root2, Color.WHITE);
-
         Menu model = new Menu();
-
         mo = new ViewMenuOptions(model, root2);
 
-        Text geoCroiseur = new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -");
-        geoCroiseur.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
-        geoCroiseur.setFill (Color.WHITE);
+
 
         DropShadow ds = new DropShadow();
         ds.setOffsetY(3.0f);
         ds.setColor(Color.color(0.2f, 0.2f, 0.2f));
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00e07330eb297b95854b837bb07aad0b698922ea
         InnerShadow is = new InnerShadow();
         is.setOffsetX(4.0f);
         is.setOffsetY(4.0f);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00e07330eb297b95854b837bb07aad0b698922ea
         music = new MediaPlayer(new Media(this.getClass().getResource(Path.son).toExternalForm()));
 
         music.setAutoPlay(true);
@@ -112,8 +111,13 @@ public class ViewHandler extends Application {
            primaryStage.setFullScreen(true);
 
 });*/
+<<<<<<< HEAD
            //composition des scènes
            root2.getChildren().add(geoCroiseur);
+=======
+           // composition des scènes
+           root2.getChildren().add(joueur1);
+>>>>>>> 00e07330eb297b95854b837bb07aad0b698922ea
 
            //gestion de l'affichage au l'ancement
             primaryStage.setScene(menuDemarrage);
