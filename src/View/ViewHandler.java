@@ -40,16 +40,12 @@ public class ViewHandler extends Application {
     private MediaView viewer;
 
 
-
-
     /**
      * Permet le lancement de l'application : méthode obligatoire pour JavaFX
      *
      * @param primaryStage ()
      * @throws Exception ()
      */
-
-
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -67,28 +63,13 @@ public class ViewHandler extends Application {
 
 
 
+   Group root2 = new Group();
 
-        // Affichage du menu
+    Scene scene2 = new Scene(root2, Color.WHITE);
 
+    Menu model = new Menu();
 
-       // File f = new File(Dir, "..//Asset//Video//TypoYellow_27791.mp4)");
-
-
-        //Converts media to string URL
-       /* Media media = new Media(f.toURI().toURL().toString());
-        javafx.scene.media.MediaPlayer player = new   javafx.scene.media.MediaPlayer(media);
-        MediaView viewer = new MediaView(player);*/
-
-
-
-
-            Group root2 = new Group();
-
-            Scene scene2 = new Scene(root2, Color.WHITE);
-
-        Menu model = new Menu();
-
-        mo = new ViewMenuOptions(model, root2);
+    mo = new ViewMenuOptions(model, root2);
 
             Text jouer = new Text(300, 850, "- Jouer -");
             jouer.setFont(Font.font("Dead Kansas", 35));
@@ -140,17 +121,15 @@ public class ViewHandler extends Application {
 
       //  geoCroiseur.setEffect(is);
 
+         btn = initButton(100, 80, "- Entrer -");
+         btn2 = initButton(200, 120, "- Jouer -");
+         btn3 = initButton(200, 170, "- Choix des vaisseaux -");
 
 
-            btn = initButton(100, 80, "- Entrer -");
-            btn2 = initButton(200, 120, "- Jouer -");
-            btn3 = initButton(200, 170, "- Choix des vaisseaux -");
+         btn3.setOnAction(event -> {
 
-
-            btn3.setOnAction(event -> {
-
-                primaryStage.setScene(scene2);
-                primaryStage.setFullScreen(true);
+          primaryStage.setScene(scene2);
+          primaryStage.setFullScreen(true);
 
             });
 
@@ -166,7 +145,7 @@ choixVaiss.setOnMousePressed(mouseEvent -> {
 
 
             // composition des scènes
-            
+
            // root2.getChildren().addAll(img1);
             root.getChildren().add(jouer);
             root.getChildren().add(choixVaiss);
