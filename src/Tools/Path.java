@@ -23,8 +23,6 @@ public class Path {
     public static final String chevrondroit = "Asset//Images//chevronDroit.png";
 
 
-
-
     public static final String fontHeadCase = "../Asset/Font/HeadCase.ttf";
     public static final String fontMontionPicture = "../Asset/Font/MotionPicture.ttf";
     public static final String fontOneStarryNight = "../Asset/Font/OneStarryNight.ttf";
@@ -39,6 +37,5 @@ public class Path {
     public static String bandeTop = "Asset//Images//Bande-top.png";
     public static String bandefond = "Asset//Images//bandefond.png";
     public static String bandeBottom = "Asset//Images//bande-bottom.png";
-
 
 }

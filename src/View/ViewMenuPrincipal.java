@@ -37,9 +37,6 @@ public class ViewMenuPrincipal {
     private Text quitter;
     private Text jouer;
 
-
-
-
     /**
      * Constructeur du menu principal
      *
@@ -52,8 +49,7 @@ public class ViewMenuPrincipal {
 
       //  initListeImage();
 
-
-        initBackground();
+      initBackground();
         initTextChoixVaisseaux();
         initTextJouer();
         initTexteQuitter();
@@ -101,17 +97,11 @@ public class ViewMenuPrincipal {
 
 private void initTextJouer(){
 
-
     jouer = new Text(300, 850, "- Jouer -");
     jouer.setFont(Font.font("Dead Kansas", 35));
     jouer.setFill (Color.WHITE);
 
-
 }
-
-
-
-
 
     private void initTitre() {
         titre = new Text(10, 220, "La guerre des lezards");
@@ -170,9 +160,6 @@ private void initTextJouer(){
         }
 */
 
-
-
-
     }
 
     /**
@@ -180,24 +167,21 @@ private void initTextJouer(){
      */
     void setVueCompleteMenu() {
         root.getChildren().clear();
-       // root.getChildren().add(imgBg);
-     //   root.getChildren().add(media);
+      //root.getChildren().add(imgBg);
+      //root.getChildren().add(media);
         root.getChildren().add(viewer);
         root.getChildren().add(choixVaiss);
         root.getChildren().add(jouer);
         root.getChildren().add(quitter);
-
-
-       // root.getChildren().add(titre);
-      //  root.getChildren().add(monLezard);
-       // root.getChildren().add(spider);
+      //root.getChildren().add(titre);
+      //root.getChildren().add(monLezard);
+       //root.getChildren().add(spider);
     }
 
     void setEvents(ControllerMenu mc) {
-      //  choi.setOnMouseEntered(mc);
-      //  monLezard.setOnMouseClicked(mc);
-       // spider.setOnMouseEntered(mc);
-
+      //choi.setOnMouseEntered(mc);
+      //monLezard.setOnMouseClicked(mc);
+      //spider.setOnMouseEntered(mc);
 
     }
 

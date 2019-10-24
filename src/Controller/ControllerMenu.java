@@ -1,6 +1,5 @@
 package Controller;
 
-
 import Model.Menu;
 import View.ViewHandler;
 import javafx.event.EventHandler;
@@ -33,11 +32,7 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
             launcher.getMp().setRandomColorForTitle();
         }
 
-
-
     }
-
-
 
 
 }

@@ -7,6 +7,7 @@ import Tools.Path;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Group;
+import javafx.scene.effect.Reflection;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -17,6 +18,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+
+import static javafx.scene.text.FontWeight.SEMI_BOLD;
 
 public class ViewMenuOptions {
 
@@ -39,6 +42,7 @@ public class ViewMenuOptions {
     private ImageView chevron;
     private ImageView bandeBottom;
     private ImageView chevrondroit;
+    private Text joueur1;
 
     /**
      * Constructeur du menu principal
@@ -56,6 +60,7 @@ public class ViewMenuOptions {
         initChevron();
         initChevronDroit();
         initStats();
+        initTextJoueur1();
         initVaisseauxCoin();
         setVueCompleteMenu();
 
@@ -143,6 +148,17 @@ public class ViewMenuOptions {
 
     }
 
+    public void initTextJoueur1() {
+
+        joueur1 = new Text(630, 800, "- Joueur - 1");
+        joueur1.setFont(Font.font("Dead Kansas", SEMI_BOLD, 37));
+        joueur1.setFill (Color.DARKRED);
+
+        Reflection r = new Reflection();
+        r.setFraction(0.7f);
+        joueur1.setEffect(r);
+    }
+
     private void initTitre() {
 
         titre = new Text(10, 220, "La guerre des lezards");
@@ -154,9 +170,9 @@ public class ViewMenuOptions {
 
     private void initBackground() {
         //imgBg = new ImageView("Asset/Images/fond_menu.jpg");
-        //  Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds(); // Récupération de la taille de l'écran
-        // imgBg.setFitHeight((int) primaryScreenBounds.getHeight());
-        // imgBg.setFitWidth((int) primaryScreenBounds.getWidth());
+        //Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds(); // Récupération de la taille de l'écran
+        //imgBg.setFitHeight((int) primaryScreenBounds.getHeight());
+        //imgBg.setFitWidth((int) primaryScreenBounds.getWidth());
 
         videoBackground = new MediaPlayer(new Media(this.getClass().getResource(Path.videobackground2).toExternalForm()));
         videoBackground.setAutoPlay(true);
@@ -172,7 +188,7 @@ public class ViewMenuOptions {
         height.bind(Bindings.selectDouble(viewer.sceneProperty(), "height"));
         viewer.setPreserveRatio(false);
 
-      /*  if (viewer.isPreserveRatio()) {
+   /*  if (viewer.isPreserveRatio()) {
             if (getHeight() > getWidth()) {
                 viewer.setFitWidth(getWidth());
                 imageView.setFitHeight(0);
@@ -180,9 +196,9 @@ public class ViewMenuOptions {
                 imageView.setFitWidth(0);
                 imageView.setFitHeight(getHeight());
             }
-        } else {
-            imageView.setFitWidth(getWidth());
-            imageView.setFitHeight(getHeight());
+                } else {
+                        imageView.setFitWidth(getWidth());
+                        imageView.setFitHeight(getHeight());
         }
 */
     }
@@ -199,6 +215,8 @@ public class ViewMenuOptions {
         root.getChildren().add(bandeTop);
         root.getChildren().add(bandeBottom);
         root.getChildren().add(spider);
+        root.getChildren().add(joueur1);
+
     }
 
     void setEvents(ControllerMenu mc) {

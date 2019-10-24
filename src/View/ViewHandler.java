@@ -19,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
+import javafx.stage.StageStyle;
 
 import static javafx.scene.text.FontWeight.*;
 
@@ -73,30 +74,19 @@ public class ViewHandler extends Application {
         geoCroiseur.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
         geoCroiseur.setFill (Color.WHITE);
 
-        Text joueur1 = new Text(630, 800, "- Joueur - 1");
-        joueur1.setFont(Font.font("Dead Kansas", SEMI_BOLD, 37));
-        joueur1.setFill (Color.DARKRED);
-
         DropShadow ds = new DropShadow();
         ds.setOffsetY(3.0f);
         ds.setColor(Color.color(0.2f, 0.2f, 0.2f));
 
-        Reflection r = new Reflection();
-        r.setFraction(0.7f);
-
-        geoCroiseur.setEffect(r);
         InnerShadow is = new InnerShadow();
         is.setOffsetX(4.0f);
         is.setOffsetY(4.0f);
-
-        joueur1.setEffect(r);
 
         music = new MediaPlayer(new Media(this.getClass().getResource(Path.son).toExternalForm()));
 
         music.setAutoPlay(true);
         viewer = new MediaView(music);
         music.play();
-
 
       //  geoCroiseur.setEffect(ds);
 
@@ -122,17 +112,16 @@ public class ViewHandler extends Application {
            primaryStage.setFullScreen(true);
 
 });*/
-           // composition des scènes
+           //composition des scènes
            root2.getChildren().add(geoCroiseur);
-           root2.getChildren().add(joueur1);
 
-           // gestion de l'affichage au lancement
+           //gestion de l'affichage au l'ancement
             primaryStage.setScene(menuDemarrage);
             primaryStage.show();
             primaryStage.setFullScreenExitHint("");
             primaryStage.setScene(menuDemarrage);
             primaryStage.setResizable(true);
-            //primaryStage.initStyle(StageStyle.UNDECORATED);
+          //primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.setFullScreen(true);
             primaryStage.show();
 
@@ -147,7 +136,7 @@ public class ViewHandler extends Application {
             b.setText(texteDuBouton);
             return b;
             //set the Scene
-            // Scene scenes = new Scene(root2, 500, 500, Color.BLACK);
+            //Scene scenes = new Scene(root2, 500, 500, Color.BLACK);
         }
 
         public void setEventHandlerMenu(ControllerMenu cm) {
