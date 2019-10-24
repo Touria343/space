@@ -171,9 +171,6 @@ public class ViewMenuOptions {
     }
 
 
-
-
-
     private void initTitre() {
         titre = new Text(10, 220, "La guerre des lezards");
         Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 80);
