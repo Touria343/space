@@ -75,9 +75,7 @@ public class ViewHandler extends Application {
             jouer.setFont(Font.font("Dead Kansas", 35));
             jouer.setFill (Color.WHITE);
 
-        Text choixVaiss = new Text(554, 850, "- Choix des vaisseaux  -");
-        choixVaiss.setFont(Font.font("Dead Kansas", 35));
-        choixVaiss.setFill (Color.WHITE);
+
 
         Text quitter = new Text(1000, 850, "- Quitter  -");
         quitter.setFont(Font.font("Dead Kansas", 35));
@@ -132,15 +130,19 @@ public class ViewHandler extends Application {
           primaryStage.setFullScreen(true);
 
             });
+/*
 
 choixVaiss.setOnMousePressed(mouseEvent -> {
 
+    choixVaiss.hoverProperty()
+*/
+/*
     primaryStage.setScene(scene2);
     primaryStage.setFullScreen(true);
 
 
 
-});
+});*/
 
 
 
@@ -148,7 +150,6 @@ choixVaiss.setOnMousePressed(mouseEvent -> {
 
            // root2.getChildren().addAll(img1);
             root.getChildren().add(jouer);
-            root.getChildren().add(choixVaiss);
             root.getChildren().add(quitter);
 
             root2.getChildren().add(geoCroiseur);
@@ -184,14 +185,8 @@ choixVaiss.setOnMousePressed(mouseEvent -> {
             return b;
 
 
-
-
-
-
-
         //set the Scene
        // Scene scenes = new Scene(root2, 500, 500, Color.BLACK);
-
 
 
     }

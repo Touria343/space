@@ -33,6 +33,7 @@ public class ViewMenuPrincipal {
     private MediaView media;
     private Stage stage;
     private MediaView viewer;
+    private Text choixVaiss;
 
 
 
@@ -51,7 +52,7 @@ public class ViewMenuPrincipal {
 
 
         initBackground();
-
+        initTextChoixVaisseaux();
 
        // initVaisseauxCoin();
         setVueCompleteMenu();
@@ -81,8 +82,12 @@ public class ViewMenuPrincipal {
 
     }
 
+    private void initTextChoixVaisseaux(){
 
-
+        choixVaiss = new Text(554, 850, "- Choix des vaisseaux  -");
+        choixVaiss.setFont(Font.font("Dead Kansas", 35));
+        choixVaiss.setFill (Color.WHITE);
+    }
 
 
     private void initTitre() {
@@ -155,6 +160,7 @@ public class ViewMenuPrincipal {
        // root.getChildren().add(imgBg);
      //   root.getChildren().add(media);
         root.getChildren().add(viewer);
+        root.getChildren().add(choixVaiss);
 
 
        // root.getChildren().add(titre);
@@ -163,7 +169,7 @@ public class ViewMenuPrincipal {
     }
 
     void setEvents(ControllerMenu mc) {
-      //  titre.setOnMouseEntered(mc);
+      //  choi.setOnMouseEntered(mc);
       //  monLezard.setOnMouseClicked(mc);
        // spider.setOnMouseEntered(mc);
 
