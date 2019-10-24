@@ -69,10 +69,6 @@ public class ViewHandler extends Application {
 
         mo = new ViewMenuOptions(model, root2);
 
-        Text geoCroiseur = new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -");
-        geoCroiseur.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
-        geoCroiseur.setFill (Color.WHITE);
-
         DropShadow ds = new DropShadow();
         ds.setOffsetY(3.0f);
         ds.setColor(Color.color(0.2f, 0.2f, 0.2f));
@@ -112,7 +108,7 @@ public class ViewHandler extends Application {
 
 });*/
            // composition des scènes
-           root2.getChildren().add(geoCroiseur);
+
 
            // gestion de l'affichage au lancement
             primaryStage.setScene(menuDemarrage);

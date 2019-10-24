@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
+import static javafx.scene.text.FontWeight.EXTRA_BOLD;
 import static javafx.scene.text.FontWeight.SEMI_BOLD;
 
 public class ViewMenuOptions {
@@ -43,6 +44,7 @@ public class ViewMenuOptions {
     private ImageView bandeBottom;
     private ImageView chevrondroit;
     private Text joueur1;
+    private Text geoCroiseur;
 
     /**
      * Constructeur du menu principal
@@ -62,6 +64,7 @@ public class ViewMenuOptions {
         initStats();
         initTextJoueur1();
         initVaisseauxCoin();
+        initTextGeoCroiseur();
         setVueCompleteMenu();
 
     }
@@ -78,7 +81,13 @@ public class ViewMenuOptions {
         monLezard.setScaleX(0.2);
         monLezard.setScaleY(0.2);
     }*/
-    private void initVaisseauxCoin() {
+
+    private void initTextGeoCroiseur() {
+   geoCroiseur = new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -");
+        geoCroiseur.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
+        geoCroiseur.setFill (Color.WHITE);
+    }
+   private void initVaisseauxCoin() {
 
         spider = new ImageView(Path.vaisseauxCoin);
         spider.setX(600);
@@ -216,6 +225,7 @@ public class ViewMenuOptions {
         root.getChildren().add(bandeBottom);
         root.getChildren().add(spider);
         root.getChildren().add(joueur1);
+        root.getChildren().add(geoCroiseur);
 
     }
 
