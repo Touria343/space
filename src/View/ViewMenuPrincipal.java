@@ -34,6 +34,7 @@ public class ViewMenuPrincipal {
     private Stage stage;
     private MediaView viewer;
     private Text choixVaiss;
+    private Text jouer;
 
 
 
@@ -53,6 +54,7 @@ public class ViewMenuPrincipal {
 
         initBackground();
         initTextChoixVaisseaux();
+        initTextJouer();
 
        // initVaisseauxCoin();
         setVueCompleteMenu();
@@ -88,6 +90,20 @@ public class ViewMenuPrincipal {
         choixVaiss.setFont(Font.font("Dead Kansas", 35));
         choixVaiss.setFill (Color.WHITE);
     }
+
+
+private void initTextJouer(){
+
+
+  jouer = new Text(300, 850, "- Jouer -");
+    jouer.setFont(Font.font("Dead Kansas", 35));
+    jouer.setFill (Color.WHITE);
+
+
+}
+
+
+
 
 
     private void initTitre() {
@@ -161,6 +177,7 @@ public class ViewMenuPrincipal {
      //   root.getChildren().add(media);
         root.getChildren().add(viewer);
         root.getChildren().add(choixVaiss);
+        root.getChildren().add(jouer);
 
 
        // root.getChildren().add(titre);
