@@ -62,20 +62,10 @@ public class ViewHandler extends Application {
         controllerMenu = new ControllerMenu(this, model);
 
         Group root2 = new Group();
-
         Scene scene2 = new Scene(root2, Color.WHITE);
 
         Menu model = new Menu();
-
         mo = new ViewMenuOptions(model, root2);
-
-        DropShadow ds = new DropShadow();
-        ds.setOffsetY(3.0f);
-        ds.setColor(Color.color(0.2f, 0.2f, 0.2f));
-
-        InnerShadow is = new InnerShadow();
-        is.setOffsetX(4.0f);
-        is.setOffsetY(4.0f);
 
         music = new MediaPlayer(new Media(this.getClass().getResource(Path.son).toExternalForm()));
 
@@ -87,15 +77,7 @@ public class ViewHandler extends Application {
 
       //  geoCroiseur.setEffect(is);
 
-         btn = initButton(100, 80, "- Entrer -");
-         btn2 = initButton(200, 120, "- Jouer -");
-         btn3 = initButton(200, 170, "- Choix des vaisseaux -");
-         btn3.setOnAction(event -> {
 
-          primaryStage.setScene(scene2);
-          primaryStage.setFullScreen(true);
-
-            });
         /*
 
            choixVaiss.setOnMousePressed(mouseEvent -> {
