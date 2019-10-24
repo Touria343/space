@@ -19,7 +19,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
-import javafx.stage.StageStyle;
 
 import static javafx.scene.text.FontWeight.*;
 
@@ -52,35 +51,36 @@ public class ViewHandler extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         this.primaryStage = primaryStage;
+
         // root représente le panel qui va être affiché : tout ce qui doit être affiché doit lui être ajouté
         Group root = new Group();
         Scene menuDemarrage = new Scene(root, Color.BLACK);
+
         model = new Menu();
+
         mp = new ViewMenuPrincipal(model, root);
         controllerMenu = new ControllerMenu(this, model);
+
         Group root2 = new Group();
+
         Scene scene2 = new Scene(root2, Color.WHITE);
+
         Menu model = new Menu();
+
         mo = new ViewMenuOptions(model, root2);
 
-
+        Text geoCroiseur = new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -");
+        geoCroiseur.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
+        geoCroiseur.setFill (Color.WHITE);
 
         DropShadow ds = new DropShadow();
         ds.setOffsetY(3.0f);
         ds.setColor(Color.color(0.2f, 0.2f, 0.2f));
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 00e07330eb297b95854b837bb07aad0b698922ea
         InnerShadow is = new InnerShadow();
         is.setOffsetX(4.0f);
         is.setOffsetY(4.0f);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 00e07330eb297b95854b837bb07aad0b698922ea
         music = new MediaPlayer(new Media(this.getClass().getResource(Path.son).toExternalForm()));
 
         music.setAutoPlay(true);
@@ -111,21 +111,16 @@ public class ViewHandler extends Application {
            primaryStage.setFullScreen(true);
 
 });*/
-<<<<<<< HEAD
-           //composition des scènes
-           root2.getChildren().add(geoCroiseur);
-=======
            // composition des scènes
-           root2.getChildren().add(joueur1);
->>>>>>> 00e07330eb297b95854b837bb07aad0b698922ea
+           root2.getChildren().add(geoCroiseur);
 
-           //gestion de l'affichage au l'ancement
+           // gestion de l'affichage au lancement
             primaryStage.setScene(menuDemarrage);
             primaryStage.show();
             primaryStage.setFullScreenExitHint("");
             primaryStage.setScene(menuDemarrage);
             primaryStage.setResizable(true);
-          //primaryStage.initStyle(StageStyle.UNDECORATED);
+            //primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.setFullScreen(true);
             primaryStage.show();
 
@@ -140,7 +135,7 @@ public class ViewHandler extends Application {
             b.setText(texteDuBouton);
             return b;
             //set the Scene
-            //Scene scenes = new Scene(root2, 500, 500, Color.BLACK);
+            // Scene scenes = new Scene(root2, 500, 500, Color.BLACK);
         }
 
         public void setEventHandlerMenu(ControllerMenu cm) {
