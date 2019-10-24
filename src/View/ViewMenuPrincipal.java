@@ -34,6 +34,7 @@ public class ViewMenuPrincipal {
     private Stage stage;
     private MediaView viewer;
     private Text choixVaiss;
+    private Text quitter;
 
 
 
@@ -53,6 +54,7 @@ public class ViewMenuPrincipal {
 
         initBackground();
         initTextChoixVaisseaux();
+        initTexteQuitter();
 
        // initVaisseauxCoin();
         setVueCompleteMenu();
@@ -72,7 +74,13 @@ public class ViewMenuPrincipal {
         monLezard.setScaleY(0.2);
     }*/
 
-    private void initVaisseauxCoin() {
+    private void initTexteQuitter() {
+        quitter = new Text(1000, 850, "- Quitter  -");
+        quitter.setFont(Font.font("Dead Kansas", 35));
+        quitter.setFill (Color.WHITE);
+    }
+
+   private void initVaisseauxCoin() {
         spider = new ImageView(Path.vaisseauxCoin);
         spider.setRotate(-6);
         spider.setX(-250);
@@ -161,6 +169,7 @@ public class ViewMenuPrincipal {
      //   root.getChildren().add(media);
         root.getChildren().add(viewer);
         root.getChildren().add(choixVaiss);
+        root.getChildren().add(quitter);
 
 
        // root.getChildren().add(titre);

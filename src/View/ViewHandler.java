@@ -5,6 +5,7 @@ import Model.Menu;
 import Tools.Path;
 import javafx.application.Application;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
@@ -38,6 +39,7 @@ public class ViewHandler extends Application {
     private Stage stage;
     private MediaPlayer music;
     private MediaView viewer;
+
 
 
     /**
@@ -77,9 +79,6 @@ public class ViewHandler extends Application {
 
 
 
-        Text quitter = new Text(1000, 850, "- Quitter  -");
-        quitter.setFont(Font.font("Dead Kansas", 35));
-        quitter.setFill (Color.WHITE);
 
         Text geoCroiseur = new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -");
         geoCroiseur.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
@@ -130,19 +129,19 @@ public class ViewHandler extends Application {
           primaryStage.setFullScreen(true);
 
             });
-/*
-
-choixVaiss.setOnMousePressed(mouseEvent -> {
-
-    choixVaiss.hoverProperty()
-*/
-/*
-    primaryStage.setScene(scene2);
-    primaryStage.setFullScreen(true);
 
 
+    //choixVaiss.setOnMousePressed(mouseEvent -> {
 
-});*/
+    //choixVaiss.hoverProperty();
+
+
+    //primaryStage.setScene(scene2);
+    //primaryStage.setFullScreen(true);
+
+
+
+//});
 
 
 
@@ -150,8 +149,6 @@ choixVaiss.setOnMousePressed(mouseEvent -> {
 
            // root2.getChildren().addAll(img1);
             root.getChildren().add(jouer);
-            root.getChildren().add(quitter);
-
             root2.getChildren().add(geoCroiseur);
             root2.getChildren().add(joueur1);
 
