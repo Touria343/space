@@ -32,14 +32,13 @@ public class ViewHandler extends Application {
     private String Dir = System.getProperty("user.dir");
     private MediaPlayer videoBackground;
     private Button btn;
-    private Button btn2,btn3,btn4;
+    private Button btn2, btn3, btn4;
     private Scene scene, scene2;
     private Text t;
     private ImageView img1;
     private Stage stage;
     private MediaPlayer music;
     private MediaView viewer;
-
 
 
     /**
@@ -74,9 +73,9 @@ public class ViewHandler extends Application {
         viewer = new MediaView(music);
         music.play();
 
-      //  geoCroiseur.setEffect(ds);
+        //  geoCroiseur.setEffect(ds);
 
-      //  geoCroiseur.setEffect(is);
+        //  geoCroiseur.setEffect(is);
 
 
         /*
@@ -89,40 +88,40 @@ public class ViewHandler extends Application {
            primaryStage.setFullScreen(true);
 
 });*/
-           // composition des scènes
+        // composition des scènes
 
 
-           // gestion de l'affichage au lancement
-            primaryStage.setScene(menuDemarrage);
-            primaryStage.show();
-            primaryStage.setFullScreenExitHint("");
-            primaryStage.setScene(menuDemarrage);
+        // gestion de l'affichage au lancement
+        primaryStage.setScene(menuDemarrage);
+        primaryStage.show();
+        primaryStage.setFullScreenExitHint("");
+        primaryStage.setScene(menuDemarrage);
         primaryStage.setResizable(true);
 
         primaryStage.setMaxHeight(980);
         primaryStage.setMaxWidth(1520);
 
-            primaryStage.setFullScreen(true);
-       // primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.setFullScreen(true);
+        // primaryStage.initStyle(StageStyle.UNDECORATED);
 
         primaryStage.show();
 
 
     }
 
-        private Button initButton(int longeur, int largeur, String texteDuBouton) {
+    private Button initButton(int longeur, int largeur, String texteDuBouton) {
 
-            // Création d'un bouton
-            Button b = new Button();
-            b.setLayoutX(longeur);
-            b.setLayoutY(largeur);
-            b.setText(texteDuBouton);
-            return b;
-            //set the Scene
-            //Scene scenes = new Scene(root2, 500, 500, Color.BLACK);
-        }
+        // Création d'un bouton
+        Button b = new Button();
+        b.setLayoutX(longeur);
+        b.setLayoutY(largeur);
+        b.setText(texteDuBouton);
+        return b;
+        //set the Scene
+        //Scene scenes = new Scene(root2, 500, 500, Color.BLACK);
+    }
 
-        public void setEventHandlerMenu(ControllerMenu cm) {
+    public void setEventHandlerMenu(ControllerMenu cm) {
         mp.setEvents(cm);
     }
 
@@ -132,6 +131,7 @@ public class ViewHandler extends Application {
         primaryStage.setFullScreen(true);
 
     }
+
     public void setJeux() {
 
         primaryStage.setScene(scene2);
@@ -141,12 +141,10 @@ public class ViewHandler extends Application {
 
     public void setQuitter() {
 
-
         System.exit(0);
-
     }
 
-        // GETTERS AND SETTERS
+    // GETTERS AND SETTERS
     public Stage getPrimaryStage() {
         return primaryStage;
     }
@@ -154,10 +152,4 @@ public class ViewHandler extends Application {
     public ViewMenuPrincipal getMp() {
         return mp;
     }
-
-<<<<<<< HEAD
-
 }
-=======
-}
->>>>>>> origin/master
