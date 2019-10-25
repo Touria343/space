@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import static javafx.scene.text.FontWeight.EXTRA_BOLD;
 import static javafx.scene.text.FontWeight.SEMI_BOLD;
 
-public class ViewMenuOptions {
+public class ViewChoixVaisseaux {
 
     private Text titre;
     private Menu model;
@@ -48,6 +48,10 @@ public class ViewMenuOptions {
     private ImageView chevrondroit;
     private Text joueur1;
     private Text geoCroiseur;
+    private Text retour;
+
+
+
 
     /**
      * Constructeur du menu principal
@@ -55,7 +59,7 @@ public class ViewMenuOptions {
      * @param model (Modèle correspondant au menu)
      * @param root  (Groupe principal de la vue)
      */
-    ViewMenuOptions(Menu model, Group root) {
+    ViewChoixVaisseaux(Menu model, Group root) {
         this.root = root;
         this.model = model;
 
@@ -189,6 +193,16 @@ public class ViewMenuOptions {
 
     }
 
+    private void initRetour() {
+
+        retour = new Text(600, 600, "Retour");
+        Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
+
+        titre.setFont(policeTitre);
+        titre.setRotate(-20);
+
+    }
+
     private void initBackground() {
         //imgBg = new ImageView("Asset/Images/fond_menu.jpg");
         //Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds(); // Récupération de la taille de l'écran
@@ -229,14 +243,6 @@ public class ViewMenuOptions {
      */
     void setVueCompleteMenu() {
 
-
-
-
-
-
-
-
-
         root.getChildren().clear();
         root.getChildren().add(viewer);
         root.getChildren().add(stats);
@@ -250,39 +256,97 @@ public class ViewMenuOptions {
 
         final Animation animTextMenuArrivee = new Transition() {
             {
-                setCycleDuration(Duration.millis(8000));
+                setCycleDuration(Duration.millis(1500));
             }
-
             protected void interpolate(double frac) {
-
                 geoCroiseur.setOpacity(frac);
                 spider.setOpacity(frac);
-
-                stats.setOpacity(frac);
                 chevron.setOpacity(frac);
                 chevrondroit.setOpacity(frac);
-
-                //this.stop();
             }
-
+        };
+        
+        final Animation animTextMenucligno = new Transition() {
+            {
+                setCycleDuration(Duration.millis(1500));
+            }
+            protected void interpolate(double frac) {
+                double fracnegatif = 0 - frac;
+                geoCroiseur.setOpacity(fracnegatif);
+                spider.setOpacity(fracnegatif);
+            }
         };
 
+        final Animation animTextMenu = new Transition() {
+            {
+                setCycleDuration(Duration.millis(3000));
+            }
+            protected void interpolate(double frac) {
+                stats.setOpacity(1);
+                chevron.setOpacity(frac);
+                chevrondroit.setOpacity(frac);
+            }
+        };
+
+        animTextMenu.play();
+
         animTextMenuArrivee.play();
+
 
     }
 
     void setEvents(ControllerMenu mc) {
-        //  titre.setOnMouseEntered(mc);
-        //  monLezard.setOnMouseClicked(mc);
-        // spider.setOnMouseEntered(mc);
+      chevron.setOnMouseClicked(mc);
+        chevrondroit.setOnMouseClicked(mc);
+
+
+
+        //monLezard.setOnMouseClicked(mc);
+        //spider.setOnMouseEntered(mc);
+
     }
 
     public Text getTitre() {
         return titre;
     }
 
+    public ImageView getChevron() {
+        return chevron;
+    }
+
+    public ImageView getChevrondroit() {
+        return chevrondroit;
+    }
+    public ImageView ViewChoixVaisseaux() {
+        return spider;
+    }
+
+
     public void setRandomColorForTitle() {
         titre.setFill(new Color(Math.random(), Math.random(), Math.random(), Math.random()));
+    }
+
+    public void grandissementChevron(){
+
+
+        chevron.setFitHeight(100);
+        chevron.setFitWidth(100);
+        chevrondroit.setFitHeight(100);
+        chevrondroit.setFitWidth(100);
+
+
+    /*    final Animation animTextMenucligno = new Transition() {
+            {
+                setCycleDuration(Duration.millis(500));
+            }
+            protected void interpolate(double frac) {
+
+            }
+        };
+*/
+
+
+
     }
 
 

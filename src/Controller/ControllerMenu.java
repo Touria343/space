@@ -26,7 +26,9 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
         this.model = model;
         this.launcher = launcher;
         this.launcher.setEventHandlerMenu(this);
+      //  this.launcher.setEventHandlerMenuOption(this);
     }
+
 
     @Override
     public void handle(MouseEvent mouseEvent) {
@@ -37,6 +39,8 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
 
         if (mouseEvent.getSource().equals(launcher.getMp().getChoixVaiss())) {
             launcher.setOption();
+          //  launcher.getMo().
+
         }
 
         if (mouseEvent.getSource().equals(launcher.getMp().getQuitter())) {
@@ -46,6 +50,15 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
         if (mouseEvent.getSource().equals(launcher.getMp().getJouer())) {
             launcher.setJeux();
         }
+
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevron())) {
+            launcher.getMo().grandissementChevron();
+        }
+
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit())) {
+            launcher.getMo().grandissementChevron();
+        }
+
 
 
 

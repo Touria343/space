@@ -133,7 +133,6 @@ private void initTextJouer(){
         triangle1.setFitWidth(900);
         triangle1.setFitHeight(900);
         triangle1.setOpacity(0.85);
-
     }
 
     private void initTitre() {
@@ -246,6 +245,7 @@ private void initTextJouer(){
       choixVaiss.setOnMouseClicked(mc);
         jouer.setOnMouseClicked(mc);
         quitter.setOnMouseClicked(mc);
+
 
         //monLezard.setOnMouseClicked(mc);
       //spider.setOnMouseEntered(mc);

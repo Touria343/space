@@ -3,33 +3,22 @@ package View;
 import Controller.ControllerMenu;
 import Model.Menu;
 import Tools.Path;
-import javafx.animation.Animation;
-import javafx.animation.Transition;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.InnerShadow;
-import javafx.scene.effect.Reflection;
 import javafx.scene.image.ImageView;
-import java.nio.file.Paths;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
-
-import static javafx.scene.text.FontWeight.*;
 
 public class ViewHandler extends Application {
     private Stage primaryStage;
     private ViewMenuPrincipal mp;
-    private ViewMenuOptions mo;
+    private ViewChoixVaisseaux mo;
     private Menu model;
     private ControllerMenu controllerMenu;
     private String Dir = System.getProperty("user.dir");
@@ -42,6 +31,8 @@ public class ViewHandler extends Application {
     private Stage stage;
     private MediaPlayer music;
     private MediaView viewer;
+    private Group root;
+    private Scene menuDemarrage;
 
 
     /**
@@ -57,19 +48,19 @@ public class ViewHandler extends Application {
         this.primaryStage = primaryStage;
 
         // root représente le panel qui va être affiché : tout ce qui doit être affiché doit lui être ajouté
-        Group root = new Group();
-        Scene menuDemarrage = new Scene(root, Color.BLACK);
+        root = new Group();
+        menuDemarrage = new Scene(root, Color.BLACK);
 
         model = new Menu();
 
         mp = new ViewMenuPrincipal(model, root);
+
         controllerMenu = new ControllerMenu(this, model);
 
-        Group root2 = new Group();
-        scene2 = new Scene(root2, Color.WHITE);
+       // Group root2 = new Group();
+        // scene2 = new Scene(root2, Color.WHITE);
 
-        Menu model = new Menu();
-        mo = new ViewMenuOptions(model, root2);
+        // Menu model = new Menu();
 
         music = new MediaPlayer(new Media(this.getClass().getResource(Path.son).toExternalForm()));
         music.setAutoPlay(true);
@@ -103,8 +94,7 @@ public class ViewHandler extends Application {
         // gestion de l'affichage au lancement
         primaryStage.setScene(menuDemarrage);
         primaryStage.show();
-        primaryStage.setFullScreenExitHint("");
-        primaryStage.setScene(menuDemarrage);
+     //   primaryStage.setFullScreenExitHint("");
         primaryStage.setResizable(true);
 
         primaryStage.setMaxHeight(980);
@@ -130,21 +120,24 @@ public class ViewHandler extends Application {
         //Scene scenes = new Scene(root2, 500, 500, Color.BLACK);
     }
 
+
     public void setEventHandlerMenu(ControllerMenu cm) {
         mp.setEvents(cm);
     }
 
-    public void setOption() {
 
-        primaryStage.setScene(scene2);
-        primaryStage.setFullScreen(true);
+    public void setOption() {
+        mo = new ViewChoixVaisseaux(model, root);
+        controllerMenu = new ControllerMenu(this, model);
 
     }
 
     public void setJeux() {
 
-        primaryStage.setScene(scene2);
-        primaryStage.setFullScreen(true);
+        mo = new ViewChoixVaisseaux(model, root);
+        controllerMenu = new ControllerMenu(this, model);
+
+
 
     }
 
@@ -161,4 +154,9 @@ public class ViewHandler extends Application {
     public ViewMenuPrincipal getMp() {
         return mp;
     }
+
+    public ViewChoixVaisseaux getMo() {
+        return mo;
+    }
+
 }
