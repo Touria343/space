@@ -21,6 +21,9 @@ public class Path {
     public static final String stats1 = "Asset//Images//Sans titre 1.png";
     public static final String chevrongauche = "Asset//Images//chevrongauche.png";
     public static final String chevrondroit = "Asset//Images//chevronDroit.png";
+    public static final String triangle = "Asset//Images//triangle.png";
+    public static final String triangle1 = "Asset//Images//triangle1.png";
+
 
 
     public static final String fontHeadCase = "../Asset/Font/HeadCase.ttf";

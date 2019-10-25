@@ -36,6 +36,8 @@ public class ViewMenuPrincipal {
     private Text choixVaiss;
     private Text quitter;
     private Text jouer;
+    private ImageView triangle;
+    private ImageView triangle1;
 
     /**
      * Constructeur du menu principal
@@ -53,6 +55,8 @@ public class ViewMenuPrincipal {
         initTextChoixVaisseaux();
         initTextJouer();
         initTexteQuitter();
+        initTriangle();
+        initTriangle1();
        // initVaisseauxCoin();
         setVueCompleteMenu();
 
@@ -103,12 +107,35 @@ private void initTextJouer(){
 
 }
 
+    private void initTriangle() {
+        triangle = new ImageView(Path.triangle);
+        triangle.setRotate(-110);
+        triangle.setX(-150);
+        triangle.setY(-550);
+        triangle.setFitWidth(600);
+        triangle.setFitHeight(800);
+
+    }
+
+    private void initTriangle1() {
+        triangle1 = new ImageView(Path.triangle1);
+        triangle1.setRotate(-290);
+        triangle1.setX(1000);
+        triangle1.setY(800);
+        triangle1.setFitWidth(900);
+        triangle1.setFitHeight(900);
+        triangle1.setOpacity(0.85);
+
+    }
+
     private void initTitre() {
         titre = new Text(10, 220, "La guerre des lezards");
         Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 80);
         titre.setFont(policeTitre);
         titre.setRotate(-20);
     }
+
+
 
 
     /**
@@ -173,7 +200,10 @@ private void initTextJouer(){
         root.getChildren().add(choixVaiss);
         root.getChildren().add(jouer);
         root.getChildren().add(quitter);
-      //root.getChildren().add(titre);
+        root.getChildren().add(triangle);
+        root.getChildren().add(triangle1);
+
+        //root.getChildren().add(titre);
       //root.getChildren().add(monLezard);
        //root.getChildren().add(spider);
     }

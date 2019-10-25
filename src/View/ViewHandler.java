@@ -19,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
+import javafx.stage.StageStyle;
 
 import static javafx.scene.text.FontWeight.*;
 
@@ -96,12 +97,18 @@ public class ViewHandler extends Application {
             primaryStage.show();
             primaryStage.setFullScreenExitHint("");
             primaryStage.setScene(menuDemarrage);
-            primaryStage.setResizable(true);
-            //primaryStage.initStyle(StageStyle.UNDECORATED);
-            primaryStage.setFullScreen(true);
-            primaryStage.show();
+        primaryStage.setResizable(true);
 
-          }
+        primaryStage.setMaxHeight(980);
+        primaryStage.setMaxWidth(1520);
+
+            primaryStage.setFullScreen(true);
+       // primaryStage.initStyle(StageStyle.UNDECORATED);
+
+        primaryStage.show();
+
+
+    }
 
         private Button initButton(int longeur, int largeur, String texteDuBouton) {
 
