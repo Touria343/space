@@ -3,6 +3,8 @@ package View;
 import Controller.ControllerMenu;
 import Model.Menu;
 import Tools.Path;
+import javafx.animation.Animation;
+import javafx.animation.Transition;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -20,6 +22,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import static javafx.scene.text.FontWeight.*;
 
@@ -72,6 +75,12 @@ public class ViewHandler extends Application {
         music.setAutoPlay(true);
         viewer = new MediaView(music);
         music.play();
+
+
+
+
+
+
 
         //  geoCroiseur.setEffect(ds);
 

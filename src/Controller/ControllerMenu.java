@@ -2,8 +2,11 @@ package Controller;
 
 import Model.Menu;
 import View.ViewHandler;
+import javafx.animation.Animation;
+import javafx.animation.Transition;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 
 public class ControllerMenu implements EventHandler<MouseEvent> {
 
@@ -43,5 +46,23 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
         if (mouseEvent.getSource().equals(launcher.getMp().getJouer())) {
             launcher.setJeux();
         }
+
+
+
+       /* final Animation animTextMenuArrivee = new Transition() {
+            {
+                setCycleDuration(Duration.millis(2000));
+            }
+
+            protected void interpolate(double frac) {
+
+            }
+
+        };*/
+
+      //  animTextMenuArrivee.play();
+
+
+
     }
 }

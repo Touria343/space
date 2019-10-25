@@ -3,6 +3,8 @@ package View;
 import Controller.ControllerMenu;
 import Model.Menu;
 import Tools.Path;
+import javafx.animation.Animation;
+import javafx.animation.Transition;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Group;
@@ -14,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -79,10 +82,11 @@ public class ViewMenuPrincipal {
         quitter = new Text(1000, 850, "- Quitter  -");
         quitter.setFont(Font.font("Dead Kansas", 35));
         quitter.setFill (Color.WHITE);
+        quitter.setOpacity(0);
     }
 
    private void initVaisseauxCoin() {
-        spider = new ImageView(Path.vaisseauxCoin);
+        spider = new ImageView(Path.vaisseauxChoix1);
         spider.setRotate(-6);
         spider.setX(-250);
         spider.setY(-300);
@@ -96,6 +100,8 @@ public class ViewMenuPrincipal {
         choixVaiss = new Text(554, 850, "- Choix des vaisseaux  -");
         choixVaiss.setFont(Font.font("Dead Kansas", 35));
         choixVaiss.setFill (Color.WHITE);
+        choixVaiss.setOpacity(0);
+
     }
 
 
@@ -104,6 +110,8 @@ private void initTextJouer(){
     jouer = new Text(300, 850, "- Jouer -");
     jouer.setFont(Font.font("Dead Kansas", 35));
     jouer.setFill (Color.WHITE);
+    jouer.setOpacity(0);
+
 
 }
 
@@ -114,7 +122,7 @@ private void initTextJouer(){
         triangle.setY(-550);
         triangle.setFitWidth(600);
         triangle.setFitHeight(800);
-
+        triangle.setOpacity(0.95);
     }
 
     private void initTriangle1() {
@@ -196,10 +204,36 @@ private void initTextJouer(){
         root.getChildren().clear();
       //root.getChildren().add(imgBg);
       //root.getChildren().add(media);
+
         root.getChildren().add(viewer);
-        root.getChildren().add(choixVaiss);
+
         root.getChildren().add(jouer);
         root.getChildren().add(quitter);
+
+        root.getChildren().add(choixVaiss);
+
+
+        final Animation animTextMenuArrivee = new Transition() {
+            {
+                setCycleDuration(Duration.millis(8000));
+            }
+
+            protected void interpolate(double frac) {
+
+                jouer.setOpacity(frac);
+                choixVaiss.setOpacity(frac);
+                quitter.setOpacity(frac);
+
+               //this.stop();
+            }
+
+        };
+
+        animTextMenuArrivee.play();
+
+
+
+
         root.getChildren().add(triangle);
         root.getChildren().add(triangle1);
 

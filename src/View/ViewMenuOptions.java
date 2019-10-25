@@ -4,6 +4,8 @@ package View;
 import Controller.ControllerMenu;
 import Model.Menu;
 import Tools.Path;
+import javafx.animation.Animation;
+import javafx.animation.Transition;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Group;
@@ -16,6 +18,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -63,7 +66,7 @@ public class ViewMenuOptions {
         initChevronDroit();
         initStats();
         initTextJoueur1();
-        initVaisseauxCoin();
+        initVaisseauxChoix();
         initTextGeoCroiseur();
         setVueCompleteMenu();
 
@@ -86,17 +89,20 @@ public class ViewMenuOptions {
    geoCroiseur = new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -");
         geoCroiseur.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
         geoCroiseur.setFill (Color.WHITE);
+        geoCroiseur.setOpacity(0);
     }
-   private void initVaisseauxCoin() {
+   private void initVaisseauxChoix() {
 
-        spider = new ImageView(Path.vaisseauxCoin);
+        spider = new ImageView(Path.vaisseauxChoix1);
         spider.setX(600);
         spider.setY(200);
         spider.setFitHeight(750);
         spider.setFitWidth(850);
         spider.setPreserveRatio(false);
+       spider.setOpacity(0);
 
-    }
+
+   }
 
     private void initChevron() {
 
@@ -106,6 +112,8 @@ public class ViewMenuOptions {
         chevron.setFitHeight(80);
         chevron.setFitWidth(80);
         chevron.setPreserveRatio(false);
+        chevron.setOpacity(0);
+
 
     }
 
@@ -117,6 +125,8 @@ public class ViewMenuOptions {
         chevrondroit.setFitHeight(80);
         chevrondroit.setFitWidth(80);
         chevrondroit.setPreserveRatio(false);
+        chevrondroit.setOpacity(0);
+
 
     }
 
@@ -154,6 +164,8 @@ public class ViewMenuOptions {
         stats.setY(430);
         stats.setFitWidth(800);
         stats.setPreserveRatio(true);
+        stats.setOpacity(0);
+
 
     }
 
@@ -216,6 +228,15 @@ public class ViewMenuOptions {
      * Ajoute a la vue tous les éléments composant le menu
      */
     void setVueCompleteMenu() {
+
+
+
+
+
+
+
+
+
         root.getChildren().clear();
         root.getChildren().add(viewer);
         root.getChildren().add(stats);
@@ -226,6 +247,27 @@ public class ViewMenuOptions {
         root.getChildren().add(spider);
         root.getChildren().add(joueur1);
         root.getChildren().add(geoCroiseur);
+
+        final Animation animTextMenuArrivee = new Transition() {
+            {
+                setCycleDuration(Duration.millis(8000));
+            }
+
+            protected void interpolate(double frac) {
+
+                geoCroiseur.setOpacity(frac);
+                spider.setOpacity(frac);
+
+                stats.setOpacity(frac);
+                chevron.setOpacity(frac);
+                chevrondroit.setOpacity(frac);
+
+                //this.stop();
+            }
+
+        };
+
+        animTextMenuArrivee.play();
 
     }
 
