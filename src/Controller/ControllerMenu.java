@@ -28,11 +28,20 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent mouseEvent) {
 
-        if( mouseEvent.getSource().equals(launcher.getMp().getTitre())) {
+        if (mouseEvent.getSource().equals(launcher.getMp().getTitre())) {
             launcher.getMp().setRandomColorForTitle();
         }
 
+        if (mouseEvent.getSource().equals(launcher.getMp().getChoixVaiss())) {
+            launcher.setOption();
+        }
+
+        if (mouseEvent.getSource().equals(launcher.getMp().getQuitter())) {
+            launcher.setQuitter();
+        }
+
+        if (mouseEvent.getSource().equals(launcher.getMp().getJouer())) {
+            launcher.setJeux();
+        }
     }
-
-
 }

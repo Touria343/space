@@ -62,13 +62,12 @@ public class ViewHandler extends Application {
         controllerMenu = new ControllerMenu(this, model);
 
         Group root2 = new Group();
-        Scene scene2 = new Scene(root2, Color.WHITE);
+        scene2 = new Scene(root2, Color.WHITE);
 
         Menu model = new Menu();
         mo = new ViewMenuOptions(model, root2);
 
         music = new MediaPlayer(new Media(this.getClass().getResource(Path.son).toExternalForm()));
-
         music.setAutoPlay(true);
         viewer = new MediaView(music);
         music.play();
@@ -120,6 +119,26 @@ public class ViewHandler extends Application {
         mp.setEvents(cm);
     }
 
+    public void setOption() {
+
+        primaryStage.setScene(scene2);
+        primaryStage.setFullScreen(true);
+
+    }
+    public void setJeux() {
+
+        primaryStage.setScene(scene2);
+        primaryStage.setFullScreen(true);
+
+    }
+
+    public void setQuitter() {
+
+
+        System.exit(0);
+
+    }
+
         // GETTERS AND SETTERS
     public Stage getPrimaryStage() {
         return primaryStage;
@@ -128,4 +147,6 @@ public class ViewHandler extends Application {
     public ViewMenuPrincipal getMp() {
         return mp;
     }
+
+
 }

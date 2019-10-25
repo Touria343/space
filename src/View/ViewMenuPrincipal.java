@@ -179,8 +179,11 @@ private void initTextJouer(){
     }
 
     void setEvents(ControllerMenu mc) {
-      //choi.setOnMouseEntered(mc);
-      //monLezard.setOnMouseClicked(mc);
+      choixVaiss.setOnMouseClicked(mc);
+        jouer.setOnMouseClicked(mc);
+        quitter.setOnMouseClicked(mc);
+
+        //monLezard.setOnMouseClicked(mc);
       //spider.setOnMouseEntered(mc);
 
     }
@@ -189,8 +192,22 @@ private void initTextJouer(){
         return titre;
     }
 
+    public Text getChoixVaiss() {
+        return choixVaiss;
+    }
+
+    public Text getJouer() {
+        return jouer;
+    }
+
+    public Text getQuitter() {
+        return quitter;
+    }
+
     public void setRandomColorForTitle() {
         titre.setFill(new Color(Math.random(), Math.random(), Math.random(), Math.random()));
 
     }
-}
+
+
+    }
