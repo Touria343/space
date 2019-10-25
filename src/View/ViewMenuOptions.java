@@ -242,5 +242,6 @@ public class ViewMenuOptions {
     public void setRandomColorForTitle() {
         titre.setFill(new Color(Math.random(), Math.random(), Math.random(), Math.random()));
     }
-    
+
+
 }

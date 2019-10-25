@@ -41,6 +41,7 @@ public class ViewHandler extends Application {
     private MediaView viewer;
 
 
+
     /**
      * Permet le lancement de l'application : méthode obligatoire pour JavaFX
      *
@@ -82,9 +83,8 @@ public class ViewHandler extends Application {
 
            choixVaiss.setOnMousePressed(mouseEvent -> {
 
-           choixVaiss.hoverProperty()
-            */
-                /*
+
+
            primaryStage.setScene(scene2);
            primaryStage.setFullScreen(true);
 
@@ -119,7 +119,7 @@ public class ViewHandler extends Application {
             b.setText(texteDuBouton);
             return b;
             //set the Scene
-            // Scene scenes = new Scene(root2, 500, 500, Color.BLACK);
+            //Scene scenes = new Scene(root2, 500, 500, Color.BLACK);
         }
 
         public void setEventHandlerMenu(ControllerMenu cm) {
@@ -155,5 +155,9 @@ public class ViewHandler extends Application {
         return mp;
     }
 
+<<<<<<< HEAD
 
 }
+=======
+}
+>>>>>>> origin/master
