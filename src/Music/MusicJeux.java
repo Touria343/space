@@ -12,7 +12,7 @@ public class MusicJeux {
     private static final String MAIN_MENU_THEME = "src/Asset/Sons/New Life.wav";
     private static final String GAME_THEME = "src/Asset/Sons/vent.mp3";
     private static MediaPlayer mediaPlayer;
-    private static double volume = 0.5;
+    private static double volume = 1;
     private static MediaPlayer music;
     private static MediaView viewer;
 
@@ -27,6 +27,7 @@ public class MusicJeux {
        // music = new MediaPlayer(new Media(music.getClass().getResource(Path.son).toExternalForm()));
         music = new MediaPlayer(new Media(Paths.get(MAIN_MENU_THEME).toUri().toString()));
         viewer = new MediaView(music);
+        music.setVolume(volume);
        // music.setAutoPlay(true);
         music.play();
 

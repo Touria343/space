@@ -281,8 +281,12 @@ public class ViewChoixVaisseaux {
     }
 
     void setEvents(ControllerMenu mc) {
-      chevron.setOnMouseClicked(mc);
-        chevrondroit.setOnMouseClicked(mc);
+      chevron.setOnMouseEntered(mc);
+      chevrondroit.setOnMouseEntered(mc);
+        chevron.setOnMouseExited(mc);
+        chevrondroit.setOnMouseExited(mc);
+
+
 
 
 
@@ -316,6 +320,8 @@ public class ViewChoixVaisseaux {
 
         chevron.setFitHeight(100);
         chevron.setFitWidth(100);
+        chevrondroit.setY(760);
+        chevron.setY(760);
         chevrondroit.setFitHeight(100);
         chevrondroit.setFitWidth(100);
 
@@ -335,4 +341,13 @@ public class ViewChoixVaisseaux {
     }
 
 
+    public void retourNormalChevron() {
+
+        chevron.setFitHeight(80);
+        chevron.setFitWidth(80);
+        chevrondroit.setFitHeight(80);
+        chevrondroit.setFitWidth(80);
+
+
+    }
 }

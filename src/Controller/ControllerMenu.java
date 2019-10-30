@@ -2,11 +2,8 @@ package Controller;
 
 import Model.Menu;
 import View.ViewHandler;
-import javafx.animation.Animation;
-import javafx.animation.Transition;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import javafx.util.Duration;
 
 public class ControllerMenu implements EventHandler<MouseEvent> {
 
@@ -38,26 +35,34 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
         }
 
         if (mouseEvent.getSource().equals(launcher.getMp().getChoixVaiss())) {
-            launcher.setOption();
+            launcher.afficherOption();
           //  launcher.getMo().
 
         }
 
         if (mouseEvent.getSource().equals(launcher.getMp().getQuitter())) {
-            launcher.setQuitter();
+            launcher.goQuitter();
         }
 
         if (mouseEvent.getSource().equals(launcher.getMp().getJouer())) {
-            launcher.setJeux();
+            launcher.afficherJeux();
         }
 
-        if (mouseEvent.getSource().equals(launcher.getMo().getChevron())) {
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevron()) || mouseEvent.getSource().equals(launcher.getMo().getChevrondroit()) ) {
             launcher.getMo().grandissementChevron();
+
         }
 
-        if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit())) {
-            launcher.getMo().grandissementChevron();
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevron()) || mouseEvent.getSource().equals(launcher.getMo().getChevrondroit()) &&
+                mouseEvent.getEventType().equals(MouseEvent.MOUSE_EXITED)){
+            launcher.getMo().retourNormalChevron();
+
+
         }
+
+        /*if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit())) {
+            launcher.getMo().grandissementChevron();
+        } */
 
 
 

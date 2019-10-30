@@ -54,14 +54,17 @@ public class ViewHandler extends Application {
         model = new Menu();
 
         mp = new ViewMenuPrincipal(model, root);
+        mo = new ViewChoixVaisseaux(model, root);
+
 
         controllerMenu = new ControllerMenu(this, model);
 
         MusicJeux.startMainMenuMusic();
+       afficherMenuPrincipal(true);
 
         // gestion de l'affichage au lancement
         primaryStage.setScene(menuDemarrage);
-        primaryStage.show();
+        //primaryStage.show();
      //   primaryStage.setFullScreenExitHint("");
         primaryStage.setResizable(true);
         primaryStage.setMaxHeight(980);
@@ -71,29 +74,24 @@ public class ViewHandler extends Application {
         primaryStage.show();
     }
 
-    private Button initButton(int longeur, int largeur, String texteDuBouton) {
-        Button b = new Button();
-        b.setLayoutX(longeur);
-        b.setLayoutY(largeur);
-        b.setText(texteDuBouton);
-        return b;
+    public void afficherMenuPrincipal(Boolean reloadMusic) {
+
+        mp.setVueCompleteMenu();
+
     }
+
 
     public void setEventHandlerMenu(ControllerMenu cm) {
         mp.setEvents(cm);
+        mo.setEvents(cm);
+
     }
 
-    public void setOption() {
-        mo = new ViewChoixVaisseaux(model, root);
-        controllerMenu = new ControllerMenu(this, model);
+    public void afficherOption() {
     }
 
-    public void setJeux() {
-        mo = new ViewChoixVaisseaux(model, root);
-        controllerMenu = new ControllerMenu(this, model);
-    }
 
-    public void setQuitter() {
+    public void goQuitter() {
         System.exit(0);
     }
 
@@ -108,6 +106,9 @@ public class ViewHandler extends Application {
 
     public ViewChoixVaisseaux getMo() {
         return mo;
+    }
+    public void afficherJeux() {
+        mo.setVueCompleteMenu();
     }
 
 }
