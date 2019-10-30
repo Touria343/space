@@ -2,6 +2,7 @@ package View;
 
 import Controller.ControllerMenu;
 import Model.Menu;
+import Music.MusicJeux;
 import Tools.Path;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -56,10 +57,8 @@ public class ViewHandler extends Application {
 
         controllerMenu = new ControllerMenu(this, model);
 
-        music = new MediaPlayer(new Media(this.getClass().getResource(Path.son).toExternalForm()));
-        music.setAutoPlay(true);
-        viewer = new MediaView(music);
-        music.play();
+        MusicJeux.startMainMenuMusic();
+
         // gestion de l'affichage au lancement
         primaryStage.setScene(menuDemarrage);
         primaryStage.show();
@@ -80,11 +79,9 @@ public class ViewHandler extends Application {
         return b;
     }
 
-
     public void setEventHandlerMenu(ControllerMenu cm) {
         mp.setEvents(cm);
     }
-
 
     public void setOption() {
         mo = new ViewChoixVaisseaux(model, root);
