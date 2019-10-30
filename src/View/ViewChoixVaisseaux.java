@@ -69,7 +69,7 @@ public class ViewChoixVaisseaux {
         initChevron();
         initChevronDroit();
         initStats();
-        initTextJoueur1();
+        initTextChangerVaisseaux();
         initVaisseauxChoix();
         initTextGeoCroiseur();
         setVueCompleteMenu();
@@ -95,7 +95,7 @@ public class ViewChoixVaisseaux {
         geoCroiseur.setFill (Color.WHITE);
         geoCroiseur.setOpacity(0);
         Reflection r = new Reflection();
-        r.setFraction(0.7f);
+        r.setFraction(0.5f);
         geoCroiseur.setEffect(r);
     }
    private void initVaisseauxChoix() {
@@ -114,8 +114,8 @@ public class ViewChoixVaisseaux {
     private void initChevron() {
 
         chevron = new ImageView(Path.chevrongauche);
-        chevron.setX(520);
-        chevron.setY(755);
+        chevron.setX(500);
+        chevron.setY(775);
         chevron.setFitHeight(80);
         chevron.setFitWidth(80);
         chevron.setPreserveRatio(false);
@@ -127,8 +127,8 @@ public class ViewChoixVaisseaux {
     private void initChevronDroit() {
 
         chevrondroit = new ImageView(Path.chevrondroit);
-        chevrondroit.setX(850);
-        chevrondroit.setY(745);
+        chevrondroit.setX(890);
+        chevrondroit.setY(765);
         chevrondroit.setFitHeight(80);
         chevrondroit.setFitWidth(80);
         chevrondroit.setPreserveRatio(false);
@@ -150,7 +150,7 @@ public class ViewChoixVaisseaux {
 
         bandeBottom = new ImageView(Path.bandeBottom);
         bandeBottom.setX(500);
-        bandeBottom.setY(900);
+        bandeBottom.setY(930);
         bandeBottom.setFitWidth(1500);
         bandeBottom.setPreserveRatio(true);
     }
@@ -168,14 +168,14 @@ public class ViewChoixVaisseaux {
 
     }
 
-    public void initTextJoueur1() {
+    public void initTextChangerVaisseaux() {
 
-        joueur1 = new Text(630, 800, "- Joueur - 1");
+        joueur1 = new Text(600, 820, "Vaisseau suivant");
         joueur1.setFont(Font.font("Dead Kansas", SEMI_BOLD, 37));
-        joueur1.setFill (Color.DARKRED);
+        joueur1.setFill (Color.BLUE);
 
         Reflection r = new Reflection();
-        r.setFraction(0.7f);
+        r.setFraction(0.5f);
         joueur1.setEffect(r);
     }
 

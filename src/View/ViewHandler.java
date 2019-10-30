@@ -46,7 +46,6 @@ public class ViewHandler extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         this.primaryStage = primaryStage;
-
         // root représente le panel qui va être affiché : tout ce qui doit être affiché doit lui être ajouté
         root = new Group();
         menuDemarrage = new Scene(root, Color.BLACK);
@@ -57,67 +56,28 @@ public class ViewHandler extends Application {
 
         controllerMenu = new ControllerMenu(this, model);
 
-       // Group root2 = new Group();
-        // scene2 = new Scene(root2, Color.WHITE);
-
-        // Menu model = new Menu();
-
         music = new MediaPlayer(new Media(this.getClass().getResource(Path.son).toExternalForm()));
         music.setAutoPlay(true);
         viewer = new MediaView(music);
         music.play();
-
-
-
-
-
-
-
-        //  geoCroiseur.setEffect(ds);
-
-        //  geoCroiseur.setEffect(is);
-
-
-        /*
-
-           choixVaiss.setOnMousePressed(mouseEvent -> {
-
-
-
-           primaryStage.setScene(scene2);
-           primaryStage.setFullScreen(true);
-
-});*/
-        // composition des scènes
-
-
         // gestion de l'affichage au lancement
         primaryStage.setScene(menuDemarrage);
         primaryStage.show();
      //   primaryStage.setFullScreenExitHint("");
         primaryStage.setResizable(true);
-
         primaryStage.setMaxHeight(980);
         primaryStage.setMaxWidth(1520);
-
         primaryStage.setFullScreen(true);
         // primaryStage.initStyle(StageStyle.UNDECORATED);
-
         primaryStage.show();
-
-
     }
 
     private Button initButton(int longeur, int largeur, String texteDuBouton) {
-
-        // Création d'un bouton
         Button b = new Button();
         b.setLayoutX(longeur);
         b.setLayoutY(largeur);
         b.setText(texteDuBouton);
         return b;
-        //set the Scene
-        //Scene scenes = new Scene(root2, 500, 500, Color.BLACK);
     }
 
 
@@ -129,20 +89,14 @@ public class ViewHandler extends Application {
     public void setOption() {
         mo = new ViewChoixVaisseaux(model, root);
         controllerMenu = new ControllerMenu(this, model);
-
     }
 
     public void setJeux() {
-
         mo = new ViewChoixVaisseaux(model, root);
         controllerMenu = new ControllerMenu(this, model);
-
-
-
     }
 
     public void setQuitter() {
-
         System.exit(0);
     }
 
