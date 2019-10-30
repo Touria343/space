@@ -132,7 +132,7 @@ private void initTextJouer(){
         triangle1.setY(800);
         triangle1.setFitWidth(900);
         triangle1.setFitHeight(900);
-        triangle1.setOpacity(0.85);
+        triangle1.setOpacity(0.7);
     }
 
     private void initTitre() {
