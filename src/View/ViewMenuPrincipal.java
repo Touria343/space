@@ -55,7 +55,7 @@ public class ViewMenuPrincipal {
       //  initListeImage();
 
       initBackground();
-        initTextChoixVaisseaux();
+        initTextOption();
         initTextJouer();
         initTexteQuitter();
         initTriangle();
@@ -79,7 +79,7 @@ public class ViewMenuPrincipal {
     }*/
 
     private void initTexteQuitter() {
-        quitter = new Text(1000, 850, "- Quitter  -");
+        quitter = new Text(1025, 770, "Quitter");
         quitter.setFont(Font.font("Dead Kansas", 35));
         quitter.setFill (Color.WHITE);
         quitter.setOpacity(0);
@@ -95,9 +95,9 @@ public class ViewMenuPrincipal {
 
     }
 
-    private void initTextChoixVaisseaux(){
+    private void initTextOption(){
 
-        choixVaiss = new Text(554, 850, "- Choix des vaisseaux  -");
+        choixVaiss = new Text(297, 770,"Option");
         choixVaiss.setFont(Font.font("Dead Kansas", 35));
         choixVaiss.setFill (Color.WHITE);
         choixVaiss.setOpacity(0);
@@ -107,7 +107,7 @@ public class ViewMenuPrincipal {
 
 private void initTextJouer(){
 
-    jouer = new Text(300, 850, "- Jouer -");
+    jouer = new Text(675, 850, "Jouer");
     jouer.setFont(Font.font("Dead Kansas", 35));
     jouer.setFill (Color.WHITE);
     jouer.setOpacity(0);
@@ -119,7 +119,7 @@ private void initTextJouer(){
         triangle = new ImageView(Path.triangle);
         triangle.setRotate(-110);
         triangle.setX(-150);
-        triangle.setY(-550);
+        triangle.setY(-570);
         triangle.setFitWidth(600);
         triangle.setFitHeight(800);
         triangle.setOpacity(0.95);

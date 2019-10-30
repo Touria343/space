@@ -94,6 +94,9 @@ public class ViewChoixVaisseaux {
         geoCroiseur.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
         geoCroiseur.setFill (Color.WHITE);
         geoCroiseur.setOpacity(0);
+        Reflection r = new Reflection();
+        r.setFraction(0.7f);
+        geoCroiseur.setEffect(r);
     }
    private void initVaisseauxChoix() {
 
@@ -152,14 +155,6 @@ public class ViewChoixVaisseaux {
         bandeBottom.setPreserveRatio(true);
     }
 
-    private void initBandeFond() {
-
-        bandeFond = new ImageView(Path.bandefond);
-        bandeFond.setX(0);
-        bandeFond.setY(-300);
-        bandeFond.setFitWidth(1500);
-        bandeFond.setPreserveRatio(true);
-    }
 
     private void initStats() {
 
@@ -256,7 +251,7 @@ public class ViewChoixVaisseaux {
 
         final Animation animTextMenuArrivee = new Transition() {
             {
-                setCycleDuration(Duration.millis(1500));
+                setCycleDuration(Duration.millis(2500));
             }
             protected void interpolate(double frac) {
                 geoCroiseur.setOpacity(frac);
@@ -266,25 +261,15 @@ public class ViewChoixVaisseaux {
             }
         };
         
-        final Animation animTextMenucligno = new Transition() {
-            {
-                setCycleDuration(Duration.millis(1500));
-            }
-            protected void interpolate(double frac) {
-                double fracnegatif = 0 - frac;
-                geoCroiseur.setOpacity(fracnegatif);
-                spider.setOpacity(fracnegatif);
-            }
-        };
+
 
         final Animation animTextMenu = new Transition() {
             {
-                setCycleDuration(Duration.millis(3000));
+                setCycleDuration(Duration.millis(5000));
             }
             protected void interpolate(double frac) {
-                stats.setOpacity(1);
-                chevron.setOpacity(frac);
-                chevrondroit.setOpacity(frac);
+                stats.setOpacity(frac);
+
             }
         };
 
