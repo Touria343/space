@@ -371,19 +371,19 @@ public class ViewChoixVaisseaux {
         if(root.getChildren().contains(geoCroiseur)){
 
             final KeyFrame keyFrameAt0s = new KeyFrame(Duration.ZERO, new KeyValue(spider.xProperty(), 600));
-            final KeyFrame keyFrameAt1s = new KeyFrame(Duration.seconds(2), new KeyValue(spider.xProperty(), 2500));
+            final KeyFrame keyFrameAt1s = new KeyFrame(Duration.seconds(0.6), new KeyValue(spider.xProperty(), 2500));
             final Timeline timeline = new Timeline(keyFrameAt0s, keyFrameAt1s);
             timeline.setCycleCount(1);
             timeline.playFromStart();
 
             final KeyFrame switchStatsAt0 = new KeyFrame(Duration.ZERO, new KeyValue(stats.xProperty(), 80));
-            final KeyFrame switchStatsAt5 = new KeyFrame(Duration.seconds(1), new KeyValue(stats.xProperty(), -2500));
+            final KeyFrame switchStatsAt5 = new KeyFrame(Duration.seconds(0.6), new KeyValue(stats.xProperty(), -2500));
             final Timeline timelineswitchStats = new Timeline(switchStatsAt0, switchStatsAt5);
             timelineswitchStats.setCycleCount(1);
             timelineswitchStats.playFromStart();
 
             final KeyFrame switchTitre = new KeyFrame(Duration.ZERO, new KeyValue(geoCroiseur.yProperty(), 180));
-            final KeyFrame switchtitreAt1 = new KeyFrame(Duration.seconds(4), new KeyValue(geoCroiseur.yProperty(), -2500));
+            final KeyFrame switchtitreAt1 = new KeyFrame(Duration.seconds(0.6), new KeyValue(geoCroiseur.yProperty(), -2500));
             final Timeline timelineswitchTitre = new Timeline(switchTitre, switchtitreAt1);
             timelineswitchTitre.setCycleCount(1);
             timelineswitchTitre.playFromStart();
@@ -399,19 +399,19 @@ public class ViewChoixVaisseaux {
 
 
             final KeyFrame switchVaisseauxChoisiStart = new KeyFrame(Duration.ZERO, new KeyValue(leVaisseauxSelectionne.xProperty(), 600));
-            final KeyFrame switchvaisseauxChoisiEnd = new KeyFrame(Duration.seconds(0.6), new KeyValue(leVaisseauxSelectionne.xProperty(), 2500));
+            final KeyFrame switchvaisseauxChoisiEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(leVaisseauxSelectionne.xProperty(), 2500));
             final Timeline timelineswitchVaisseaux = new Timeline(switchVaisseauxChoisiStart, switchvaisseauxChoisiEnd);
             timelineswitchVaisseaux.setCycleCount(1);
             timelineswitchVaisseaux.playFromStart();
 
             final KeyFrame switchStatsStart = new KeyFrame(Duration.ZERO, new KeyValue(statsSelectionne.xProperty(), 80));
-            final KeyFrame switchStatsEnd = new KeyFrame(Duration.seconds(0.6), new KeyValue(statsSelectionne.xProperty(), -2500));
+            final KeyFrame switchStatsEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(statsSelectionne.xProperty(), -2500));
             final Timeline timelineswitchStatschoisi = new Timeline(switchStatsStart, switchStatsEnd);
             timelineswitchStatschoisi.setCycleCount(1);
             timelineswitchStatschoisi.playFromStart();
 
             final KeyFrame switchTitreStart = new KeyFrame(Duration.ZERO, new KeyValue(titreSelectionne.yProperty(), 180));
-            final KeyFrame switchtitreEnd = new KeyFrame(Duration.seconds(0.6), new KeyValue(titreSelectionne.yProperty(), -500));
+            final KeyFrame switchtitreEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(titreSelectionne.yProperty(), -500));
             final Timeline timelineswitchTitreChoisi = new Timeline(switchTitreStart, switchtitreEnd);
             timelineswitchTitreChoisi.setCycleCount(1);
             timelineswitchTitreChoisi.playFromStart();
@@ -483,7 +483,7 @@ public class ViewChoixVaisseaux {
 
         final Animation animFonduEntree = new Transition() {
             {
-                setCycleDuration(Duration.millis(1300));
+                setCycleDuration(Duration.millis(1100));
             }
 
             protected void interpolate(double frac) {
@@ -501,7 +501,7 @@ public class ViewChoixVaisseaux {
 
         final Animation animFonduEntree2 = new Transition() {
             {
-                setCycleDuration(Duration.millis(1800));
+                setCycleDuration(Duration.millis(2500));
             }
 
             protected void interpolate(double frac) {
@@ -517,19 +517,19 @@ public class ViewChoixVaisseaux {
         animFonduEntree2.play();
 
         final KeyFrame switchVaisseauxChoisiStart = new KeyFrame(Duration.ZERO, new KeyValue(leVaisseauxSelectionne.xProperty(), 2500));
-        final KeyFrame switchvaisseauxChoisiEnd = new KeyFrame(Duration.seconds(1), new KeyValue(leVaisseauxSelectionne.xProperty(), 600));
+        final KeyFrame switchvaisseauxChoisiEnd = new KeyFrame(Duration.seconds(0.7), new KeyValue(leVaisseauxSelectionne.xProperty(), 600));
         final Timeline timelineswitchVaisseaux = new Timeline(switchVaisseauxChoisiStart, switchvaisseauxChoisiEnd);
         timelineswitchVaisseaux.setCycleCount(1);
         timelineswitchVaisseaux.playFromStart();
 
         final KeyFrame switchStatsStart = new KeyFrame(Duration.ZERO, new KeyValue(statsSelectionne.xProperty(), -2500));
-        final KeyFrame switchStatsEnd = new KeyFrame(Duration.seconds(1), new KeyValue(statsSelectionne.xProperty(), 80));
+        final KeyFrame switchStatsEnd = new KeyFrame(Duration.seconds(0.7), new KeyValue(statsSelectionne.xProperty(), 80));
         final Timeline timelineswitchStatschoisi = new Timeline(switchStatsStart, switchStatsEnd);
         timelineswitchStatschoisi.setCycleCount(1);
         timelineswitchStatschoisi.playFromStart();
 
         final KeyFrame switchTitreStart = new KeyFrame(Duration.ZERO, new KeyValue(titreSelectionne.yProperty(), -500));
-        final KeyFrame switchtitreEnd = new KeyFrame(Duration.seconds(1), new KeyValue(titreSelectionne.yProperty(), 180));
+        final KeyFrame switchtitreEnd = new KeyFrame(Duration.seconds(0.7), new KeyValue(titreSelectionne.yProperty(), 180));
         final Timeline timelineswitchTitreChoisi = new Timeline(switchTitreStart, switchtitreEnd);
         timelineswitchTitreChoisi.setCycleCount(1);
         timelineswitchTitreChoisi.playFromStart();
