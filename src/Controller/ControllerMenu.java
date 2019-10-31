@@ -48,17 +48,31 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
             launcher.afficherJeux();
         }
 
-        if (mouseEvent.getSource().equals(launcher.getMo().getChevron()) || mouseEvent.getSource().equals(launcher.getMo().getChevrondroit()) ) {
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevron())&& mouseEvent.getEventType().equals(MouseEvent.MOUSE_ENTERED )){
             launcher.getMo().grandissementChevron();
+        }
+
+        if(mouseEvent.getEventType().equals(MouseEvent.MOUSE_EXITED)){
+            launcher.getMo().retourNormalChevronGauche();
+        }
+
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_ENTERED )) {
+            launcher.getMo().grandissementChevronDroit();
+        }
+
+        if(mouseEvent.getEventType().equals(MouseEvent.MOUSE_EXITED)){
+            launcher.getMo().retourNormalChevronDroit();
+        }
+
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED )) {
+            launcher.getMo().swipeVaisseauxDroite();
+        }
+
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevron()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED )) {
+            launcher.getMo().swipeVaisseauxGauche();
 
         }
 
-        if (mouseEvent.getSource().equals(launcher.getMo().getChevron()) || mouseEvent.getSource().equals(launcher.getMo().getChevrondroit()) &&
-                mouseEvent.getEventType().equals(MouseEvent.MOUSE_EXITED)){
-            launcher.getMo().retourNormalChevron();
-
-
-        }
 
         /*if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit())) {
             launcher.getMo().grandissementChevron();

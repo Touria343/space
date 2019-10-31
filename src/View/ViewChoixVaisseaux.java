@@ -8,6 +8,7 @@ import javafx.animation.Animation;
 import javafx.animation.Transition;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.effect.Reflection;
 import javafx.scene.image.ImageView;
@@ -49,8 +50,12 @@ public class ViewChoixVaisseaux {
     private Text joueur1;
     private Text geoCroiseur;
     private Text retour;
-
-
+    private ViewHandler launcher;
+    private ImageView leVaisseauxSelectionne;
+    private ArrayList<ImageView> tabImageVaisseaux;
+    private int indice = 1;
+    private ArrayList<ImageView> tabImageStats;
+    private ImageView statsSelectionne;
 
 
     /**
@@ -74,6 +79,7 @@ public class ViewChoixVaisseaux {
         initTextGeoCroiseur();
         setVueCompleteMenu();
 
+
     }
 
    /* private void initListeImage() {
@@ -90,7 +96,7 @@ public class ViewChoixVaisseaux {
     }*/
 
     private void initTextGeoCroiseur() {
-   geoCroiseur = new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -");
+         geoCroiseur = new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -");
         geoCroiseur.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
         geoCroiseur.setFill (Color.WHITE);
         geoCroiseur.setOpacity(0);
@@ -98,7 +104,7 @@ public class ViewChoixVaisseaux {
         r.setFraction(0.5f);
         geoCroiseur.setEffect(r);
     }
-   private void initVaisseauxChoix() {
+    private void initVaisseauxChoix() {
 
         spider = new ImageView(Path.vaisseauxChoix1);
         spider.setX(600);
@@ -110,7 +116,6 @@ public class ViewChoixVaisseaux {
 
 
    }
-
     private void initChevron() {
 
         chevron = new ImageView(Path.chevrongauche);
@@ -120,10 +125,11 @@ public class ViewChoixVaisseaux {
         chevron.setFitWidth(80);
         chevron.setPreserveRatio(false);
         chevron.setOpacity(0);
+        chevron.setPickOnBounds(true);
+
 
 
     }
-
     private void initChevronDroit() {
 
         chevrondroit = new ImageView(Path.chevrondroit);
@@ -133,10 +139,10 @@ public class ViewChoixVaisseaux {
         chevrondroit.setFitWidth(80);
         chevrondroit.setPreserveRatio(false);
         chevrondroit.setOpacity(0);
+        chevrondroit.setPickOnBounds(true);
 
 
     }
-
     private void initBandeTop() {
 
         bandeTop = new ImageView(Path.bandeTop);
@@ -145,7 +151,6 @@ public class ViewChoixVaisseaux {
         bandeTop.setFitWidth(1500);
         bandeTop.setPreserveRatio(true);
     }
-
     private void initBandeBottom() {
 
         bandeBottom = new ImageView(Path.bandeBottom);
@@ -154,8 +159,6 @@ public class ViewChoixVaisseaux {
         bandeBottom.setFitWidth(1500);
         bandeBottom.setPreserveRatio(true);
     }
-
-
     private void initStats() {
 
         stats = new ImageView(Path.stats1);
@@ -167,8 +170,7 @@ public class ViewChoixVaisseaux {
 
 
     }
-
-    public void initTextChangerVaisseaux() {
+    private void initTextChangerVaisseaux() {
 
         joueur1 = new Text(600, 820, "Vaisseau suivant");
         joueur1.setFont(Font.font("Dead Kansas", SEMI_BOLD, 37));
@@ -178,26 +180,6 @@ public class ViewChoixVaisseaux {
         r.setFraction(0.5f);
         joueur1.setEffect(r);
     }
-
-    private void initTitre() {
-
-        titre = new Text(10, 220, "La guerre des lezards");
-        Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 80);
-        titre.setFont(policeTitre);
-        titre.setRotate(-20);
-
-    }
-
-    private void initRetour() {
-
-        retour = new Text(600, 600, "Retour");
-        Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
-
-        titre.setFont(policeTitre);
-        titre.setRotate(-20);
-
-    }
-
     private void initBackground() {
         //imgBg = new ImageView("Asset/Images/fond_menu.jpg");
         //Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds(); // Récupération de la taille de l'écran
@@ -233,10 +215,7 @@ public class ViewChoixVaisseaux {
 */
     }
 
-    /**
-     * Ajoute a la vue tous les éléments composant le menu
-     */
-    void setVueCompleteMenu() {
+    public void setVueCompleteMenu() {
 
         root.getChildren().clear();
         root.getChildren().add(viewer);
@@ -280,74 +259,149 @@ public class ViewChoixVaisseaux {
 
     }
 
-    void setEvents(ControllerMenu mc) {
+    public void setEvents(ControllerMenu mc) {
       chevron.setOnMouseEntered(mc);
       chevrondroit.setOnMouseEntered(mc);
-        chevron.setOnMouseExited(mc);
-        chevrondroit.setOnMouseExited(mc);
-
-
-
-
-
-        //monLezard.setOnMouseClicked(mc);
-        //spider.setOnMouseEntered(mc);
-
+      chevron.setOnMouseExited(mc);
+      chevrondroit.setOnMouseExited(mc);
+      chevron.setOnMouseClicked(mc);
+      chevrondroit.setOnMouseClicked(mc);
     }
 
-    public Text getTitre() {
-        return titre;
+    public void grandissementChevron(){
+                chevron.setFitHeight(110);
+                chevron.setFitWidth(110);
+                chevron.setY(762);
+                chevron.setX(490);
+    //    launcher.getMenuDemarrage().setCursor(Cursor.HAND);
+    }
+
+    public void grandissementChevronDroit(){
+                chevrondroit.setY(752);
+                chevrondroit.setFitHeight(110);
+                chevrondroit.setFitWidth(110);
+                chevrondroit.setX(876);
+     //   launcher.getMenuDemarrage().setCursor(Cursor.HAND);
+    }
+
+    public void retourNormalChevronGauche() {
+        chevron.setFitHeight(80);
+        chevron.setFitWidth(80);
+        chevron.setY(775);
+        chevron.setX(500);
+   //     launcher.getMenuDemarrage().setCursor(Cursor.DEFAULT);
+    }
+
+    public void retourNormalChevronDroit() {
+        chevrondroit.setFitHeight(80);
+        chevrondroit.setFitWidth(80);
+        chevrondroit.setY(765);
+        chevrondroit.setX(890);
+    //    launcher.getMenuDemarrage().setCursor(Cursor.DEFAULT);
     }
 
     public ImageView getChevron() {
         return chevron;
     }
-
     public ImageView getChevrondroit() {
         return chevrondroit;
     }
-    public ImageView ViewChoixVaisseaux() {
-        return spider;
+
+
+    public void swipeVaisseauxGauche() {
+
+        tabImageVaisseaux = new ArrayList<>();
+        tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix1));
+        tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix2));
+
+        tabImageStats = new ArrayList<>();
+        tabImageStats.add(new ImageView(Path.stats1));
+        tabImageStats.add(new ImageView(Path.stats2));
+
+        root.getChildren().remove(spider);
+        root.getChildren().remove(stats);
+
+        if(root.getChildren().contains(leVaisseauxSelectionne)){
+            root.getChildren().remove(leVaisseauxSelectionne);
+        }
+        if(root.getChildren().contains(stats)){
+            // root.getChildren().remove(stats);
+        }
+
+        leVaisseauxSelectionne = tabImageVaisseaux.get(indice);
+        leVaisseauxSelectionne.setX(500);
+        leVaisseauxSelectionne.setX(600);
+        leVaisseauxSelectionne.setY(200);
+        leVaisseauxSelectionne.setFitHeight(750);
+        leVaisseauxSelectionne.setFitWidth(850);
+        leVaisseauxSelectionne.setPreserveRatio(false);
+
+        statsSelectionne = tabImageStats.get(indice);
+
+        statsSelectionne.setX(80);
+        statsSelectionne.setY(430);
+        statsSelectionne.setFitWidth(800);
+        statsSelectionne.setPreserveRatio(true);
+
+
+        root.getChildren().add(leVaisseauxSelectionne);
+        root.getChildren().add(statsSelectionne);
+
+
+        if (indice == 1){
+            indice = 0;
+        }else if(indice == 0){
+            indice = 1;
+        }
+
+
     }
 
+    public void swipeVaisseauxDroite() {
 
-    public void setRandomColorForTitle() {
-        titre.setFill(new Color(Math.random(), Math.random(), Math.random(), Math.random()));
-    }
+        tabImageVaisseaux = new ArrayList<>();
+        tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix1));
+        tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix2));
 
-    public void grandissementChevron(){
+        tabImageStats = new ArrayList<>();
+        tabImageStats.add(new ImageView(Path.stats1));
+        tabImageStats.add(new ImageView(Path.stats2));
+
+        root.getChildren().remove(spider);
+        root.getChildren().remove(stats);
+
+        if(root.getChildren().contains(leVaisseauxSelectionne)){
+            root.getChildren().remove(leVaisseauxSelectionne);
+        }
+        if(root.getChildren().contains(stats)){
+           // root.getChildren().remove(stats);
+        }
+
+        leVaisseauxSelectionne = tabImageVaisseaux.get(indice);
+        leVaisseauxSelectionne.setX(500);
+        leVaisseauxSelectionne.setX(600);
+        leVaisseauxSelectionne.setY(200);
+        leVaisseauxSelectionne.setFitHeight(750);
+        leVaisseauxSelectionne.setFitWidth(850);
+        leVaisseauxSelectionne.setPreserveRatio(false);
+
+        statsSelectionne = tabImageStats.get(indice);
+
+        statsSelectionne.setX(80);
+        statsSelectionne.setY(430);
+        statsSelectionne.setFitWidth(800);
+        statsSelectionne.setPreserveRatio(true);
 
 
-        chevron.setFitHeight(100);
-        chevron.setFitWidth(100);
-        chevrondroit.setY(760);
-        chevron.setY(760);
-        chevrondroit.setFitHeight(100);
-        chevrondroit.setFitWidth(100);
+        root.getChildren().add(leVaisseauxSelectionne);
+        root.getChildren().add(statsSelectionne);
 
 
-    /*    final Animation animTextMenucligno = new Transition() {
-            {
-                setCycleDuration(Duration.millis(500));
-            }
-            protected void interpolate(double frac) {
-
-            }
-        };
-*/
-
-
-
-    }
-
-
-    public void retourNormalChevron() {
-
-        chevron.setFitHeight(80);
-        chevron.setFitWidth(80);
-        chevrondroit.setFitHeight(80);
-        chevrondroit.setFitWidth(80);
-
+        if (indice == 1){
+            indice = 0;
+        }else if(indice == 0){
+            indice = 1;
+        }
 
     }
 }

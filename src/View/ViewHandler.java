@@ -36,6 +36,10 @@ public class ViewHandler extends Application {
     private Scene menuDemarrage;
 
 
+    public Scene getMenuDemarrage() {
+        return menuDemarrage;
+    }
+
     /**
      * Permet le lancement de l'application : méthode obligatoire pour JavaFX
      *

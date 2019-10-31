@@ -17,7 +17,11 @@ public class Path {
     public static final String spiderr = "Asset/Images/spider.png";
     public static final String vaisseauxChoix1 = "Asset//Images//geocroiseur-genesis_t-16-0025.png";
     public static final String vaisseauxChoix2 = "Asset//Images//touria-corvette-9-0023.png";
+
     public static final String stats1 = "Asset//Images//Sans titre 1.png";
+    public static final String stats2 = "Asset//Images//Sans titre 1.png";
+
+
     public static final String chevrongauche = "Asset//Images//chevrongauche.png";
     public static final String chevrondroit = "Asset//Images//chevronDroit.png";
     public static final String triangle = "Asset//Images//triangle.png";
