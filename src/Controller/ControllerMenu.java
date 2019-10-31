@@ -65,11 +65,12 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
         }
 
         if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED )) {
-            launcher.getMo().swipeVaisseauxDroite();
+            launcher.getMo().swipeVaisseaux(true);
         }
 
         if (mouseEvent.getSource().equals(launcher.getMo().getChevron()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED )) {
-            launcher.getMo().swipeVaisseauxGauche();
+            launcher.getMo().swipeVaisseaux(false);
+
 
         }
 

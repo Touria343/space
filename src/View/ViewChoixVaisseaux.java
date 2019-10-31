@@ -53,9 +53,11 @@ public class ViewChoixVaisseaux {
     private ViewHandler launcher;
     private ImageView leVaisseauxSelectionne;
     private ArrayList<ImageView> tabImageVaisseaux;
-    private int indice = 1;
+    private int indice = 0;
     private ArrayList<ImageView> tabImageStats;
     private ImageView statsSelectionne;
+    private ArrayList<Text> tabTitreVaisseaux;
+    private Text titreSelectionne;
 
 
     /**
@@ -308,24 +310,52 @@ public class ViewChoixVaisseaux {
     }
 
 
-    public void swipeVaisseauxGauche() {
+    public void swipeVaisseaux(Boolean chevronDeDroite) {
 
         tabImageVaisseaux = new ArrayList<>();
         tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix1));
         tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix2));
 
+        if (chevronDeDroite == true){
+            if(indice < (tabImageVaisseaux.size()-1)){
+                indice++;
+                System.out.println("indice++");
+            }else{
+                indice=0;
+                System.out.println("indice = 0");
+            }
+        }else{
+            if(indice == 0){
+                indice= (tabImageVaisseaux.size()-1);
+                System.out.println("indice = tabimagesize()");
+
+            }else{
+                indice--;
+                System.out.println("indice--;");
+            }
+           }
+
         tabImageStats = new ArrayList<>();
         tabImageStats.add(new ImageView(Path.stats1));
         tabImageStats.add(new ImageView(Path.stats2));
 
+        tabTitreVaisseaux = new ArrayList<>();
+        tabTitreVaisseaux.add(new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -"));
+        tabTitreVaisseaux.add(new Text(50, 180, "- T  o  u  r  i  a -\n      C  o  r  v  e  t  t  e  -  9 -"));
+
+
+
+
+
         root.getChildren().remove(spider);
         root.getChildren().remove(stats);
+        root.getChildren().remove(geoCroiseur);
+
 
         if(root.getChildren().contains(leVaisseauxSelectionne)){
             root.getChildren().remove(leVaisseauxSelectionne);
-        }
-        if(root.getChildren().contains(stats)){
-            // root.getChildren().remove(stats);
+            root.getChildren().remove(titreSelectionne);
+            root.getChildren().remove(statsSelectionne);
         }
 
         leVaisseauxSelectionne = tabImageVaisseaux.get(indice);
@@ -344,64 +374,18 @@ public class ViewChoixVaisseaux {
         statsSelectionne.setPreserveRatio(true);
 
 
-        root.getChildren().add(leVaisseauxSelectionne);
+        titreSelectionne = tabTitreVaisseaux.get(indice);
+        titreSelectionne.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
+        titreSelectionne.setFill (Color.WHITE);
+        Reflection r = new Reflection();
+        r.setFraction(0.5f);
+        titreSelectionne.setEffect(r);
+
+
+
         root.getChildren().add(statsSelectionne);
-
-
-        if (indice == 1){
-            indice = 0;
-        }else if(indice == 0){
-            indice = 1;
-        }
-
-
-    }
-
-    public void swipeVaisseauxDroite() {
-
-        tabImageVaisseaux = new ArrayList<>();
-        tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix1));
-        tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix2));
-
-        tabImageStats = new ArrayList<>();
-        tabImageStats.add(new ImageView(Path.stats1));
-        tabImageStats.add(new ImageView(Path.stats2));
-
-        root.getChildren().remove(spider);
-        root.getChildren().remove(stats);
-
-        if(root.getChildren().contains(leVaisseauxSelectionne)){
-            root.getChildren().remove(leVaisseauxSelectionne);
-        }
-        if(root.getChildren().contains(stats)){
-           // root.getChildren().remove(stats);
-        }
-
-        leVaisseauxSelectionne = tabImageVaisseaux.get(indice);
-        leVaisseauxSelectionne.setX(500);
-        leVaisseauxSelectionne.setX(600);
-        leVaisseauxSelectionne.setY(200);
-        leVaisseauxSelectionne.setFitHeight(750);
-        leVaisseauxSelectionne.setFitWidth(850);
-        leVaisseauxSelectionne.setPreserveRatio(false);
-
-        statsSelectionne = tabImageStats.get(indice);
-
-        statsSelectionne.setX(80);
-        statsSelectionne.setY(430);
-        statsSelectionne.setFitWidth(800);
-        statsSelectionne.setPreserveRatio(true);
-
-
+        root.getChildren().add(titreSelectionne);
         root.getChildren().add(leVaisseauxSelectionne);
-        root.getChildren().add(statsSelectionne);
-
-
-        if (indice == 1){
-            indice = 0;
-        }else if(indice == 0){
-            indice = 1;
-        }
 
     }
 }
