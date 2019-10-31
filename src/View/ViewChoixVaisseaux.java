@@ -362,44 +362,88 @@ public class ViewChoixVaisseaux {
         tabImageStats.add(new ImageView(Path.stats3));
         tabImageStats.add(new ImageView(Path.stats4));
 
-
         tabTitreVaisseaux = new ArrayList<>();
         tabTitreVaisseaux.add(new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -"));
         tabTitreVaisseaux.add(new Text(50, 180, "- T  o  u  r  i  a -\n      C  o  r  v  e  t  t  e  -  9 -"));
         tabTitreVaisseaux.add(new Text(50, 180, "- I  n  t  e  r  c  e  p  t  e  u  r -\n      M A X   -  R - 22 -"));
         tabTitreVaisseaux.add(new Text(50, 180, "- R E D  -\n     F  A  U  C  O  N -"));
 
+        if(root.getChildren().contains(geoCroiseur)){
+
+            final KeyFrame keyFrameAt0s = new KeyFrame(Duration.ZERO, new KeyValue(spider.xProperty(), 600));
+            final KeyFrame keyFrameAt1s = new KeyFrame(Duration.seconds(2), new KeyValue(spider.xProperty(), 2500));
+            final Timeline timeline = new Timeline(keyFrameAt0s, keyFrameAt1s);
+            timeline.setCycleCount(1);
+            timeline.playFromStart();
+
+            final KeyFrame switchStatsAt0 = new KeyFrame(Duration.ZERO, new KeyValue(stats.xProperty(), 80));
+            final KeyFrame switchStatsAt5 = new KeyFrame(Duration.seconds(1), new KeyValue(stats.xProperty(), -2500));
+            final Timeline timelineswitchStats = new Timeline(switchStatsAt0, switchStatsAt5);
+            timelineswitchStats.setCycleCount(1);
+            timelineswitchStats.playFromStart();
+
+            final KeyFrame switchTitre = new KeyFrame(Duration.ZERO, new KeyValue(geoCroiseur.yProperty(), 180));
+            final KeyFrame switchtitreAt1 = new KeyFrame(Duration.seconds(4), new KeyValue(geoCroiseur.yProperty(), -2500));
+            final Timeline timelineswitchTitre = new Timeline(switchTitre, switchtitreAt1);
+            timelineswitchTitre.setCycleCount(1);
+            timelineswitchTitre.playFromStart();
+
+        }
+
+        Timeline timeline3 = new Timeline(new KeyFrame(
+                Duration.millis(1000),
+                ae -> removePremierVaisseauxDuRoot()));
+        timeline3.play();
+
+        if(root.getChildren().contains(leVaisseauxSelectionne)){
 
 
-        final KeyFrame keyFrameAt0s = new KeyFrame(Duration.ZERO, new KeyValue(spider.xProperty(), 600));
-        final KeyFrame keyFrameAt1s = new KeyFrame(Duration.seconds(2), new KeyValue(spider.xProperty(), 2500));
-        final Timeline timeline = new Timeline(keyFrameAt0s, keyFrameAt1s);
-        timeline.setCycleCount(1);
-        timeline.playFromStart();
+            final KeyFrame switchVaisseauxChoisiStart = new KeyFrame(Duration.ZERO, new KeyValue(leVaisseauxSelectionne.xProperty(), 600));
+            final KeyFrame switchvaisseauxChoisiEnd = new KeyFrame(Duration.seconds(0.6), new KeyValue(leVaisseauxSelectionne.xProperty(), 2500));
+            final Timeline timelineswitchVaisseaux = new Timeline(switchVaisseauxChoisiStart, switchvaisseauxChoisiEnd);
+            timelineswitchVaisseaux.setCycleCount(1);
+            timelineswitchVaisseaux.playFromStart();
 
-        final KeyFrame switchStatsAt0 = new KeyFrame(Duration.ZERO, new KeyValue(stats.xProperty(), 80));
-        final KeyFrame switchStatsAt5 = new KeyFrame(Duration.seconds(2), new KeyValue(stats.xProperty(), -2500));
-        final Timeline timelineswitchStats = new Timeline(switchStatsAt0, switchStatsAt5);
-        timelineswitchStats.setCycleCount(1);
-        timelineswitchStats.playFromStart();
+            final KeyFrame switchStatsStart = new KeyFrame(Duration.ZERO, new KeyValue(statsSelectionne.xProperty(), 80));
+            final KeyFrame switchStatsEnd = new KeyFrame(Duration.seconds(0.6), new KeyValue(statsSelectionne.xProperty(), -2500));
+            final Timeline timelineswitchStatschoisi = new Timeline(switchStatsStart, switchStatsEnd);
+            timelineswitchStatschoisi.setCycleCount(1);
+            timelineswitchStatschoisi.playFromStart();
+
+            final KeyFrame switchTitreStart = new KeyFrame(Duration.ZERO, new KeyValue(titreSelectionne.yProperty(), 180));
+            final KeyFrame switchtitreEnd = new KeyFrame(Duration.seconds(0.6), new KeyValue(titreSelectionne.yProperty(), -500));
+            final Timeline timelineswitchTitreChoisi = new Timeline(switchTitreStart, switchtitreEnd);
+            timelineswitchTitreChoisi.setCycleCount(1);
+            timelineswitchTitreChoisi.playFromStart();
+
+
+            final Animation animFonduSortie = new Transition() {
+                {
+                    setCycleDuration(Duration.millis(10));
+                }
+
+                protected void interpolate(double frac) {
+                    double frac1 = -frac + 1;
+
+                    leVaisseauxSelectionne.setOpacity(frac1);
+                    statsSelectionne.setOpacity(frac1);
+                    titreSelectionne.setOpacity(frac1);
+
+                    //this.stop();
+                }
+
+            };
+            animFonduSortie.play();
 
 
 /*
-        Timeline timeline3 = new Timeline(new KeyFrame(
-                Duration.millis(2500),
-                ae -> doSomething()));
-        timeline.play();
+            Timeline timeline4 = new Timeline(new KeyFrame(
+                    Duration.millis(1000),
+                    ae -> removeVaisseauxChoisi()));
+            timeline4.play();
 */
 
-        //root.getChildren().remove(spider);
-        //root.getChildren().remove(stats);
-       // root.getChildren().remove(geoCroiseur);
 
-
-        if(root.getChildren().contains(leVaisseauxSelectionne)){
-            root.getChildren().remove(leVaisseauxSelectionne);
-            root.getChildren().remove(titreSelectionne);
-            root.getChildren().remove(statsSelectionne);
         }
 
         leVaisseauxSelectionne = tabImageVaisseaux.get(indice);
@@ -409,27 +453,100 @@ public class ViewChoixVaisseaux {
         leVaisseauxSelectionne.setFitHeight(750);
         leVaisseauxSelectionne.setFitWidth(850);
         leVaisseauxSelectionne.setPreserveRatio(false);
+        leVaisseauxSelectionne.setOpacity(0);
 
         statsSelectionne = tabImageStats.get(indice);
 
         statsSelectionne.setX(80);
         statsSelectionne.setY(430);
         statsSelectionne.setFitWidth(800);
+        statsSelectionne.setOpacity(0);
         statsSelectionne.setPreserveRatio(true);
 
 
         titreSelectionne = tabTitreVaisseaux.get(indice);
         titreSelectionne.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
         titreSelectionne.setFill (Color.WHITE);
+        titreSelectionne.setOpacity(0);
         Reflection r = new Reflection();
         r.setFraction(0.5f);
         titreSelectionne.setEffect(r);
 
 
+        root.getChildren().remove(bandeTop);
 
         root.getChildren().add(statsSelectionne);
         root.getChildren().add(titreSelectionne);
         root.getChildren().add(leVaisseauxSelectionne);
+        root.getChildren().add(bandeTop);
 
+
+        final Animation animFonduEntree = new Transition() {
+            {
+                setCycleDuration(Duration.millis(1300));
+            }
+
+            protected void interpolate(double frac) {
+
+                leVaisseauxSelectionne.setOpacity(frac);
+
+                titreSelectionne.setOpacity(frac);
+
+                //this.stop();
+            }
+
+        };
+        animFonduEntree.play();
+
+
+        final Animation animFonduEntree2 = new Transition() {
+            {
+                setCycleDuration(Duration.millis(1800));
+            }
+
+            protected void interpolate(double frac) {
+
+
+                statsSelectionne.setOpacity(frac);
+
+
+                //this.stop();
+            }
+
+        };
+        animFonduEntree2.play();
+
+        final KeyFrame switchVaisseauxChoisiStart = new KeyFrame(Duration.ZERO, new KeyValue(leVaisseauxSelectionne.xProperty(), 2500));
+        final KeyFrame switchvaisseauxChoisiEnd = new KeyFrame(Duration.seconds(1), new KeyValue(leVaisseauxSelectionne.xProperty(), 600));
+        final Timeline timelineswitchVaisseaux = new Timeline(switchVaisseauxChoisiStart, switchvaisseauxChoisiEnd);
+        timelineswitchVaisseaux.setCycleCount(1);
+        timelineswitchVaisseaux.playFromStart();
+
+        final KeyFrame switchStatsStart = new KeyFrame(Duration.ZERO, new KeyValue(statsSelectionne.xProperty(), -2500));
+        final KeyFrame switchStatsEnd = new KeyFrame(Duration.seconds(1), new KeyValue(statsSelectionne.xProperty(), 80));
+        final Timeline timelineswitchStatschoisi = new Timeline(switchStatsStart, switchStatsEnd);
+        timelineswitchStatschoisi.setCycleCount(1);
+        timelineswitchStatschoisi.playFromStart();
+
+        final KeyFrame switchTitreStart = new KeyFrame(Duration.ZERO, new KeyValue(titreSelectionne.yProperty(), -500));
+        final KeyFrame switchtitreEnd = new KeyFrame(Duration.seconds(1), new KeyValue(titreSelectionne.yProperty(), 180));
+        final Timeline timelineswitchTitreChoisi = new Timeline(switchTitreStart, switchtitreEnd);
+        timelineswitchTitreChoisi.setCycleCount(1);
+        timelineswitchTitreChoisi.playFromStart();
+
+    }
+
+    private void removeVaisseauxChoisi() {
+
+        root.getChildren().remove(leVaisseauxSelectionne);
+        root.getChildren().remove(titreSelectionne);
+        root.getChildren().remove(statsSelectionne);
+    }
+
+    private void removePremierVaisseauxDuRoot() {
+
+        root.getChildren().remove(spider);
+        root.getChildren().remove(stats);
+        root.getChildren().remove(geoCroiseur);
     }
 }
