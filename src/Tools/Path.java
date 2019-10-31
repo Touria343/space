@@ -15,19 +15,25 @@ public class Path {
     public static final String lezardBrown4 = "Asset/Images/lezard_frames/l4_brown.png";
     public static final String map = "Asset/Images/map.jpg";
     public static final String spiderr = "Asset/Images/spider.png";
+
     public static final String vaisseauxChoix1 = "Asset//Images//geocroiseur-genesis_t-16-0025.png";
-    public static final String vaisseauxChoix2 = "Asset//Images//touria-corvette-9-0023.png";
+    public static final String vaisseauxChoix2 = "Asset//Images//touria-corvette-9-0022.png";
+    public static final String vaisseauxChoix3 = "Asset//Images//intercepteur_max_r22-0002.png";
+    public static final String vaisseauxChoix4 = "Asset//Images//red-faucon-0002.png";
+
 
     public static final String stats1 = "Asset//Images//Sans titre 1.png";
-    public static final String stats2 = "Asset//Images//Sans titre 1.png";
+    public static final String stats2 = "Asset//Images//Sans titre 2.png";
+    public static final String stats3 = "Asset//Images//Sans titre 1.png";
+    public static final String stats4 = "Asset//Images//Sans titre 1.png";
+
+    public static String joueur1= "Asset//Images//Joueur1.png";
 
 
     public static final String chevrongauche = "Asset//Images//chevrongauche.png";
     public static final String chevrondroit = "Asset//Images//chevronDroit.png";
     public static final String triangle = "Asset//Images//triangle.png";
     public static final String triangle1 = "Asset//Images//triangle1.png";
-
-
 
     public static final String fontHeadCase = "../Asset/Font/HeadCase.ttf";
     public static final String fontMontionPicture = "../Asset/Font/MotionPicture.ttf";
@@ -43,5 +49,7 @@ public class Path {
     public static String bandeTop = "Asset//Images//Bande-top.png";
     public static String bandefond = "Asset//Images//bandefond.png";
     public static String bandeBottom = "Asset//Images//bande-bottom.png";
+
+
 
 }

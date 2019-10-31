@@ -4,8 +4,7 @@ package View;
 import Controller.ControllerMenu;
 import Model.Menu;
 import Tools.Path;
-import javafx.animation.Animation;
-import javafx.animation.Transition;
+import javafx.animation.*;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Cursor;
@@ -58,6 +57,7 @@ public class ViewChoixVaisseaux {
     private ImageView statsSelectionne;
     private ArrayList<Text> tabTitreVaisseaux;
     private Text titreSelectionne;
+    private ImageView joueurNum1;
 
 
     /**
@@ -79,6 +79,7 @@ public class ViewChoixVaisseaux {
         initTextChangerVaisseaux();
         initVaisseauxChoix();
         initTextGeoCroiseur();
+        initJoueur1();
         setVueCompleteMenu();
 
 
@@ -118,6 +119,20 @@ public class ViewChoixVaisseaux {
 
 
    }
+    private void initJoueur1() {
+
+        joueurNum1 = new ImageView(Path.joueur1);
+        joueurNum1.setX(1200);
+        joueurNum1.setY(150);
+        joueurNum1.setOpacity(0);
+        joueurNum1.setFitWidth(250);
+        joueurNum1.setPreserveRatio(true);
+
+
+
+
+    }
+
     private void initChevron() {
 
         chevron = new ImageView(Path.chevrongauche);
@@ -228,6 +243,7 @@ public class ViewChoixVaisseaux {
         root.getChildren().add(bandeBottom);
         root.getChildren().add(spider);
         root.getChildren().add(joueur1);
+        root.getChildren().add(joueurNum1);
         root.getChildren().add(geoCroiseur);
 
         final Animation animTextMenuArrivee = new Transition() {
@@ -239,6 +255,7 @@ public class ViewChoixVaisseaux {
                 spider.setOpacity(frac);
                 chevron.setOpacity(frac);
                 chevrondroit.setOpacity(frac);
+
             }
         };
         
@@ -250,6 +267,8 @@ public class ViewChoixVaisseaux {
             }
             protected void interpolate(double frac) {
                 stats.setOpacity(frac);
+                joueurNum1.setOpacity(frac);
+
 
             }
         };
@@ -315,6 +334,8 @@ public class ViewChoixVaisseaux {
         tabImageVaisseaux = new ArrayList<>();
         tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix1));
         tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix2));
+        tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix3));
+        tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix4));
 
         if (chevronDeDroite == true){
             if(indice < (tabImageVaisseaux.size()-1)){
@@ -338,18 +359,41 @@ public class ViewChoixVaisseaux {
         tabImageStats = new ArrayList<>();
         tabImageStats.add(new ImageView(Path.stats1));
         tabImageStats.add(new ImageView(Path.stats2));
+        tabImageStats.add(new ImageView(Path.stats3));
+        tabImageStats.add(new ImageView(Path.stats4));
+
 
         tabTitreVaisseaux = new ArrayList<>();
         tabTitreVaisseaux.add(new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -"));
         tabTitreVaisseaux.add(new Text(50, 180, "- T  o  u  r  i  a -\n      C  o  r  v  e  t  t  e  -  9 -"));
+        tabTitreVaisseaux.add(new Text(50, 180, "- I  n  t  e  r  c  e  p  t  e  u  r -\n      M A X   -  R - 22 -"));
+        tabTitreVaisseaux.add(new Text(50, 180, "- R E D  -\n     F  A  U  C  O  N -"));
 
 
 
+        final KeyFrame keyFrameAt0s = new KeyFrame(Duration.ZERO, new KeyValue(spider.xProperty(), 600));
+        final KeyFrame keyFrameAt1s = new KeyFrame(Duration.seconds(2), new KeyValue(spider.xProperty(), 2500));
+        final Timeline timeline = new Timeline(keyFrameAt0s, keyFrameAt1s);
+        timeline.setCycleCount(1);
+        timeline.playFromStart();
+
+        final KeyFrame switchStatsAt0 = new KeyFrame(Duration.ZERO, new KeyValue(stats.xProperty(), 80));
+        final KeyFrame switchStatsAt5 = new KeyFrame(Duration.seconds(2), new KeyValue(stats.xProperty(), -2500));
+        final Timeline timelineswitchStats = new Timeline(switchStatsAt0, switchStatsAt5);
+        timelineswitchStats.setCycleCount(1);
+        timelineswitchStats.playFromStart();
 
 
-        root.getChildren().remove(spider);
-        root.getChildren().remove(stats);
-        root.getChildren().remove(geoCroiseur);
+/*
+        Timeline timeline3 = new Timeline(new KeyFrame(
+                Duration.millis(2500),
+                ae -> doSomething()));
+        timeline.play();
+*/
+
+        //root.getChildren().remove(spider);
+        //root.getChildren().remove(stats);
+       // root.getChildren().remove(geoCroiseur);
 
 
         if(root.getChildren().contains(leVaisseauxSelectionne)){
