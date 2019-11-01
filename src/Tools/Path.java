@@ -51,5 +51,5 @@ public class Path {
     public static String bandeBottom = "Asset//Images//bande-bottom.png";
 
 
-
+    public static String choisir = "Asset//Images//choisir.png";
 }
