@@ -34,6 +34,13 @@ public class MusicJeux {
 
     }
 
+    public static void stopMainMenuMusic() {
+
+        music.stop();
+
+
+    }
+
     public static void startGameMusic() {
         mediaPlayer.stop();
         mediaPlayer = new MediaPlayer(new Media(Paths.get(GAME_THEME).toUri().toString()));

@@ -3,6 +3,7 @@ package View;
 
 import Controller.ControllerMenu;
 import Model.Menu;
+import Music.MusicJeux;
 import Tools.Path;
 import javafx.animation.*;
 import javafx.beans.binding.Bindings;
@@ -54,6 +55,7 @@ public class ViewChoixVaisseaux {
     private Text titreSelectionne;
     private ImageView joueurNum1;
     private ImageView imageChoisir;
+    private ImageView joueurNum2;
 
     /**
      * Constructeur du menu principal
@@ -75,6 +77,7 @@ public class ViewChoixVaisseaux {
         initVaisseauxChoix();
         initTextGeoCroiseur();
         initJoueur1();
+        initJoueur2();
         initImageChoisir();
         setVueCompleteMenu();
     }
@@ -143,6 +146,27 @@ public class ViewChoixVaisseaux {
         timelinecligno.playFromStart();
 
     }
+    private void initJoueur2() {
+
+        joueurNum2 = new ImageView(Path.joueur2);
+        joueurNum2.setX(1200);
+        joueurNum2.setY(150);
+        joueurNum2.setOpacity(0);
+        joueurNum2.setFitWidth(250);
+        joueurNum2.setPreserveRatio(true);
+        Reflection r = new Reflection();
+        r.setFraction(0.6f);
+        joueurNum2.setEffect(r);
+
+        final KeyFrame clignostart0 = new KeyFrame(Duration.ZERO, new KeyValue(joueurNum2.opacityProperty(), 1));
+        final KeyFrame clignoStart = new KeyFrame(Duration.seconds(0.7), new KeyValue(joueurNum2.opacityProperty(), 0.2));
+        final KeyFrame clignoEnd = new KeyFrame(Duration.seconds(1.5), new KeyValue(joueurNum2.opacityProperty(), 1));
+        final Timeline timelinecligno = new Timeline(clignostart0, clignoStart, clignoEnd);
+        timelinecligno.setCycleCount(Timeline.INDEFINITE);
+        timelinecligno.playFromStart();
+
+    }
+
 
     private void initChevron() {
 
@@ -290,6 +314,7 @@ public class ViewChoixVaisseaux {
       chevrondroit.setOnMouseExited(mc);
       chevron.setOnMouseClicked(mc);
       chevrondroit.setOnMouseClicked(mc);
+      imageChoisir.setOnMouseClicked(mc);
     }
 
     public void grandissementChevron(){
@@ -331,6 +356,14 @@ public class ViewChoixVaisseaux {
         return chevrondroit;
     }
 
+
+    public int getIndice() {
+        return indice;
+    }
+
+    public ImageView getImageChoisir() {
+        return imageChoisir;
+    }
 
     public void swipeVaisseaux(Boolean chevronDeDroite) {
 
@@ -464,8 +497,6 @@ public class ViewChoixVaisseaux {
         statsSelectionne.setOpacity(0);
         statsSelectionne.setPreserveRatio(true);
 
-
-
         titreSelectionne = tabTitreVaisseaux.get(indice);
         titreSelectionne.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
         titreSelectionne.setFill (Color.WHITE);
@@ -480,21 +511,16 @@ public class ViewChoixVaisseaux {
         root.getChildren().add(leVaisseauxSelectionne);
         root.getChildren().add(bandeTop);
 
-
-
         final Animation animFonduEntree = new Transition() {
             {
                 setCycleDuration(Duration.millis(1100));
             }
-
             protected void interpolate(double frac) {
                 leVaisseauxSelectionne.setOpacity(frac);
                 titreSelectionne.setOpacity(frac);
             }
-
         };
         animFonduEntree.play();
-
 
         final Animation animFonduEntree2 = new Transition() {
             {
@@ -549,5 +575,20 @@ public class ViewChoixVaisseaux {
         root.getChildren().remove(spider);
         root.getChildren().remove(stats);
         root.getChildren().remove(geoCroiseur);
+    }
+
+    public void changeChoixJoueur() {
+        root.getChildren().remove(joueurNum1);
+        root.getChildren().add(joueurNum2);
+    }
+
+    public void changeChoixJoueur2() {
+
+        MusicJeux.stopMainMenuMusic();
+   //     launcher.afficherGame();
+
+        //MusicJeux.playMusicGAme();
+
+
     }
 }

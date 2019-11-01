@@ -12,6 +12,7 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
      */
     private ViewHandler launcher;
     private Menu model;
+    private int i = 0;
 
     /**
      * Constructeur du controleur relatif au menu principal
@@ -70,9 +71,18 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
 
         if (mouseEvent.getSource().equals(launcher.getMo().getChevron()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED )) {
             launcher.getMo().swipeVaisseaux(false);
-
-
         }
+
+        if (mouseEvent.getSource().equals(launcher.getMo().getImageChoisir()) && i==0 && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
+            launcher.getMo().changeChoixJoueur();
+            i=1;
+        }else if (mouseEvent.getSource().equals(launcher.getMo().getImageChoisir()) && i==1 && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
+            launcher.getMo().changeChoixJoueur2();
+            launcher.afficherGame();
+        }
+
+
+
 
 
         /*if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit())) {

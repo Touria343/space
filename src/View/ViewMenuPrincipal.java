@@ -54,7 +54,7 @@ public class ViewMenuPrincipal {
 
       //  initListeImage();
 
-      initBackground();
+        initBackground();
         initTextOption();
         initTextJouer();
         initTexteQuitter();
@@ -85,16 +85,6 @@ public class ViewMenuPrincipal {
         quitter.setOpacity(0);
     }
 
-   private void initVaisseauxCoin() {
-        spider = new ImageView(Path.vaisseauxChoix1);
-        spider.setRotate(-6);
-        spider.setX(-250);
-        spider.setY(-300);
-        spider.setFitWidth(900);
-        spider.setFitHeight(900);
-
-    }
-
     private void initTextOption(){
 
         choixVaiss = new Text(297, 770,"Option");
@@ -104,8 +94,7 @@ public class ViewMenuPrincipal {
 
     }
 
-
-private void initTextJouer(){
+    private void initTextJouer(){
 
     jouer = new Text(675, 850, "Jouer");
     jouer.setFont(Font.font("Dead Kansas", 35));
@@ -135,16 +124,6 @@ private void initTextJouer(){
         triangle1.setOpacity(0.7);
     }
 
-    private void initTitre() {
-        titre = new Text(10, 220, "La guerre des lezards");
-        Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 80);
-        titre.setFont(policeTitre);
-        titre.setRotate(-20);
-    }
-
-
-
-
     /**
      * Mise en place de l'image de fond en fonction de la taille de l'écran de l'utilisateur
      */
@@ -170,7 +149,6 @@ private void initTextJouer(){
         videoBackground.setCycleCount(MediaPlayer.INDEFINITE);
         viewer = new MediaView(videoBackground);
 
-        videoBackground.play();
 
         //change width and height to fit video
         DoubleProperty width = viewer.fitWidthProperty();
@@ -205,6 +183,7 @@ private void initTextJouer(){
       //root.getChildren().add(media);
 
         root.getChildren().add(viewer);
+        videoBackground.play();
 
         root.getChildren().add(jouer);
         root.getChildren().add(quitter);

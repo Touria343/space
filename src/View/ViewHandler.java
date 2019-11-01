@@ -34,6 +34,7 @@ public class ViewHandler extends Application {
     private MediaView viewer;
     private Group root;
     private Scene menuDemarrage;
+    private ViewGame game;
 
 
     public Scene getMenuDemarrage() {
@@ -59,13 +60,13 @@ public class ViewHandler extends Application {
 
         mp = new ViewMenuPrincipal(model, root);
         mo = new ViewChoixVaisseaux(model, root);
-
+        game = new ViewGame(model, root);
 
         controllerMenu = new ControllerMenu(this, model);
 
         MusicJeux.startMainMenuMusic();
-       afficherMenuPrincipal(true);
-
+       // afficherMenuPrincipal(true);
+afficherGame();
         // gestion de l'affichage au lancement
         primaryStage.setScene(menuDemarrage);
         //primaryStage.show();
@@ -84,10 +85,10 @@ public class ViewHandler extends Application {
 
     }
 
-
     public void setEventHandlerMenu(ControllerMenu cm) {
         mp.setEvents(cm);
         mo.setEvents(cm);
+        game.setEvents(cm);
 
     }
 
@@ -114,5 +115,10 @@ public class ViewHandler extends Application {
     public void afficherJeux() {
         mo.setVueCompleteMenu();
     }
+
+    public void afficherGame() {
+        game.setVueCompleteMenu();
+    }
+
 
 }

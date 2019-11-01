@@ -28,6 +28,8 @@ public class Path {
     public static final String stats4 = "Asset//Images//Sans titre 1.png";
 
     public static String joueur1= "Asset//Images//Joueur1.png";
+    public static String joueur2= "Asset//Images//Joueur2.png";
+
 
 
     public static final String chevrongauche = "Asset//Images//chevrongauche.png";
@@ -43,13 +45,15 @@ public class Path {
 
     public static final String videobackground1 = "..//Asset//Video//TypoYellow_27791.mp4";
     public static final String videobackground2 = "../Asset//Video//Ink - 27915.mp4";
-    public static final String videobackground3 = "../Asset//Video//Monochrome - 27806.mp4";
+    public static final String videobackground3 = "../Asset//Video//motion.mp4";
+    public static final String videobackground4 = "../Asset//Video//Star.mp4";
+
     public static final String son = "../Asset//Sons//New Life.wav";
 
     public static String bandeTop = "Asset//Images//Bande-top.png";
     public static String bandefond = "Asset//Images//bandefond.png";
     public static String bandeBottom = "Asset//Images//bande-bottom.png";
 
-
     public static String choisir = "Asset//Images//choisir.png";
+    public static String barreCentrale = "Asset//Images//barreCentrale.jpg";
 }
