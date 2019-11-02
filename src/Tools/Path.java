@@ -65,4 +65,6 @@ public class Path {
     public static String vaissJ1Face = "Asset//Images//géocroiseur-génésis_t-16-0024.png";
     public static String vaissJ2Face = "Asset//Images//intercepteur_max_r22-0000.png";
 
+    public static String vaissJ2BackTurnRight1= "Asset//Images//intercepteur_max_r22-0017.png";
+    public static String vaissJ2BackTurnLeft1 = "Asset//Images//intercepteur_max_r22-0015.png";
 }

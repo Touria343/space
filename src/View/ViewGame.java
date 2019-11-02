@@ -8,6 +8,7 @@ import javafx.animation.*;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Group;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -29,20 +30,25 @@ public class ViewGame {
     private Text vieJ1;
     private Text vieJ2;
     private double positionVaissJ1;
+    private Timeline timelineGoLeft = null;
 
-    public Animation getAnimTextMenuArrivee() {
-        return animTextMenuArrivee;
-    }
 
     private ImageView vaissJ1;
     private ImageView vaissJ2;
     private ImageView vaissJ1Face;
     private ImageView vaissJ2Face;
     private double positionVaissJ2;
-    private Timeline timelineGoRight;
+    private Timeline timelineGoRight = null;
     private Animation animTextMenuArrivee;
 
 
+    public Timeline getTimelineGoLeft() {
+        return timelineGoLeft;
+    }
+
+    public Animation getAnimTextMenuArrivee() {
+        return animTextMenuArrivee;
+    }
     public Timeline getTimelineGoRight() {
         return timelineGoRight;
     }
@@ -234,14 +240,26 @@ public class ViewGame {
 
         if (vaissJ2.getX()<= 1250) {
 
+            Image vaissJ2droite1 = new Image(Path.vaissJ2BackTurnRight1);
+            Image vaissJ2normal = new Image(Path.vaissJ2Back);
 
-           /* final KeyFrame goRightStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2.xProperty(), vaissJ2.getX()));
 
-            final KeyFrame goRightEnd = new KeyFrame(Duration.seconds(0.01), new KeyValue(vaissJ2.xProperty(), vaissJ2.getX()+20));
+            vaissJ2.setImage(vaissJ2droite1);
 
-            timelineGoRight = new Timeline(goRightStart, goRightEnd);
-            timelineGoRight.setCycleCount(Timeline.INDEFINITE);
-            timelineGoRight.playFromStart();*/
+
+            final KeyFrame goRightStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2.xProperty(), vaissJ2.getX()));
+            final KeyFrame goRightEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2.xProperty(), 1250));
+
+
+            final KeyFrame goRightStartFace = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2Face.xProperty(), vaissJ2Face.getX()));
+            final KeyFrame goRightEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), 650));
+
+         if (vaissJ2.getX()>= 1200){
+                vaissJ2.setImage(vaissJ2normal);
+            }
+
+            timelineGoRight = new Timeline(goRightStart, goRightStartFace, goRightEnd, goRightEndFace);
+            timelineGoRight.setCycleCount(1);
 
 
            /* animTextMenuArrivee = new Transition() {
@@ -262,26 +280,48 @@ public class ViewGame {
 
           //  vaissJ2.setX(newPosition);
 
-            positionVaissJ2 = vaissJ2.getX();
-            double newPosition = positionVaissJ2 + 20;
-            vaissJ2.setX(newPosition);
 
-            double positionVaissJ2Face = vaissJ2Face.getX();
+            /*double positionVaissJ2Face = vaissJ2Face.getX();
             double newPositionFace = positionVaissJ2Face - 20;
-            vaissJ2Face.setX(newPositionFace);
+            vaissJ2Face.setX(newPositionFace);*/
         }
     }
 
     public void j2goLeft() {
 
-        if (vaissJ2.getX()>= 620){
-        positionVaissJ2 = vaissJ2.getX();
-        double newPosition = positionVaissJ2 - 20;
-        vaissJ2.setX(newPosition);
+        if (vaissJ2.getX()>= 600){
 
-        double positionVaissJ2Face = vaissJ2Face.getX();
-        double newPositionFace = positionVaissJ2Face + 20;
-        vaissJ2Face.setX(newPositionFace);}
+
+            Image vaissJ2gauche1 = new Image(Path.vaissJ2BackTurnLeft1);
+            Image vaissJ2normall = new Image(Path.vaissJ2Back);
+
+
+            vaissJ2.setImage(vaissJ2gauche1);
+
+
+
+            final KeyFrame goLeftStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2.xProperty(), vaissJ2.getX()));
+            final KeyFrame goLeftEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2.xProperty(), 600));
+
+
+            final KeyFrame goLeftStartFace = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2Face.xProperty(), vaissJ2Face.getX()));
+            final KeyFrame goLeftEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), -30));
+
+            timelineGoLeft = new Timeline(goLeftStart, goLeftStartFace, goLeftEnd, goLeftEndFace);
+            timelineGoLeft.setCycleCount(1);
+
+
+            if (vaissJ2.getX() <= 620){
+
+                vaissJ2.setImage(vaissJ2normall);
+
+            }
+
+
+        }
+
+
+
 
 
     }
