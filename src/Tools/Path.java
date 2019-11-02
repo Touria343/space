@@ -1,5 +1,7 @@
 package Tools;
 
+import javafx.scene.image.ImageView;
+
 public class Path {
     public static final String spider = "Asset/Images/spider.png";
     public static final String cocoEntreeDroite = "Asset/Images/coco_entree_a_droite.png";
@@ -56,4 +58,11 @@ public class Path {
 
     public static String choisir = "Asset//Images//choisir.png";
     public static String barreCentrale = "Asset//Images//barreCentrale.jpg";
+
+    public static String vaissJ1Back = "Asset//Images//géocroiseur-génésis_t-16-0008.png";
+    public static String vaissJ2Back = "Asset//Images//intercepteur_max_r22-0016.png";
+
+    public static String vaissJ1Face = "Asset//Images//géocroiseur-génésis_t-16-0024.png";
+    public static String vaissJ2Face = "Asset//Images//intercepteur_max_r22-0000.png";
+
 }

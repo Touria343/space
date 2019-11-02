@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ControllerJeux;
 import Controller.ControllerMenu;
 import Model.Menu;
 import Music.MusicJeux;
@@ -35,6 +36,7 @@ public class ViewHandler extends Application {
     private Group root;
     private Scene menuDemarrage;
     private ViewGame game;
+    private ControllerJeux controllerJeux;
 
 
     public Scene getMenuDemarrage() {
@@ -63,10 +65,12 @@ public class ViewHandler extends Application {
         game = new ViewGame(model, root);
 
         controllerMenu = new ControllerMenu(this, model);
+        controllerJeux = new ControllerJeux(this, model);
+
 
         MusicJeux.startMainMenuMusic();
-       // afficherMenuPrincipal(true);
-afficherGame();
+       afficherMenuPrincipal(true);
+      //  afficherGame();
         // gestion de l'affichage au lancement
         primaryStage.setScene(menuDemarrage);
         //primaryStage.show();
@@ -88,7 +92,13 @@ afficherGame();
     public void setEventHandlerMenu(ControllerMenu cm) {
         mp.setEvents(cm);
         mo.setEvents(cm);
-        game.setEvents(cm);
+       // game.setEvents(cm);
+
+    }
+
+    public void setEventHandlerGame(ControllerJeux cj) {
+
+        game.setEvents(cj);
 
     }
 
@@ -107,6 +117,10 @@ afficherGame();
 
     public ViewMenuPrincipal getMp() {
         return mp;
+    }
+
+    public ViewGame getGame() {
+        return game;
     }
 
     public ViewChoixVaisseaux getMo() {
