@@ -1,7 +1,6 @@
 package View;
 
 import Controller.ControllerJeux;
-import Controller.ControllerMenu;
 import Model.Menu;
 import Tools.Path;
 import javafx.animation.*;
@@ -40,6 +39,7 @@ public class ViewGame {
     private double positionVaissJ2;
     private Timeline timelineGoRight = null;
     private Animation animTextMenuArrivee;
+    private ImageView missil1;
 
 
     public Timeline getTimelineGoLeft() {
@@ -71,6 +71,7 @@ public class ViewGame {
             initVaisseauxJ2();
             initVaisseauxJ1Face();
             initVaisseauxJ2Face();
+            initMissil1();
 
 
             setVueCompleteMenu();
@@ -135,6 +136,14 @@ public class ViewGame {
         vaissJ2Face.setOpacity(0);
     }
 
+    private void initMissil1() {
+        missil1 = new ImageView(Path.missil1);
+        missil1 .setX(600);
+        missil1 .setY(700);
+        missil1 .setFitWidth(100);
+        missil1 .setPreserveRatio(true);
+    }
+
 
     private void initBackground() {
             videoBackground = new MediaPlayer(new Media(this.getClass().getResource(Path.videobackground4).toExternalForm()));
@@ -164,7 +173,7 @@ public class ViewGame {
         root.getChildren().add(vaissJ2);
         root.getChildren().add(vaissJ1Face);
         root.getChildren().add(vaissJ2Face);
-
+root.getChildren().add(missil1);
 
 
 
@@ -191,6 +200,8 @@ public class ViewGame {
     void setEvents(ControllerJeux cj) {
 
         root.getScene().setOnKeyPressed(cj);
+        root.getScene().setOnKeyReleased(cj);
+
 
 
         //choixVaiss.setOnMouseClicked(mc);
@@ -229,8 +240,6 @@ public class ViewGame {
             double positionVaissJ2Face = vaissJ1Face.getX();
             double newPositionFace = positionVaissJ2Face + 20;
             vaissJ1Face.setX(newPositionFace);}
-
-
     }
 
 
@@ -241,24 +250,34 @@ public class ViewGame {
         if (vaissJ2.getX()<= 1250) {
 
             Image vaissJ2droite1 = new Image(Path.vaissJ2BackTurnRight1);
+            Image vaissJ2droite2 = new Image(Path.vaissJ2BackTurnRight2);
+            Image vaissJ2droite3 = new Image(Path.vaissJ2BackTurnRight3);
+
             Image vaissJ2normal = new Image(Path.vaissJ2Back);
 
+            if(vaissJ2.getX() < 700){
+                vaissJ2.setImage(vaissJ2droite3);
 
-            vaissJ2.setImage(vaissJ2droite1);
+            }else if (vaissJ2.getX() < 850){
+                vaissJ2.setImage(vaissJ2droite2);
+            }else {
+                vaissJ2.setImage(vaissJ2droite1);
+            }
 
 
             final KeyFrame goRightStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2.xProperty(), vaissJ2.getX()));
+           // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
+
             final KeyFrame goRightEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2.xProperty(), 1250));
 
-
             final KeyFrame goRightStartFace = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2Face.xProperty(), vaissJ2Face.getX()));
-            final KeyFrame goRightEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), 650));
+            final KeyFrame goRightEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), 680));
 
          if (vaissJ2.getX()>= 1200){
                 vaissJ2.setImage(vaissJ2normal);
             }
 
-            timelineGoRight = new Timeline(goRightStart, goRightStartFace, goRightEnd, goRightEndFace);
+            timelineGoRight = new Timeline(goRightStart, goRightStartFace, /*changeVaisse,*/ goRightEnd, goRightEndFace);
             timelineGoRight.setCycleCount(1);
 
 
@@ -291,13 +310,21 @@ public class ViewGame {
 
         if (vaissJ2.getX()>= 600){
 
-
             Image vaissJ2gauche1 = new Image(Path.vaissJ2BackTurnLeft1);
-            Image vaissJ2normall = new Image(Path.vaissJ2Back);
+            Image vaissJ2gauche2 = new Image(Path.vaissJ2BackTurnLeft2);
+            Image vaissJ2gauche3 = new Image(Path.vaissJ2BackTurnLeft3);
+
+            Image vaissJ2normal = new Image(Path.vaissJ2Back);
 
 
-            vaissJ2.setImage(vaissJ2gauche1);
+                if(vaissJ2.getX() > 1150){
+                    vaissJ2.setImage(vaissJ2gauche3);
 
+                }else if (vaissJ2.getX() > 1000){
+                    vaissJ2.setImage(vaissJ2gauche2);
+                }else {
+                    vaissJ2.setImage(vaissJ2gauche1);
+                }
 
 
             final KeyFrame goLeftStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2.xProperty(), vaissJ2.getX()));
@@ -310,20 +337,12 @@ public class ViewGame {
             timelineGoLeft = new Timeline(goLeftStart, goLeftStartFace, goLeftEnd, goLeftEndFace);
             timelineGoLeft.setCycleCount(1);
 
-
-            if (vaissJ2.getX() <= 620){
-
-                vaissJ2.setImage(vaissJ2normall);
-
-            }
-
-
         }
+    }
 
-
-
-
-
+    public void retourNormalBack() {
+        Image vaissJ2normal = new Image(Path.vaissJ2Back);
+        vaissJ2.setImage(vaissJ2normal);
     }
 }
 

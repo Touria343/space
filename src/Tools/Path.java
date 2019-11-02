@@ -1,5 +1,6 @@
 package Tools;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Path {
@@ -65,6 +66,16 @@ public class Path {
     public static String vaissJ1Face = "Asset//Images//géocroiseur-génésis_t-16-0024.png";
     public static String vaissJ2Face = "Asset//Images//intercepteur_max_r22-0000.png";
 
-    public static String vaissJ2BackTurnRight1= "Asset//Images//intercepteur_max_r22-0017.png";
+
+
     public static String vaissJ2BackTurnLeft1 = "Asset//Images//intercepteur_max_r22-0015.png";
+    public static String vaissJ2BackTurnLeft2 = "Asset//Images//intercepteur_max_r22-0014.png";
+    public static String vaissJ2BackTurnLeft3 = "Asset//Images//intercepteur_max_r22-0013.png";
+
+    public static String vaissJ2BackTurnRight1= "Asset//Images//intercepteur_max_r22-0017.png";
+    public static String vaissJ2BackTurnRight2 = "Asset//Images//intercepteur_max_r22-0018.png";
+    public static String vaissJ2BackTurnRight3 = "Asset//Images//intercepteur_max_r22-0019.png";
+
+
+    public static String missil1= "Asset//Images//missil1.gif";
 }

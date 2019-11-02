@@ -20,6 +20,7 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
     private Menu model;
     private int i = 0;
     private boolean presseRight = false;
+    private boolean presseLeft = false;
 
     /**
      * Constructeur du controleur relatif au menu principal
@@ -39,27 +40,26 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
         if (keyEvent.getEventType().equals(KeyEvent.KEY_PRESSED)) {
 
             if (keyEvent.getCode() == KeyCode.RIGHT) {
-                presseRight = false;
-
-                if (!presseRight) {
+              //  if (!presseRight) {
+               //     presseRight = true;
                     launcher.getGame().j2goRight();
-
                  /*   if (Timeline.Status.RUNNING == launcher.getGame().getTimelineGoLeft().getStatus()){
-
                    launcher.getGame().getTimelineGoLeft().stop();
                    }*/
                     launcher.getGame().getTimelineGoRight().playFromStart();
-                    presseRight = true;
-                }
+                //}
             }
 
             if (keyEvent.getCode() == KeyCode.LEFT) {
-                launcher.getGame().j2goLeft();
+              //  if (!presseLeft) {
+               //     presseRight = true;
+
+                    launcher.getGame().j2goLeft();
                /* if (Timeline.Status.RUNNING == launcher.getGame().getTimelineGoRight().getStatus()){
                 launcher.getGame().getTimelineGoRight().stop();
                 }*/
-                launcher.getGame().getTimelineGoLeft().playFromStart();
-
+                    launcher.getGame().getTimelineGoLeft().playFromStart();
+              //  }
             }
 
             if (keyEvent.getCode() == KeyCode.D) {
@@ -69,19 +69,28 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
             if (keyEvent.getCode() == KeyCode.Q) {
                 launcher.getGame().j1goLeft();
             }
-
         }
 
 
         if (keyEvent.getEventType().equals(KeyEvent.KEY_RELEASED)) {
-            System.out.println("keyrelease");
 
-            if (keyEvent.getCode() == KeyCode.RIGHT && presseRight) {
+            if (keyEvent.getCode() == KeyCode.RIGHT) {
                 launcher.getGame().getTimelineGoRight().stop();
-                presseRight = false;
+                launcher.getGame().retourNormalBack();
+                // presseLeft = false;
+                // launcher.getGame().getAnimTextMenuArrivee().stop();
+            }
+
+            if (keyEvent.getCode() == KeyCode.LEFT) {
+                launcher.getGame().getTimelineGoLeft().stop();
+                launcher.getGame().retourNormalBack();
+
+
+                // presseRight = false;
 
                 // launcher.getGame().getAnimTextMenuArrivee().stop();
             }
+
         }
     }
 }
