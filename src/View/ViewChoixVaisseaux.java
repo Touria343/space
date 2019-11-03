@@ -230,9 +230,9 @@ public class ViewChoixVaisseaux {
     }
     private void initTextChangerVaisseaux() {
 
-        joueur1 = new Text(600, 820, "Vaisseau suivant");
-        joueur1.setFont(Font.font("Dead Kansas", SEMI_BOLD, 37));
-        joueur1.setFill (Color.BLUE);
+        joueur1 = new Text(640, 820, "Vaisseau suivant");
+        joueur1.setFont(Font.font("Dead Kansas", SEMI_BOLD, 28));
+        joueur1.setFill (Color.LIGHTGREEN);
         joueur1.setOpacity(0);
 
         Reflection r = new Reflection();
