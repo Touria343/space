@@ -47,7 +47,7 @@ public class Path {
     public static final String fontRiesling = "../Asset/Font/riesling.ttf";
 
     public static final String videobackground1 = "..//Asset//Video//TypoYellow_27791.mp4";
-    public static final String videobackground2 = "../Asset//Video//Ink - 27915.mp4";
+    public static final String videobackground2 = "../Asset//Video//Yellow - 27791.mp4";
     public static final String videobackground3 = "../Asset//Video//motion.mp4";
     public static final String videobackground4 = "../Asset//Video//Star.mp4";
 

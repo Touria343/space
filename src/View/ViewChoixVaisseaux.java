@@ -134,6 +134,7 @@ public class ViewChoixVaisseaux {
         joueurNum1.setOpacity(0);
         joueurNum1.setFitWidth(250);
         joueurNum1.setPreserveRatio(true);
+        joueurNum1.setOpacity(0);
         Reflection r = new Reflection();
         r.setFraction(0.6f);
         joueurNum1.setEffect(r);
@@ -154,6 +155,7 @@ public class ViewChoixVaisseaux {
         joueurNum2.setOpacity(0);
         joueurNum2.setFitWidth(250);
         joueurNum2.setPreserveRatio(true);
+        joueurNum2.setOpacity(0);
         Reflection r = new Reflection();
         r.setFraction(0.6f);
         joueurNum2.setEffect(r);
@@ -178,6 +180,7 @@ public class ViewChoixVaisseaux {
         chevron.setPreserveRatio(false);
         chevron.setOpacity(0);
         chevron.setPickOnBounds(true);
+        chevron.setOpacity(0);
 
 
 
@@ -192,6 +195,7 @@ public class ViewChoixVaisseaux {
         chevrondroit.setPreserveRatio(false);
         chevrondroit.setOpacity(0);
         chevrondroit.setPickOnBounds(true);
+        chevrondroit.setOpacity(0);
 
 
     }
@@ -202,6 +206,8 @@ public class ViewChoixVaisseaux {
         bandeTop.setY(0);
         bandeTop.setFitWidth(1500);
         bandeTop.setPreserveRatio(true);
+        bandeTop.setOpacity(0);
+
     }
     private void initBandeBottom() {
 
@@ -210,6 +216,7 @@ public class ViewChoixVaisseaux {
         bandeBottom.setY(930);
         bandeBottom.setFitWidth(1500);
         bandeBottom.setPreserveRatio(true);
+        bandeBottom.setOpacity(0);
     }
     private void initStats() {
 
@@ -226,6 +233,7 @@ public class ViewChoixVaisseaux {
         joueur1 = new Text(600, 820, "Vaisseau suivant");
         joueur1.setFont(Font.font("Dead Kansas", SEMI_BOLD, 37));
         joueur1.setFill (Color.BLUE);
+        joueur1.setOpacity(0);
 
         Reflection r = new Reflection();
         r.setFraction(0.5f);
@@ -288,6 +296,10 @@ public class ViewChoixVaisseaux {
                 spider.setOpacity(frac);
                 chevron.setOpacity(frac);
                 chevrondroit.setOpacity(frac);
+                bandeBottom.setOpacity(frac-0.2);
+                bandeTop.setOpacity(frac-0.2);
+                joueurNum1.setOpacity(frac-0.1);
+                joueurNum2.setOpacity(frac-0.1);
             }
         };
         final Animation animTextMenu = new Transition() {
@@ -295,9 +307,11 @@ public class ViewChoixVaisseaux {
                 setCycleDuration(Duration.millis(4000));
             }
             protected void interpolate(double frac) {
-                stats.setOpacity(frac);
+                stats.setOpacity(frac-0.1);
                 imageChoisir.setOpacity(frac);
-
+                chevron.setOpacity(frac);
+                chevrondroit.setOpacity(frac);
+                joueur1.setOpacity(frac);
                 joueurNum1.setOpacity(frac);
             }
         };
@@ -528,7 +542,7 @@ public class ViewChoixVaisseaux {
             }
 
             protected void interpolate(double frac) {
-                statsSelectionne.setOpacity(frac);
+                statsSelectionne.setOpacity(frac-0.1);
                 imageChoisir.setOpacity(frac);
                 //this.stop();
             }
