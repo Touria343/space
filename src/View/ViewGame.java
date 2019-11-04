@@ -6,6 +6,7 @@ import Tools.Path;
 import javafx.animation.*;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,6 +18,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+
+import java.applet.Applet;
 
 public class ViewGame {
 
@@ -40,6 +43,8 @@ public class ViewGame {
     private Timeline timelineGoRight = null;
     private Animation animTextMenuArrivee;
     private ImageView missil1;
+    private Bounds tirFBound;
+    private PauseTransition delayExploTouch;
 
 
     public Timeline getTimelineGoLeft() {
@@ -71,7 +76,6 @@ public class ViewGame {
             initVaisseauxJ2();
             initVaisseauxJ1Face();
             initVaisseauxJ2Face();
-            initMissil1();
 
 
             setVueCompleteMenu();
@@ -106,6 +110,9 @@ public class ViewGame {
         vaissJ1.setFitWidth(300);
         vaissJ1.setPreserveRatio(true);
         vaissJ1.setOpacity(0);
+        vaissJ1.setPickOnBounds(false);
+
+
     }
 
     private void initVaisseauxJ2() {
@@ -115,6 +122,8 @@ public class ViewGame {
         vaissJ2.setFitWidth(300);
         vaissJ2.setPreserveRatio(true);
         vaissJ2.setOpacity(0);
+        vaissJ2.setPickOnBounds(false);
+
     }
 
 
@@ -125,6 +134,8 @@ public class ViewGame {
         vaissJ1Face.setFitWidth(75);
         vaissJ1Face.setPreserveRatio(true);
         vaissJ1Face.setOpacity(0);
+        vaissJ1Face.setPickOnBounds(false);
+
     }
 
     private void initVaisseauxJ2Face() {
@@ -134,14 +145,8 @@ public class ViewGame {
         vaissJ2Face.setFitWidth(75);
         vaissJ2Face.setPreserveRatio(true);
         vaissJ2Face.setOpacity(0);
-    }
+        vaissJ2Face.setPickOnBounds(false);
 
-    private void initMissil1() {
-        missil1 = new ImageView(Path.missil1);
-        missil1 .setX(600);
-        missil1 .setY(700);
-        missil1 .setFitWidth(100);
-        missil1 .setPreserveRatio(true);
     }
 
     private void initBackground() {
@@ -170,7 +175,6 @@ public class ViewGame {
         root.getChildren().add(vaissJ2);
         root.getChildren().add(vaissJ1Face);
         root.getChildren().add(vaissJ2Face);
-root.getChildren().add(missil1);
 
 
 
@@ -344,49 +348,127 @@ root.getChildren().add(missil1);
         root.getChildren().add(tir);
         root.getChildren().add(vaissJ2);
 
+        final KeyFrame tirStartXajust;
+        final KeyFrame tirEndXajust;
+
+        if(vaissJ2.getX() <950 ){
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+100));
+            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+180));
+            tir.setRotate(6);
+        }else if(vaissJ2.getX() > 1100 ){
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+100));
+            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+30));
+            tir.setRotate(-6);
+        } else{
+
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+100));
+            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+100));
+            tir.setRotate(0);
+
+        }
+
         final KeyFrame tirStartY = new KeyFrame(Duration.ZERO, new KeyValue(tir.yProperty(), 700));
         // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
-        final KeyFrame tirEndY = new KeyFrame(Duration.seconds(2), new KeyValue(tir.yProperty(), 250));
+        final KeyFrame tirEndY = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.yProperty(), 250));
 
-        final KeyFrame tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+100));
-        final KeyFrame tirEndXajust = new KeyFrame(Duration.seconds(2), new KeyValue(tir.xProperty(), vaissJ2.getX()+120));
 
-        final KeyFrame tirStartWidth = new KeyFrame(Duration.ZERO, new KeyValue(tir.fitWidthProperty(), 100));
-        final KeyFrame tirEndWidth = new KeyFrame(Duration.seconds(2), new KeyValue(tir.fitWidthProperty(), 1));
+
+        final KeyFrame tirStartWidth = new KeyFrame(Duration.ZERO, new KeyValue(tir.fitWidthProperty(), 30));
+        final KeyFrame tirEndWidth = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.fitWidthProperty(), 1));
 
         final  Timeline timelineTir = new Timeline(tirStartY, tirStartWidth, tirStartXajust, tirEndY, tirEndWidth, tirEndXajust);
 
         timelineTir.play();
 
-        if(tir.getY() <=250){
 
-            root.getChildren().remove(tir);
 
-        }
 
         ImageView tirF = new ImageView(Path.missil1F);
         tirF.setX(vaissJ2Face.getX()+30);
         tirF.setY(700);
-        tirF.setFitWidth(200);
+        tirF.setFitWidth(10);
         tirF.setPreserveRatio(true);
         tirF.setRotate(-2);
         root.getChildren().remove(vaissJ2);
+        root.getChildren().remove(vaissJ1);
+
         root.getChildren().add(tirF);
         root.getChildren().add(vaissJ2);
+        root.getChildren().add(vaissJ1);
+
+
+        PauseTransition delayRemoveTir = new PauseTransition(Duration.seconds(3));
+        delayRemoveTir.setOnFinished( event -> {
+            root.getChildren().remove(tir);
+            root.getChildren().remove(tirF);
+
+
+        } );
+        delayRemoveTir.play();
+
 
         final KeyFrame tirStartYF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.yProperty(), 320));
         // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
-        final KeyFrame tirEndYF = new KeyFrame(Duration.seconds(2), new KeyValue(tirF.yProperty(), 900));
+        final KeyFrame tirEndYF = new KeyFrame(Duration.seconds(4), new KeyValue(tirF.yProperty(), 900));
 
         final KeyFrame tirStartXajustF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.xProperty(), vaissJ2Face.getX()+30));
-        final KeyFrame tirEndXajustF = new KeyFrame(Duration.seconds(2), new KeyValue(tirF.xProperty(), vaissJ2Face.getX()-30));
+        final KeyFrame tirEndXajustF = new KeyFrame(Duration.seconds(4), new KeyValue(tirF.xProperty(), vaissJ2Face.getX()+10));
 
-        final KeyFrame tirStartWidthF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.fitWidthProperty(), 10));
-        final KeyFrame tirEndWidthF = new KeyFrame(Duration.seconds(2), new KeyValue(tirF.fitWidthProperty(), 140));
+        final KeyFrame tirStartWidthF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.fitWidthProperty(), 1));
+        final KeyFrame tirEndWidthF = new KeyFrame(Duration.seconds(4), new KeyValue(tirF.fitWidthProperty(), 25));
 
         final  Timeline timelineTirF = new Timeline(tirStartYF, tirStartWidthF, tirStartXajustF, tirEndYF, tirEndWidthF, tirEndXajustF);
 
         timelineTirF.play();
+
+        tirFBound =  tirF.getBoundsInParent();
+
+         delayExploTouch = new PauseTransition(Duration.seconds(2));
+        delayExploTouch.setOnFinished( event -> {
+
+            if(vaissJ1.getBoundsInParent().intersects(tirFBound)) {
+
+
+                ImageView toucheExplos = new ImageView(Path.toucheExplo1);
+                toucheExplos.setX(vaissJ1.getX()+10);
+                toucheExplos.setY(610);
+                toucheExplos.setFitWidth(300);
+                toucheExplos.setPreserveRatio(true);
+                toucheExplos.setOpacity(0.7);
+
+
+                ImageView toucheExplosF = new ImageView(Path.toucheExplo1);
+                toucheExplosF.setX(vaissJ1Face.getX()+10);
+                toucheExplosF.setY(210);
+                toucheExplosF.setFitWidth(130);
+                toucheExplosF.setPreserveRatio(true);
+                toucheExplosF.setOpacity(0.7);
+
+
+                //root.getChildren().remove(vaissJ2);
+                root.getChildren().add(toucheExplosF);
+                root.getChildren().add(toucheExplos);
+                //root.getChildren().add(vaissJ2);
+                //game over
+                root.getChildren().remove(tir);
+                root.getChildren().remove(tirF);
+
+                PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(2));
+                delayExplodispar.setOnFinished( event2 -> {
+
+                    root.getChildren().remove(toucheExplos);
+                    root.getChildren().remove(toucheExplosF);
+
+                });
+                 delayExplodispar.play();
+
+
+
+
+        } });
+        delayExploTouch.play();
+
+
 
 
 
