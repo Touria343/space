@@ -70,7 +70,7 @@ public class ViewHandler extends Application {
 
         MusicJeux.startMainMenuMusic();
        afficherMenuPrincipal(true);
-      //  afficherGame();
+       //afficherGame();
         // gestion de l'affichage au lancement
         primaryStage.setScene(menuDemarrage);
         //primaryStage.show();

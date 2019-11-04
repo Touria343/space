@@ -438,8 +438,8 @@ public class ViewGame {
 
 
                 ImageView toucheExplosF = new ImageView(Path.toucheExplo1);
-                toucheExplosF.setX(vaissJ1Face.getX()+10);
-                toucheExplosF.setY(210);
+                toucheExplosF.setX(vaissJ1Face.getX()-10);
+                toucheExplosF.setY(240);
                 toucheExplosF.setFitWidth(130);
                 toucheExplosF.setPreserveRatio(true);
                 toucheExplosF.setOpacity(0.7);
