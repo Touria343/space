@@ -62,7 +62,14 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
               //  }
             }
 
-            if (keyEvent.getCode() == KeyCode.D) {
+
+            if (keyEvent.getCode() == KeyCode.O) {
+                launcher.getGame().tir();
+                System.out.println("hello tir");
+            }
+
+
+                if (keyEvent.getCode() == KeyCode.D) {
                 launcher.getGame().j1goRight();
             }
 

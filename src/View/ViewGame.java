@@ -144,7 +144,6 @@ public class ViewGame {
         missil1 .setPreserveRatio(true);
     }
 
-
     private void initBackground() {
             videoBackground = new MediaPlayer(new Media(this.getClass().getResource(Path.videobackground4).toExternalForm()));
             videoBackground.setAutoPlay(true);
@@ -160,8 +159,6 @@ public class ViewGame {
             height.bind(Bindings.selectDouble(viewer.sceneProperty(), "height"));
             viewer.setPreserveRatio(false);
         }
-
-
 
     void setVueCompleteMenu() {
         root.getChildren().clear();
@@ -194,9 +191,6 @@ root.getChildren().add(missil1);
         animTextMenuArrivee.play();
     }
 
-
-
-
     void setEvents(ControllerJeux cj) {
 
         root.getScene().setOnKeyPressed(cj);
@@ -213,10 +207,7 @@ root.getChildren().add(missil1);
 
     }
 
-
-
     public void j1goRight() {
-
 
         if (vaissJ1.getX()<= 500) {
 
@@ -242,8 +233,6 @@ root.getChildren().add(missil1);
             vaissJ1Face.setX(newPositionFace);}
     }
 
-
-
     public void j2goRight() {
 
 
@@ -257,7 +246,6 @@ root.getChildren().add(missil1);
 
             if(vaissJ2.getX() < 700){
                 vaissJ2.setImage(vaissJ2droite3);
-
             }else if (vaissJ2.getX() < 850){
                 vaissJ2.setImage(vaissJ2droite2);
             }else {
@@ -271,7 +259,7 @@ root.getChildren().add(missil1);
             final KeyFrame goRightEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2.xProperty(), 1250));
 
             final KeyFrame goRightStartFace = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2Face.xProperty(), vaissJ2Face.getX()));
-            final KeyFrame goRightEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), 680));
+            final KeyFrame goRightEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), -30));
 
          if (vaissJ2.getX()>= 1200){
                 vaissJ2.setImage(vaissJ2normal);
@@ -332,7 +320,7 @@ root.getChildren().add(missil1);
 
 
             final KeyFrame goLeftStartFace = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2Face.xProperty(), vaissJ2Face.getX()));
-            final KeyFrame goLeftEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), -30));
+            final KeyFrame goLeftEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), 650));
 
             timelineGoLeft = new Timeline(goLeftStart, goLeftStartFace, goLeftEnd, goLeftEndFace);
             timelineGoLeft.setCycleCount(1);
@@ -343,6 +331,65 @@ root.getChildren().add(missil1);
     public void retourNormalBack() {
         Image vaissJ2normal = new Image(Path.vaissJ2Back);
         vaissJ2.setImage(vaissJ2normal);
+    }
+
+    public void tir() {
+
+        ImageView tir = new ImageView(Path.missil1);
+        tir.setX(vaissJ2.getX()+100);
+        tir.setY(700);
+        tir.setFitWidth(100);
+        tir.setPreserveRatio(true);
+        root.getChildren().remove(vaissJ2);
+        root.getChildren().add(tir);
+        root.getChildren().add(vaissJ2);
+
+        final KeyFrame tirStartY = new KeyFrame(Duration.ZERO, new KeyValue(tir.yProperty(), 700));
+        // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
+        final KeyFrame tirEndY = new KeyFrame(Duration.seconds(2), new KeyValue(tir.yProperty(), 250));
+
+        final KeyFrame tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+100));
+        final KeyFrame tirEndXajust = new KeyFrame(Duration.seconds(2), new KeyValue(tir.xProperty(), vaissJ2.getX()+120));
+
+        final KeyFrame tirStartWidth = new KeyFrame(Duration.ZERO, new KeyValue(tir.fitWidthProperty(), 100));
+        final KeyFrame tirEndWidth = new KeyFrame(Duration.seconds(2), new KeyValue(tir.fitWidthProperty(), 1));
+
+        final  Timeline timelineTir = new Timeline(tirStartY, tirStartWidth, tirStartXajust, tirEndY, tirEndWidth, tirEndXajust);
+
+        timelineTir.play();
+
+        if(tir.getY() <=250){
+
+            root.getChildren().remove(tir);
+
+        }
+
+        ImageView tirF = new ImageView(Path.missil1F);
+        tirF.setX(vaissJ2Face.getX()+30);
+        tirF.setY(700);
+        tirF.setFitWidth(200);
+        tirF.setPreserveRatio(true);
+        tirF.setRotate(-2);
+        root.getChildren().remove(vaissJ2);
+        root.getChildren().add(tirF);
+        root.getChildren().add(vaissJ2);
+
+        final KeyFrame tirStartYF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.yProperty(), 320));
+        // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
+        final KeyFrame tirEndYF = new KeyFrame(Duration.seconds(2), new KeyValue(tirF.yProperty(), 900));
+
+        final KeyFrame tirStartXajustF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.xProperty(), vaissJ2Face.getX()+30));
+        final KeyFrame tirEndXajustF = new KeyFrame(Duration.seconds(2), new KeyValue(tirF.xProperty(), vaissJ2Face.getX()-30));
+
+        final KeyFrame tirStartWidthF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.fitWidthProperty(), 10));
+        final KeyFrame tirEndWidthF = new KeyFrame(Duration.seconds(2), new KeyValue(tirF.fitWidthProperty(), 140));
+
+        final  Timeline timelineTirF = new Timeline(tirStartYF, tirStartWidthF, tirStartXajustF, tirEndYF, tirEndWidthF, tirEndXajustF);
+
+        timelineTirF.play();
+
+
+
     }
 }
 
