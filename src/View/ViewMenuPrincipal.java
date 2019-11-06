@@ -252,5 +252,11 @@ public class ViewMenuPrincipal {
 
     }
 
-
+    public MediaPlayer getVideoBackground() {
+        return videoBackground;
     }
+
+    public void setVideoBackground(MediaPlayer videoBackground) {
+        this.videoBackground = videoBackground;
+    }
+}

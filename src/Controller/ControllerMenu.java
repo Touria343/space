@@ -46,6 +46,7 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
         }
 
         if (mouseEvent.getSource().equals(launcher.getMp().getJouer())) {
+            launcher.getMp().getVideoBackground().stop();
             launcher.afficherJeux();
             launcher.getMo().getVideoBackground().play();
 
@@ -80,7 +81,10 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
             i=1;
         }else if (mouseEvent.getSource().equals(launcher.getMo().getImageChoisir()) && i==1 && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
             launcher.getMo().changeChoixJoueur2();
+            launcher.getMo().getVideoBackground().stop();
+
             launcher.afficherGame();
+
         }
 
 
