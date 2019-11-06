@@ -197,7 +197,6 @@ public class ViewChoixVaisseaux {
         chevrondroit.setPickOnBounds(true);
         chevrondroit.setOpacity(0);
 
-
     }
     private void initBandeTop() {
 

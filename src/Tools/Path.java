@@ -80,4 +80,5 @@ public class Path {
     public static String missil1= "Asset//Images//missil1.gif";
     public static String missil1F = "Asset//Images//misil2front.gif";
     public static String toucheExplo1 = "Asset//Images//explosion//source.gif";
+    public static String videobackground5 = "..//Asset//Video//Particles - 15451.mp4";
 }
