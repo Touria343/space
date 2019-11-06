@@ -47,7 +47,7 @@ public class Path {
     public static final String fontRiesling = "../Asset/Font/riesling.ttf";
 
     public static final String videobackground1 = "..//Asset//Video//TypoYellow_27791.mp4";
-    public static final String videobackground2 = "../Asset//Video//Yellow - 27791.mp4";
+    public static final String videobackground2 = "../Asset//Video//Yellow - 27792.mp4";
     public static final String videobackground3 = "../Asset//Video//motion.mp4";
     public static final String videobackground4 = "../Asset//Video//Star.mp4";
 
@@ -80,5 +80,5 @@ public class Path {
     public static String missil1= "Asset//Images//missil1.gif";
     public static String missil1F = "Asset//Images//misil2front.gif";
     public static String toucheExplo1 = "Asset//Images//explosion//source.gif";
-    public static String videobackground5 = "..//Asset//Video//Particles - 15451.mp4";
+    public static String videobackground5 = "..//Asset//Video//Yellow - 27792.mp4";
 }

@@ -244,7 +244,7 @@ public class ViewChoixVaisseaux {
         //imgBg.setFitHeight((int) primaryScreenBounds.getHeight());
         //imgBg.setFitWidth((int) primaryScreenBounds.getWidth());
 
-        videoBackground = new MediaPlayer(new Media(this.getClass().getResource(Path.videobackground2).toExternalForm()));
+        videoBackground = new MediaPlayer(new Media(this.getClass().getResource(Path.videobackground5).toExternalForm()));
         videoBackground.setAutoPlay(true);
         videoBackground.setCycleCount(MediaPlayer.INDEFINITE);
         viewer = new MediaView(videoBackground);
