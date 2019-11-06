@@ -19,8 +19,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-import java.applet.Applet;
-
 public class ViewGame {
 
 
@@ -32,7 +30,7 @@ public class ViewGame {
     private Text vieJ1;
     private Text vieJ2;
     private double positionVaissJ1;
-    private Timeline timelineGoLeft = null;
+    private Timeline timelineGoLeftJ2 = null;
 
 
     private ImageView vaissJ1;
@@ -40,22 +38,34 @@ public class ViewGame {
     private ImageView vaissJ1Face;
     private ImageView vaissJ2Face;
     private double positionVaissJ2;
-    private Timeline timelineGoRight = null;
+    private Timeline timelineGoRightJ2 = null;
     private Animation animTextMenuArrivee;
     private ImageView missil1;
     private Bounds tirFBound;
     private PauseTransition delayExploTouch;
 
 
-    public Timeline getTimelineGoLeft() {
-        return timelineGoLeft;
+    private Timeline timelineGoLeftJ1;
+
+    public Timeline getTimelineGoRightJ1() {
+        return timelineGoRightJ1;
+    }
+
+    private Timeline timelineGoRightJ1;
+
+    public Timeline getTimelineGoLeftJ1() {
+        return timelineGoLeftJ1;
+    }
+
+    public Timeline getTimelineGoLeftJ2() {
+        return timelineGoLeftJ2;
     }
 
     public Animation getAnimTextMenuArrivee() {
         return animTextMenuArrivee;
     }
-    public Timeline getTimelineGoRight() {
-        return timelineGoRight;
+    public Timeline getTimelineGoRightJ2() {
+        return timelineGoRightJ2;
     }
 
     /**
@@ -149,11 +159,16 @@ public class ViewGame {
 
     }
 
+    public MediaPlayer getVideoBackground() {
+        return videoBackground;
+    }
+
     private void initBackground() {
             videoBackground = new MediaPlayer(new Media(this.getClass().getResource(Path.videobackground4).toExternalForm()));
-            videoBackground.setAutoPlay(true);
             videoBackground.setCycleCount(MediaPlayer.INDEFINITE);
             viewer = new MediaView(videoBackground);
+
+        videoBackground.play();
 
 
             //change width and height to fit video
@@ -213,40 +228,85 @@ public class ViewGame {
 
     public void j1goRight() {
 
-        if (vaissJ1.getX()<= 500) {
+        if (vaissJ1.getX() <= 601){
 
-            positionVaissJ1 = vaissJ1.getX();
-            double newPosition = positionVaissJ1 + 20;
-            vaissJ1.setX(newPosition);
+            Image vaissJ2gauche1 = new Image(Path.vaissJ2BackTurnLeft1);
+            Image vaissJ2gauche2 = new Image(Path.vaissJ2BackTurnLeft2);
+            Image vaissJ2gauche3 = new Image(Path.vaissJ2BackTurnLeft3);
 
-            double positionVaissJ2Face = vaissJ1Face.getX();
-            double newPositionFace = positionVaissJ2Face - 20;
-            vaissJ1Face.setX(newPositionFace);
+
+
+            if(vaissJ2.getX() < 150){
+                vaissJ1.setImage(vaissJ2gauche3);
+
+            }else if (vaissJ1.getX() < 350){
+                vaissJ1.setImage(vaissJ2gauche2);
+            }else {
+                vaissJ1.setImage(vaissJ2gauche1);
+            }
+
+
+            final KeyFrame goLeftStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ1.xProperty(), vaissJ1.getX()));
+            final KeyFrame goLeftEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ1.xProperty(), 500));
+
+
+            final KeyFrame goLeftStartFace = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ1Face.xProperty(), vaissJ1Face.getX()));
+            final KeyFrame goLeftEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ1Face.xProperty(), 800));
+
+            timelineGoRightJ1 = new Timeline(goLeftStart, goLeftStartFace, goLeftEnd, goLeftEndFace);
+            timelineGoRightJ1.setCycleCount(1);
+
         }
+
     }
 
     public void j1goLeft() {
 
-        if (vaissJ1.getX()>= -60){
-            positionVaissJ1 = vaissJ1.getX();
-            double newPosition = positionVaissJ1 - 20;
-            vaissJ1.setX(newPosition);
 
-            double positionVaissJ2Face = vaissJ1Face.getX();
-            double newPositionFace = positionVaissJ2Face + 20;
-            vaissJ1Face.setX(newPositionFace);}
+
+        if (vaissJ1.getX() >= -101){
+
+            Image vaissJ2gauche1 = new Image(Path.vaissJ2BackTurnLeft1);
+            Image vaissJ2gauche2 = new Image(Path.vaissJ2BackTurnLeft2);
+            Image vaissJ2gauche3 = new Image(Path.vaissJ2BackTurnLeft3);
+
+
+
+            if(vaissJ2.getX() > 750){
+                vaissJ1.setImage(vaissJ2gauche3);
+
+            }else if (vaissJ1.getX() > 550){
+                vaissJ1.setImage(vaissJ2gauche2);
+            }else {
+                vaissJ1.setImage(vaissJ2gauche1);
+            }
+
+
+            final KeyFrame goLeftStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ1.xProperty(), vaissJ1.getX()));
+            final KeyFrame goLeftEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ1.xProperty(), -100));
+
+
+            final KeyFrame goLeftStartFace = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ1Face.xProperty(), vaissJ1Face.getX()));
+            final KeyFrame goLeftEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ1Face.xProperty(), 1250));
+
+            timelineGoLeftJ1 = new Timeline(goLeftStart, goLeftStartFace, goLeftEnd, goLeftEndFace);
+            timelineGoLeftJ1.setCycleCount(1);
+
+        }
+
+
     }
 
     public void j2goRight() {
 
 
-        if (vaissJ2.getX()<= 1250) {
+        if (vaissJ2.getX()<= 1251) {
 
             Image vaissJ2droite1 = new Image(Path.vaissJ2BackTurnRight1);
             Image vaissJ2droite2 = new Image(Path.vaissJ2BackTurnRight2);
             Image vaissJ2droite3 = new Image(Path.vaissJ2BackTurnRight3);
 
-            Image vaissJ2normal = new Image(Path.vaissJ2Back);
+      //      Image vaissJ2normal = new Image(Path.vaissJ2Back);
 
             if(vaissJ2.getX() < 700){
                 vaissJ2.setImage(vaissJ2droite3);
@@ -256,21 +316,18 @@ public class ViewGame {
                 vaissJ2.setImage(vaissJ2droite1);
             }
 
-
             final KeyFrame goRightStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2.xProperty(), vaissJ2.getX()));
            // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
 
             final KeyFrame goRightEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2.xProperty(), 1250));
 
             final KeyFrame goRightStartFace = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2Face.xProperty(), vaissJ2Face.getX()));
-            final KeyFrame goRightEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), -30));
+            final KeyFrame goRightEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), 70));
 
-         if (vaissJ2.getX()>= 1200){
-                vaissJ2.setImage(vaissJ2normal);
-            }
 
-            timelineGoRight = new Timeline(goRightStart, goRightStartFace, /*changeVaisse,*/ goRightEnd, goRightEndFace);
-            timelineGoRight.setCycleCount(1);
+
+            timelineGoRightJ2 = new Timeline(goRightStart, goRightStartFace, /*changeVaisse,*/ goRightEnd, goRightEndFace);
+            timelineGoRightJ2.setCycleCount(1);
 
 
            /* animTextMenuArrivee = new Transition() {
@@ -300,13 +357,12 @@ public class ViewGame {
 
     public void j2goLeft() {
 
-        if (vaissJ2.getX()>= 600){
+        if (vaissJ2.getX()>= 601){
 
             Image vaissJ2gauche1 = new Image(Path.vaissJ2BackTurnLeft1);
             Image vaissJ2gauche2 = new Image(Path.vaissJ2BackTurnLeft2);
             Image vaissJ2gauche3 = new Image(Path.vaissJ2BackTurnLeft3);
 
-            Image vaissJ2normal = new Image(Path.vaissJ2Back);
 
 
                 if(vaissJ2.getX() > 1150){
@@ -324,10 +380,10 @@ public class ViewGame {
 
 
             final KeyFrame goLeftStartFace = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2Face.xProperty(), vaissJ2Face.getX()));
-            final KeyFrame goLeftEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), 650));
+            final KeyFrame goLeftEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ2Face.xProperty(), 550));
 
-            timelineGoLeft = new Timeline(goLeftStart, goLeftStartFace, goLeftEnd, goLeftEndFace);
-            timelineGoLeft.setCycleCount(1);
+            timelineGoLeftJ2 = new Timeline(goLeftStart, goLeftStartFace, goLeftEnd, goLeftEndFace);
+            timelineGoLeftJ2.setCycleCount(1);
 
         }
     }
@@ -340,7 +396,7 @@ public class ViewGame {
     public void tir() {
 
         ImageView tir = new ImageView(Path.missil1);
-        tir.setX(vaissJ2.getX()+100);
+        tir.setX(vaissJ2.getX()+130);
         tir.setY(700);
         tir.setFitWidth(100);
         tir.setPreserveRatio(true);
@@ -351,18 +407,27 @@ public class ViewGame {
         final KeyFrame tirStartXajust;
         final KeyFrame tirEndXajust;
 
-        if(vaissJ2.getX() <950 ){
-            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+100));
-            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+180));
+        if(vaissJ2.getX() <700 ){
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+130));
+            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+200));
+            tir.setRotate(8);
+        } else if(vaissJ2.getX() <850 ){
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+130));
+            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+190));
             tir.setRotate(6);
-        }else if(vaissJ2.getX() > 1100 ){
-            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+100));
-            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+30));
+        }else if(vaissJ2.getX() > 1050 ){
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+130));
+            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+70));
             tir.setRotate(-6);
-        } else{
 
-            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+100));
-            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+100));
+        }else if (vaissJ2.getX() > 1200 ){
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+130));
+            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+60));
+            tir.setRotate(-8);
+        }else{
+
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+130));
+            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+140));
             tir.setRotate(0);
 
         }
@@ -409,7 +474,7 @@ public class ViewGame {
 
         final KeyFrame tirStartYF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.yProperty(), 320));
         // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
-        final KeyFrame tirEndYF = new KeyFrame(Duration.seconds(4), new KeyValue(tirF.yProperty(), 900));
+        final KeyFrame tirEndYF = new KeyFrame(Duration.seconds(4.7), new KeyValue(tirF.yProperty(), 1100));
 
         final KeyFrame tirStartXajustF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.xProperty(), vaissJ2Face.getX()+30));
         final KeyFrame tirEndXajustF = new KeyFrame(Duration.seconds(4), new KeyValue(tirF.xProperty(), vaissJ2Face.getX()+10));
@@ -426,7 +491,7 @@ public class ViewGame {
          delayExploTouch = new PauseTransition(Duration.seconds(2));
         delayExploTouch.setOnFinished( event -> {
 
-            if(vaissJ1.getBoundsInParent().intersects(tirFBound)) {
+            if(tir.getBoundsInParent().intersects(vaissJ1Face.getBoundsInParent())) {
 
 
                 ImageView toucheExplos = new ImageView(Path.toucheExplo1);
@@ -453,7 +518,7 @@ public class ViewGame {
                 root.getChildren().remove(tir);
                 root.getChildren().remove(tirF);
 
-                PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(2));
+                PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(0.8));
                 delayExplodispar.setOnFinished( event2 -> {
 
                     root.getChildren().remove(toucheExplos);
@@ -471,6 +536,12 @@ public class ViewGame {
 
 
 
+
+    }
+
+    public void retourNormalBackJ1() {
+        Image vaissJ1normal = new Image(Path.vaissJ1Back);
+        vaissJ1.setImage(vaissJ1normal);
 
     }
 }

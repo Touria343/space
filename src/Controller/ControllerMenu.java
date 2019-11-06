@@ -47,6 +47,8 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
 
         if (mouseEvent.getSource().equals(launcher.getMp().getJouer())) {
             launcher.afficherJeux();
+            launcher.getMo().getVideoBackground().play();
+
         }
 
         if (mouseEvent.getSource().equals(launcher.getMo().getChevron())&& mouseEvent.getEventType().equals(MouseEvent.MOUSE_ENTERED )){

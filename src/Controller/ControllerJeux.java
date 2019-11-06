@@ -2,14 +2,9 @@ package Controller;
 
 import Model.Menu;
 import View.ViewHandler;
-import javafx.animation.Animation;
-import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-
-import static javafx.animation.Animation.Status.RUNNING;
 
 public class ControllerJeux implements EventHandler<KeyEvent> {
 
@@ -46,7 +41,7 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
                  /*   if (Timeline.Status.RUNNING == launcher.getGame().getTimelineGoLeft().getStatus()){
                    launcher.getGame().getTimelineGoLeft().stop();
                    }*/
-                    launcher.getGame().getTimelineGoRight().playFromStart();
+                    launcher.getGame().getTimelineGoRightJ2().playFromStart();
                 //}
             }
 
@@ -58,7 +53,7 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
                /* if (Timeline.Status.RUNNING == launcher.getGame().getTimelineGoRight().getStatus()){
                 launcher.getGame().getTimelineGoRight().stop();
                 }*/
-                    launcher.getGame().getTimelineGoLeft().playFromStart();
+                    launcher.getGame().getTimelineGoLeftJ2().playFromStart();
               //  }
             }
 
@@ -71,10 +66,15 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
 
                 if (keyEvent.getCode() == KeyCode.D) {
                 launcher.getGame().j1goRight();
-            }
+                launcher.getGame().getTimelineGoRightJ1().playFromStart();
+
+
+                }
 
             if (keyEvent.getCode() == KeyCode.Q) {
                 launcher.getGame().j1goLeft();
+                launcher.getGame().getTimelineGoLeftJ1().playFromStart();
+
             }
         }
 
@@ -82,14 +82,14 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
         if (keyEvent.getEventType().equals(KeyEvent.KEY_RELEASED)) {
 
             if (keyEvent.getCode() == KeyCode.RIGHT) {
-                launcher.getGame().getTimelineGoRight().stop();
+                launcher.getGame().getTimelineGoRightJ2().stop();
                 launcher.getGame().retourNormalBack();
                 // presseLeft = false;
                 // launcher.getGame().getAnimTextMenuArrivee().stop();
             }
 
             if (keyEvent.getCode() == KeyCode.LEFT) {
-                launcher.getGame().getTimelineGoLeft().stop();
+                launcher.getGame().getTimelineGoLeftJ2().stop();
                 launcher.getGame().retourNormalBack();
 
 
@@ -97,6 +97,25 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
 
                 // launcher.getGame().getAnimTextMenuArrivee().stop();
             }
+
+            if (keyEvent.getCode() == KeyCode.D) {
+                launcher.getGame().getTimelineGoRightJ1().stop();
+                launcher.getGame().retourNormalBackJ1();
+                // presseLeft = false;
+                // launcher.getGame().getAnimTextMenuArrivee().stop();
+            }
+
+            if (keyEvent.getCode() == KeyCode.Q) {
+                launcher.getGame().getTimelineGoLeftJ1().stop();
+                launcher.getGame().retourNormalBackJ1();
+
+
+                // presseRight = false;
+
+                // launcher.getGame().getAnimTextMenuArrivee().stop();
+            }
+
+
 
         }
     }
