@@ -46,6 +46,7 @@ public class ViewGame {
 
 
     private Timeline timelineGoLeftJ1;
+    private int vieintJ1 = 1000;
 
     public Timeline getTimelineGoRightJ1() {
         return timelineGoRightJ1;
@@ -163,14 +164,21 @@ public class ViewGame {
         return videoBackground;
     }
 
+    public Text getVieJ1() {
+        return vieJ1;
+    }
+
+    public Text getVieJ2() {
+        return vieJ2;
+    }
+
     private void initBackground() {
             videoBackground = new MediaPlayer(new Media(this.getClass().getResource(Path.videobackground4).toExternalForm()));
             videoBackground.setCycleCount(MediaPlayer.INDEFINITE);
             viewer = new MediaView(videoBackground);
 
-        videoBackground.play();
-
-
+        videoBackground.stop();
+        
             //change width and height to fit video
             DoubleProperty width = viewer.fitWidthProperty();
             DoubleProperty height = viewer.fitHeightProperty();
@@ -395,10 +403,10 @@ public class ViewGame {
 
     public void tir() {
 
-        ImageView tir = new ImageView(Path.missil1);
+        ImageView tir = new ImageView(Path.laserBleu1Back);
         tir.setX(vaissJ2.getX()+130);
         tir.setY(700);
-        tir.setFitWidth(100);
+        tir.setFitWidth(80);
         tir.setPreserveRatio(true);
         root.getChildren().remove(vaissJ2);
         root.getChildren().add(tir);
@@ -408,25 +416,25 @@ public class ViewGame {
         final KeyFrame tirEndXajust;
 
         if(vaissJ2.getX() <700 ){
-            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+130));
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+105));
             tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+200));
-            tir.setRotate(8);
-        } else if(vaissJ2.getX() <850 ){
-            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+130));
-            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+190));
             tir.setRotate(6);
+        } else if(vaissJ2.getX() <850 ){
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+105));
+            tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+190));
+            tir.setRotate(4);
         }else if(vaissJ2.getX() > 1050 ){
-            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+130));
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+105));
             tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+70));
-            tir.setRotate(-6);
+            tir.setRotate(-5);
 
         }else if (vaissJ2.getX() > 1200 ){
-            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+130));
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+105));
             tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+60));
-            tir.setRotate(-8);
+            tir.setRotate(-7);
         }else{
 
-            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+130));
+            tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX()+105));
             tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX()+140));
             tir.setRotate(0);
 
@@ -438,7 +446,7 @@ public class ViewGame {
 
 
 
-        final KeyFrame tirStartWidth = new KeyFrame(Duration.ZERO, new KeyValue(tir.fitWidthProperty(), 30));
+        final KeyFrame tirStartWidth = new KeyFrame(Duration.ZERO, new KeyValue(tir.fitWidthProperty(), 80));
         final KeyFrame tirEndWidth = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.fitWidthProperty(), 1));
 
         final  Timeline timelineTir = new Timeline(tirStartY, tirStartWidth, tirStartXajust, tirEndY, tirEndWidth, tirEndXajust);
@@ -493,21 +501,34 @@ public class ViewGame {
 
             if(tir.getBoundsInParent().intersects(vaissJ1Face.getBoundsInParent())) {
 
+                vieintJ1 = vieintJ1 - 30;
+                getVieJ1().setText("Life :" + (vieintJ1));
+
+              //  if(vieintJ1 <=0){
+                    ImageView explosFinale = new ImageView(Path.exploFinale);
+                    explosFinale.setX(vaissJ1.getX()+50);
+                    explosFinale.setY(650);
+                    explosFinale.setFitWidth(250);
+                    explosFinale.setPreserveRatio(true);
+                    explosFinale.setOpacity(0.6);
+                    root.getChildren().add(explosFinale);
+             //   }
+
 
                 ImageView toucheExplos = new ImageView(Path.toucheExplo1);
-                toucheExplos.setX(vaissJ1.getX()+10);
-                toucheExplos.setY(610);
+                toucheExplos.setX(vaissJ1.getX()+40);
+                toucheExplos.setY(570);
                 toucheExplos.setFitWidth(300);
                 toucheExplos.setPreserveRatio(true);
                 toucheExplos.setOpacity(0.7);
 
 
-                ImageView toucheExplosF = new ImageView(Path.toucheExplo1);
-                toucheExplosF.setX(vaissJ1Face.getX()-10);
-                toucheExplosF.setY(240);
-                toucheExplosF.setFitWidth(130);
+                ImageView toucheExplosF = new ImageView(Path.toucheExploBleu1);
+                toucheExplosF.setX(vaissJ1Face.getX()+10);
+                toucheExplosF.setY(300);
+                toucheExplosF.setFitWidth(40);
                 toucheExplosF.setPreserveRatio(true);
-                toucheExplosF.setOpacity(0.7);
+                toucheExplosF.setOpacity(0.6);
 
 
                 //root.getChildren().remove(vaissJ2);
