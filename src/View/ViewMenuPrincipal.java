@@ -31,7 +31,7 @@ public class ViewMenuPrincipal {
     private ImageView monLezard;
     private int currentIndice;
     private ImageView spider;
-    private int i =1;
+    private int i = 1;
     private MediaPlayer videoBackground;
     private MediaView media;
     private Stage stage;
@@ -52,7 +52,7 @@ public class ViewMenuPrincipal {
         this.root = root;
         this.model = model;
 
-      //  initListeImage();
+        //  initListeImage();
 
         initBackground();
         initTextOption();
@@ -60,7 +60,7 @@ public class ViewMenuPrincipal {
         initTexteQuitter();
         initTriangle();
         initTriangle1();
-       // initVaisseauxCoin();
+        // initVaisseauxCoin();
         setVueCompleteMenu();
 
     }
@@ -81,28 +81,28 @@ public class ViewMenuPrincipal {
     private void initTexteQuitter() {
         quitter = new Text(1025, 770, "Quitter");
         quitter.setFont(Font.font("Dead Kansas", 35));
-        quitter.setFill (Color.WHITE);
+        quitter.setFill(Color.WHITE);
         quitter.setOpacity(0);
     }
 
-    private void initTextOption(){
+    private void initTextOption() {
 
-        choixVaiss = new Text(297, 770,"Option");
+        choixVaiss = new Text(297, 770, "Option");
         choixVaiss.setFont(Font.font("Dead Kansas", 35));
-        choixVaiss.setFill (Color.WHITE);
+        choixVaiss.setFill(Color.WHITE);
         choixVaiss.setOpacity(0);
 
     }
 
-    private void initTextJouer(){
+    private void initTextJouer() {
 
-    jouer = new Text(675, 850, "Jouer");
-    jouer.setFont(Font.font("Dead Kansas", 35));
-    jouer.setFill (Color.WHITE);
-    jouer.setOpacity(0);
+        jouer = new Text(675, 850, "Jouer");
+        jouer.setFont(Font.font("Dead Kansas", 35));
+        jouer.setFill(Color.WHITE);
+        jouer.setOpacity(0);
 
 
-}
+    }
 
     private void initTriangle() {
         triangle = new ImageView(Path.triangle);
@@ -130,9 +130,9 @@ public class ViewMenuPrincipal {
 
     private void initBackground() {
         //imgBg = new ImageView("Asset/Images/fond_menu.jpg");
-      //  Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds(); // Récupération de la taille de l'écran
-       // imgBg.setFitHeight((int) primaryScreenBounds.getHeight());
-       // imgBg.setFitWidth((int) primaryScreenBounds.getWidth());
+        //  Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds(); // Récupération de la taille de l'écran
+        // imgBg.setFitHeight((int) primaryScreenBounds.getHeight());
+        // imgBg.setFitWidth((int) primaryScreenBounds.getWidth());
 
      /*   videoBackground = new MediaPlayer(new Media(this.getClass().getResource(Path.videobackground1).toExternalForm()));
 
@@ -179,8 +179,8 @@ public class ViewMenuPrincipal {
      */
     void setVueCompleteMenu() {
         root.getChildren().clear();
-      //root.getChildren().add(imgBg);
-      //root.getChildren().add(media);
+        //root.getChildren().add(imgBg);
+        //root.getChildren().add(media);
 
         root.getChildren().add(viewer);
         videoBackground.play();
@@ -202,7 +202,7 @@ public class ViewMenuPrincipal {
                 choixVaiss.setOpacity(frac);
                 quitter.setOpacity(frac);
 
-               //this.stop();
+                //this.stop();
             }
 
         };
@@ -210,24 +210,22 @@ public class ViewMenuPrincipal {
         animTextMenuArrivee.play();
 
 
-
-
         root.getChildren().add(triangle);
         root.getChildren().add(triangle1);
 
         //root.getChildren().add(titre);
-      //root.getChildren().add(monLezard);
-       //root.getChildren().add(spider);
+        //root.getChildren().add(monLezard);
+        //root.getChildren().add(spider);
     }
 
     void setEvents(ControllerMenu mc) {
-      choixVaiss.setOnMouseClicked(mc);
+        choixVaiss.setOnMouseClicked(mc);
         jouer.setOnMouseClicked(mc);
         quitter.setOnMouseClicked(mc);
 
 
         //monLezard.setOnMouseClicked(mc);
-      //spider.setOnMouseEntered(mc);
+        //spider.setOnMouseEntered(mc);
 
     }
 

@@ -13,6 +13,8 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
     private ViewHandler launcher;
     private Menu model;
     private int i = 0;
+    int indiceVaissJ1;
+    private int indiceVaissJ2;
 
     /**
      * Constructeur du controleur relatif au menu principal
@@ -24,7 +26,7 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
         this.model = model;
         this.launcher = launcher;
         this.launcher.setEventHandlerMenu(this);
-      //  this.launcher.setEventHandlerMenuOption(this);
+        //  this.launcher.setEventHandlerMenuOption(this);
     }
 
 
@@ -37,7 +39,7 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
 
         if (mouseEvent.getSource().equals(launcher.getMp().getChoixVaiss())) {
             launcher.afficherOption();
-          //  launcher.getMo().
+            //  launcher.getMo().
 
         }
 
@@ -52,38 +54,40 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
 
         }
 
-        if (mouseEvent.getSource().equals(launcher.getMo().getChevron())&& mouseEvent.getEventType().equals(MouseEvent.MOUSE_ENTERED )){
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevron()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_ENTERED)) {
             launcher.getMo().grandissementChevron();
         }
 
-        if(mouseEvent.getEventType().equals(MouseEvent.MOUSE_EXITED)){
+        if (mouseEvent.getEventType().equals(MouseEvent.MOUSE_EXITED)) {
             launcher.getMo().retourNormalChevronGauche();
         }
 
-        if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_ENTERED )) {
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_ENTERED)) {
             launcher.getMo().grandissementChevronDroit();
         }
 
-        if(mouseEvent.getEventType().equals(MouseEvent.MOUSE_EXITED)){
+        if (mouseEvent.getEventType().equals(MouseEvent.MOUSE_EXITED)) {
             launcher.getMo().retourNormalChevronDroit();
         }
 
-        if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED )) {
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevrondroit()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
             launcher.getMo().swipeVaisseaux(true);
         }
 
-        if (mouseEvent.getSource().equals(launcher.getMo().getChevron()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED )) {
+        if (mouseEvent.getSource().equals(launcher.getMo().getChevron()) && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
             launcher.getMo().swipeVaisseaux(false);
         }
 
-        if (mouseEvent.getSource().equals(launcher.getMo().getImageChoisir()) && i==0 && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
+        if (mouseEvent.getSource().equals(launcher.getMo().getImageChoisir()) && i == 0 && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+            indiceVaissJ1 = launcher.getMo().getIndice();
             launcher.getMo().changeChoixJoueur();
-            i=1;
-        }else if (mouseEvent.getSource().equals(launcher.getMo().getImageChoisir()) && i==1 && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
+            i = 1;
+        } else if (mouseEvent.getSource().equals(launcher.getMo().getImageChoisir()) && i == 1 && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+            indiceVaissJ2 = launcher.getMo().getIndice();
             launcher.getMo().changeChoixJoueur2();
             launcher.getMo().getVideoBackground().stop();
+            launcher.afficherGame(indiceVaissJ1, indiceVaissJ2);
 
-            launcher.afficherGame();
 
         }
 
@@ -109,8 +113,7 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
 
         };*/
 
-      //  animTextMenuArrivee.play();
-
+        //  animTextMenuArrivee.play();
 
 
     }

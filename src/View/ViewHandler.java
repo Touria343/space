@@ -64,17 +64,21 @@ public class ViewHandler extends Application {
         mo = new ViewChoixVaisseaux(model, root);
         game = new ViewGame(model, root);
 
+        vaissj1 = mo.getChoixVaissJ1;
+        vaissj2 = mo.getChoixVaissJ2;
+
+
         controllerMenu = new ControllerMenu(this, model);
-        controllerJeux = new ControllerJeux(this, model);
+        controllerJeux = new ControllerJeux(this, model, vaissj1, vaissj2);
 
 
         MusicJeux.startMainMenuMusic();
-       afficherMenuPrincipal(true);
-       //afficherGame();
+        afficherMenuPrincipal(true);
+        //afficherGame();
         // gestion de l'affichage au lancement
         primaryStage.setScene(menuDemarrage);
         //primaryStage.show();
-     //   primaryStage.setFullScreenExitHint("");
+        //   primaryStage.setFullScreenExitHint("");
         primaryStage.setResizable(true);
         primaryStage.setMaxHeight(980);
         primaryStage.setMaxWidth(1520);
@@ -92,7 +96,7 @@ public class ViewHandler extends Application {
     public void setEventHandlerMenu(ControllerMenu cm) {
         mp.setEvents(cm);
         mo.setEvents(cm);
-       // game.setEvents(cm);
+        // game.setEvents(cm);
 
     }
 
@@ -126,12 +130,13 @@ public class ViewHandler extends Application {
     public ViewChoixVaisseaux getMo() {
         return mo;
     }
+
     public void afficherJeux() {
         mo.setVueCompleteMenu();
     }
 
-    public void afficherGame() {
-        game.setVueCompleteMenu();
+    public void afficherGame(int indiceVaissJ1, int indiceVaissJ2) {
+        game.setVueCompleteMenu(indiceVaissJ1, indiceVaissJ2);
     }
 
 

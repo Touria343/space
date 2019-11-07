@@ -30,9 +30,8 @@ public class Path {
     public static final String stats3 = "Asset//Images//Sans titre 1.png";
     public static final String stats4 = "Asset//Images//Sans titre 1.png";
 
-    public static String joueur1= "Asset//Images//Joueur1.png";
-    public static String joueur2= "Asset//Images//Joueur2.png";
-
+    public static String joueur1 = "Asset//Images//Joueur1.png";
+    public static String joueur2 = "Asset//Images//Joueur2.png";
 
 
     public static final String chevrongauche = "Asset//Images//chevrongauche.png";
@@ -67,23 +66,23 @@ public class Path {
     public static String vaissJ2Face = "Asset//Images//intercepteur_max_r22-0000.png";
 
 
-
     public static String vaissJ2BackTurnLeft1 = "Asset//Images//intercepteur_max_r22-0015.png";
     public static String vaissJ2BackTurnLeft2 = "Asset//Images//intercepteur_max_r22-0014.png";
     public static String vaissJ2BackTurnLeft3 = "Asset//Images//intercepteur_max_r22-0013.png";
 
-    public static String vaissJ2BackTurnRight1= "Asset//Images//intercepteur_max_r22-0017.png";
+    public static String vaissJ2BackTurnRight1 = "Asset//Images//intercepteur_max_r22-0017.png";
     public static String vaissJ2BackTurnRight2 = "Asset//Images//intercepteur_max_r22-0018.png";
     public static String vaissJ2BackTurnRight3 = "Asset//Images//intercepteur_max_r22-0019.png";
 
 
-    public static String missil1= "Asset//Images//missil1.gif";
+    public static String missil1 = "Asset//Images//missil1.gif";
     public static String missil1F = "Asset//Images//misil2front.gif";
     public static String toucheExplo1 = "Asset//Images//explosion//source.gif";
     public static String videobackground5 = "..//Asset//Video//Yellow - 27800.mp4";
     public static String laserBleu1Back = "Asset//Images//Missile//LASER//laserBleuDoubleBack.png";
-    public static String toucheExploBleu1= "Asset//Images//explosion//1101574_1f8d6.gif";;
-    public static String exploFinale= "Asset//Images//explosion//exploFinale.gif";
+    public static String toucheExploBleu1 = "Asset//Images//explosion//1101574_1f8d6.gif";
+
+    public static String exploFinale = "Asset//Images//explosion//exploFinale.gif";
 
 
 }
