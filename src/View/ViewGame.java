@@ -2,6 +2,9 @@ package View;
 
 import Controller.ControllerJeux;
 import Model.Menu;
+import Model.VCorvette;
+import Model.VGeocroiseur;
+import Model.VR22;
 import Tools.Path;
 import javafx.animation.*;
 import javafx.beans.binding.Bindings;
@@ -54,6 +57,8 @@ public class ViewGame {
     private int indiVaissJ1;
     private int indiVaissJ2;
     private ArrayList<ImageView> tabImageVaiss0J1;
+    private VGeocroiseur vaissJ1geo;
+    private VCorvette vaissJ1Corv;
 
     public Timeline getTimelineGoRightJ1() {
         return timelineGoRightJ1;
@@ -168,26 +173,14 @@ public class ViewGame {
 
     private void initVaisseauxJ2() {
         if (indiVaissJ2 == 0) {
-            tabImageVaissJ2 = new ArrayList<>();
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1BackTurnLeft2));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1BackTurnLeft1));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1Back));
-            tabImageVaissJ2.add(new ImageView(Path.stats4));
+            vaissJ1geo = new VGeocroiseur();
+
         } else if (indiVaissJ2 == 1) {
-            tabImageVaissJ2 = new ArrayList<>();
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1BackTurnLeft2));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1BackTurnLeft1));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1Back));
-            tabImageVaissJ2.add(new ImageView(Path.stats4));
+            vaissJ1Corv = new VCorvette();
+
         } else if (indiVaissJ2 == 2) {
-            tabImageVaissJ2 = new ArrayList<>();
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1BackTurnLeft2));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1BackTurnLeft1));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1Back));
-            tabImageVaissJ2.add(new ImageView(Path.stats4));
+            vaissJ1R22 = new VR22();
+
         } else if (indiVaissJ2 == 3) {
             tabImageVaissJ2 = new ArrayList<>();
             tabImageVaissJ2.add(new ImageView(Path.vaissJ2BackTurnLeft1));

@@ -1,21 +1,39 @@
 package Model;
 
+import Tools.Path;
+import javafx.scene.image.ImageView;
+
+import java.util.ArrayList;
+
 public class VR22 extends Vaisseaux {
+
+
 
     private int vitesse = 100;
     private String nomVaiss = "Géo-croiseur génésis t-16";
     private int life = 800;
     private int puissanceTir = 1;
+    private ArrayList tabImageVaiss;
 
-    VR22(int vitesse, String nomVaiss, int life, int puissanceTir) {
+
+    VR22() {
         super();
-        this.vitesse = vitesse;
-        this.nomVaiss = nomVaiss;
-        this.life = life;
-        this.puissanceTir = puissanceTir;
-
+        vitesse = 60;
+        nomVaiss = "Géo-croiseur génésis t-16";
+        life = 1700;
+        puissanceTir = 2;
+        tabImageVaiss = initArrayListVaiss();
     }
 
+    public ArrayList initArrayListVaiss(){
+
+        tabImageVaiss.add(new ImageView(Path.vaissJ2BackTurnLeft1));
+        tabImageVaiss.add(new ImageView(Path.vaissJ1BackTurnLeft2));
+        tabImageVaiss.add(new ImageView(Path.vaissJ1BackTurnLeft1));
+        tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
+        tabImageVaiss.add(new ImageView(Path.stats4));
+        return tabImageVaiss;
+    }
     public int getVitesse() {
         return vitesse;
     }
@@ -46,5 +64,12 @@ public class VR22 extends Vaisseaux {
 
     public void setPuissanceTir(int puissanceTir) {
         this.puissanceTir = puissanceTir;
+    }
+
+    public ArrayList getTabImageVaiss() {
+        return tabImageVaiss;
+    }
+    public void setTabImageVaiss(ArrayList tabImageVaiss) {
+        this.tabImageVaiss = tabImageVaiss;
     }
 }

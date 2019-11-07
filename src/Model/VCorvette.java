@@ -1,21 +1,41 @@
 package Model;
 
+import Tools.Path;
+import javafx.scene.image.ImageView;
+
+import java.util.ArrayList;
+
 public class VCorvette extends Vaisseaux {
 
-    private int vitesse = 40;
-    private String nomVaiss = "Touria Corvette -9";
-    private int life = 2000;
-    private int puissanceTir = 2;
+    private int vitesse;
+    private String nomVaiss;
+    private int life;
+    private int puissanceTir;
+    private ArrayList tabImageVaiss = new ArrayList<>();
 
 
-    VCorvette(int vitesse, String nomVaiss, int life, int puissanceTir) {
+
+    VCorvette() {
+
         super();
-        this.vitesse = vitesse;
-        this.nomVaiss = nomVaiss;
-        this.life = life;
-        this.puissanceTir = puissanceTir;
+        vitesse = 40;
+        nomVaiss = "Touria Corvette -9";
+        life = 2000;
+        puissanceTir = 2;
+        tabImageVaiss = initArrayListVaiss();
 
     }
+
+    public ArrayList initArrayListVaiss(){
+
+        tabImageVaiss.add(new ImageView(Path.vaissJ2BackTurnLeft1));
+        tabImageVaiss.add(new ImageView(Path.vaissJ1BackTurnLeft2));
+        tabImageVaiss.add(new ImageView(Path.vaissJ1BackTurnLeft1));
+        tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
+        tabImageVaiss.add(new ImageView(Path.stats4));
+        return tabImageVaiss;
+    }
+
 
     public int getVitesse() {
         return vitesse;
@@ -48,4 +68,13 @@ public class VCorvette extends Vaisseaux {
     public void setPuissanceTir(int puissanceTir) {
         this.puissanceTir = puissanceTir;
     }
+
+    public ArrayList getTabImageVaiss() {
+        return tabImageVaiss;
+    }
+
+    public void setTabImageVaiss(ArrayList tabImageVaiss) {
+        this.tabImageVaiss = tabImageVaiss;
+    }
+
 }

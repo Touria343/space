@@ -7,9 +7,9 @@ public class VFaucon extends Vaisseaux {
     private int life = 1000;
     private int puissanceTir = 1;
 
-    public VFaucon(int vitesse, String nomVaiss, int life, int puissanceTir) {
+    public VFaucon() {
         super();
-        this.vitesse = vitesse;
+        thisvitesse = vitesse;
         this.nomVaiss = nomVaiss;
         this.life = life;
         this.puissanceTir = puissanceTir;
