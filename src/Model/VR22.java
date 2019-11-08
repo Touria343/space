@@ -9,27 +9,27 @@ public class VR22 extends Vaisseaux {
 
 
 
-    private int vitesse = 100;
-    private String nomVaiss = "Géo-croiseur génésis t-16";
-    private int life = 800;
-    private int puissanceTir = 1;
+    private int vitesse;
+    private String nomVaiss;
+    private int life;
+    private int puissanceTir;
     private ArrayList tabImageVaiss;
 
 
-    VR22() {
+    public VR22() {
         super();
-        vitesse = 60;
+        vitesse = 100;
         nomVaiss = "Géo-croiseur génésis t-16";
-        life = 1700;
-        puissanceTir = 2;
+        life = 800;
+        puissanceTir = 1;
         tabImageVaiss = initArrayListVaiss();
     }
 
     public ArrayList initArrayListVaiss(){
 
         tabImageVaiss.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-        tabImageVaiss.add(new ImageView(Path.vaissJ1BackTurnLeft2));
-        tabImageVaiss.add(new ImageView(Path.vaissJ1BackTurnLeft1));
+        tabImageVaiss.add(new ImageView(Path.vaissJ2Back));
+        tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
         tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
         tabImageVaiss.add(new ImageView(Path.stats4));
         return tabImageVaiss;

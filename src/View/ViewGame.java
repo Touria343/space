@@ -1,10 +1,7 @@
 package View;
 
 import Controller.ControllerJeux;
-import Model.Menu;
-import Model.VCorvette;
-import Model.VGeocroiseur;
-import Model.VR22;
+import Model.*;
 import Tools.Path;
 import javafx.animation.*;
 import javafx.beans.binding.Bindings;
@@ -59,6 +56,34 @@ public class ViewGame {
     private ArrayList<ImageView> tabImageVaiss0J1;
     private VGeocroiseur vaissJ1geo;
     private VCorvette vaissJ1Corv;
+    private VR22 vaissJ1R22;
+    private VGeocroiseur vaissJ2geo;
+    private VCorvette vaissJ2Corv;
+    private VR22 vaissJ2R22;
+    private VFaucon vaissJ2Faucon;
+    private VFaucon vaissJ1Faucon;
+    private Object vaissJ2Obj;
+    private Object vaissJ1Obj;
+
+    public int getIndiVaissJ1() {
+        return indiVaissJ1;
+    }
+
+    public int getIndiVaissJ2() {
+        return indiVaissJ2;
+    }
+
+    public Group getRoot() {
+        return root;
+    }
+
+    public Object getVaissJ2Obj() {
+        return vaissJ2Obj;
+    }
+
+    public Object getVaissJ1Obj() {
+        return vaissJ1Obj;
+    }
 
     public Timeline getTimelineGoRightJ1() {
         return timelineGoRightJ1;
@@ -128,41 +153,27 @@ public class ViewGame {
     }
 
     private void initVaisseauxJ1() {
+        if (indiVaissJ1 == 0) {
+            vaissJ1geo = new VGeocroiseur();
+            vaissJ1Obj = vaissJ2geo;
 
-        if (indiVaissJ2 == 0) {
-            tabImageVaissJ1 = new ArrayList<>();
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1BackTurnLeft2));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1BackTurnLeft1));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1Back));
-            tabImageVaissJ1.add(new ImageView(Path.stats4));
+            vaissJ1 = (ImageView) vaissJ1geo.getTabImageVaiss().get(4);
+        } else if (indiVaissJ1 == 1) {
+            vaissJ1Corv = new VCorvette();
+            vaissJ1Obj = vaissJ2Corv;
 
-        } else if (indiVaissJ2 == 1) {
-            tabImageVaissJ1 = new ArrayList<>();
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1BackTurnLeft2));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1BackTurnLeft1));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1Back));
-            tabImageVaissJ1.add(new ImageView(Path.stats4));
+            vaissJ1 = (ImageView) vaissJ1Corv.getTabImageVaiss().get(4);
+        } else if (indiVaissJ1 == 2) {
+            vaissJ1R22 = new VR22();
+            vaissJ1Obj = vaissJ2R22;
 
-        } else if (indiVaissJ2 == 2) {
-            tabImageVaissJ1 = new ArrayList<>();
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1BackTurnLeft2));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1BackTurnLeft1));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1Back));
-            tabImageVaissJ1.add(new ImageView(Path.stats4));
+            vaissJ1 = (ImageView) vaissJ1R22.getTabImageVaiss().get(4);
+        } else if (indiVaissJ1 == 3) {
+            vaissJ1Faucon = new VFaucon();
+            vaissJ1Obj = vaissJ2Faucon;
 
-        } else if (indiVaissJ2 == 3) {
-            tabImageVaissJ1 = new ArrayList<>();
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1BackTurnLeft2));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1BackTurnLeft1));
-            tabImageVaissJ1.add(new ImageView(Path.vaissJ1Back));
-            tabImageVaissJ1.add(new ImageView(Path.stats4));
+            vaissJ1 = (ImageView) vaissJ1Faucon.getTabImageVaiss().get(4);
         }
-
-        vaissJ1 = new ImageView(tabImageVaiss0J1[indiVaissJ1]);
         vaissJ1.setX(200);
         vaissJ1.setY(700);
         vaissJ1.setFitWidth(300);
@@ -173,24 +184,23 @@ public class ViewGame {
 
     private void initVaisseauxJ2() {
         if (indiVaissJ2 == 0) {
-            vaissJ1geo = new VGeocroiseur();
+            vaissJ2geo = new VGeocroiseur();
+            vaissJ2Obj = vaissJ2geo;
 
+            vaissJ2 = (ImageView) vaissJ2geo.getTabImageVaiss().get(4);
         } else if (indiVaissJ2 == 1) {
-            vaissJ1Corv = new VCorvette();
-
+            vaissJ2Corv = new VCorvette();
+            vaissJ2Obj = vaissJ2Corv;
+            vaissJ2 = (ImageView) vaissJ2Corv.getTabImageVaiss().get(4);
         } else if (indiVaissJ2 == 2) {
-            vaissJ1R22 = new VR22();
-
+            vaissJ2R22 = new VR22();
+            vaissJ2Obj = vaissJ2R22;
+            vaissJ2 = (ImageView) vaissJ2R22.getTabImageVaiss().get(4);
         } else if (indiVaissJ2 == 3) {
-            tabImageVaissJ2 = new ArrayList<>();
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1BackTurnLeft2));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1BackTurnLeft1));
-            tabImageVaissJ2.add(new ImageView(Path.vaissJ1Back));
-            tabImageVaissJ2.add(new ImageView(Path.stats4));
+          vaissJ2Faucon = new VFaucon();
+            vaissJ2Obj = vaissJ2Faucon;
+            vaissJ2 = (ImageView) vaissJ2Faucon.getTabImageVaiss().get(4);
         }
-
-        vaissJ2 = new ImageView(tabImageVaiss0J1[indiVaissJ1]);
         vaissJ2.setX(950);
         vaissJ2.setY(700);
         vaissJ2.setFitWidth(300);
@@ -480,8 +490,6 @@ public class ViewGame {
             delayRemoveTir.setOnFinished(event -> {
                 root.getChildren().remove(tir);
                 root.getChildren().remove(tirF);
-
-
             });
             delayRemoveTir.play();
 

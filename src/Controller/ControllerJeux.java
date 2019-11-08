@@ -1,7 +1,6 @@
 package Controller;
 
-import Model.Menu;
-import Model.Vaisseaux;
+import Model.*;
 import View.ViewHandler;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
@@ -9,8 +8,8 @@ import javafx.scene.input.KeyEvent;
 
 public class ControllerJeux implements EventHandler<KeyEvent> {
 
-    private final Vaisseaux vaissJ1;
-    private final Vaisseaux vaissJ2;
+    private Vaisseaux vaissJ1;
+    private Vaisseaux vaissJ2;
     /**
      * Attributs du controleur du menu
      */
@@ -19,6 +18,27 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
     private int i = 0;
     private boolean presseRight = false;
     private boolean presseLeft = false;
+    private int vaissJ1;
+    private int vaissJ2;
+    private int indice;
+    private int indiceJ1;
+    private int indiceJ2;
+
+    public Vaisseaux getVaissJ1() {
+        return vaissJ1;
+    }
+
+    public void setVaissJ1(Vaisseaux vaissJ1) {
+        this.vaissJ1 = vaissJ1;
+    }
+
+    public Vaisseaux getVaissJ2() {
+        return vaissJ2;
+    }
+
+    public void setVaissJ2(Vaisseaux vaissJ2) {
+        this.vaissJ2 = vaissJ2;
+    }
 
     /**
      * Constructeur du controleur relatif au menu principal
@@ -26,16 +46,39 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
      * @param launcher (Gestionnaire de vue)
      * @param model    (Modèle correcpondant au menu principal)
      */
-    public ControllerJeux(ViewHandler launcher, Menu model, Vaisseaux vaissJ1, Vaisseaux vaissJ2) {
+    public ControllerJeux(ViewHandler launcher, Menu model) {
         this.model = model;
         this.launcher = launcher;
         this.launcher.setEventHandlerGame(this);
-        this.vaissJ1 = vaissJ1;
-        this.vaissJ2 = vaissJ2;
+
     }
 
     @Override
     public void handle(KeyEvent keyEvent) {
+
+        indiceJ1 = launcher.getGame().getIndiVaissJ1();
+        indiceJ2 = launcher.getGame().getIndiVaissJ2();
+
+        if (indiceJ1 == 0) {
+            setVaissJ1((VGeocroiseur) launcher.getGame().getVaissJ1Obj());
+        } else if (indiceJ1 == 1) {
+            setVaissJ1((VCorvette) launcher.getGame().getVaissJ1Obj());
+        } else if (indiceJ1 == 2) {
+            setVaissJ1((VR22) launcher.getGame().getVaissJ1Obj());
+        } else if (indiceJ1 == 3) {
+            setVaissJ1((VFaucon) launcher.getGame().getVaissJ1Obj());
+        }
+
+        if (indiceJ2 == 0) {
+            setVaissJ2((VGeocroiseur) launcher.getGame().getVaissJ2Obj());
+        } else if (indiceJ2 == 1) {
+            setVaissJ2((VCorvette) launcher.getGame().getVaissJ2Obj());
+        } else if (indiceJ2 == 2) {
+            setVaissJ2((VR22) launcher.getGame().getVaissJ2Obj());
+        } else if (indiceJ2 == 3) {
+            setVaissJ2((VFaucon) launcher.getGame().getVaissJ2Obj());
+        }
+
 
         if (keyEvent.getEventType().equals(KeyEvent.KEY_PRESSED)) {
 

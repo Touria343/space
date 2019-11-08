@@ -64,13 +64,10 @@ public class ViewHandler extends Application {
         mo = new ViewChoixVaisseaux(model, root);
         game = new ViewGame(model, root);
 
-        vaissj1 = mo.getChoixVaissJ1;
-        vaissj2 = mo.getChoixVaissJ2;
 
 
         controllerMenu = new ControllerMenu(this, model);
-        controllerJeux = new ControllerJeux(this, model, vaissj1, vaissj2);
-
+        controllerJeux = new ControllerJeux(this, model);
 
         MusicJeux.startMainMenuMusic();
         afficherMenuPrincipal(true);

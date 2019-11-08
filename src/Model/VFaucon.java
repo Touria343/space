@@ -1,19 +1,36 @@
 package Model;
 
+import Tools.Path;
+import javafx.scene.image.ImageView;
+
+import java.util.ArrayList;
+
 public class VFaucon extends Vaisseaux {
 
+    private ArrayList tabImageVaiss;
     private int vitesse = 80;
     private String nomVaiss = "Red - Faucon";
     private int life = 1000;
     private int puissanceTir = 1;
 
+
     public VFaucon() {
         super();
-        thisvitesse = vitesse;
-        this.nomVaiss = nomVaiss;
-        this.life = life;
-        this.puissanceTir = puissanceTir;
+        vitesse = 80;
+        nomVaiss = "Géo-croiseur génésis t-16";
+        life = 1000;
+        puissanceTir = 1;
+        tabImageVaiss = initArrayListVaiss();
+    }
 
+    public ArrayList initArrayListVaiss(){
+
+        tabImageVaiss.add(new ImageView(Path.vaissJ2BackTurnLeft1));
+        tabImageVaiss.add(new ImageView(Path.vaissJ2Back));
+        tabImageVaiss.add(new ImageView(Path.vaissJ2Back));
+        tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
+        tabImageVaiss.add(new ImageView(Path.stats4));
+        return tabImageVaiss;
     }
 
 
@@ -48,4 +65,9 @@ public class VFaucon extends Vaisseaux {
     public void setPuissanceTir(int puissanceTir) {
         this.puissanceTir = puissanceTir;
     }
+
+    public ArrayList getTabImageVaiss() {
+        return tabImageVaiss;
+    }
+
 }

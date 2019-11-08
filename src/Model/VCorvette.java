@@ -14,8 +14,7 @@ public class VCorvette extends Vaisseaux {
     private ArrayList tabImageVaiss = new ArrayList<>();
 
 
-
-    VCorvette() {
+    public VCorvette() {
 
         super();
         vitesse = 40;
@@ -26,11 +25,11 @@ public class VCorvette extends Vaisseaux {
 
     }
 
-    public ArrayList initArrayListVaiss(){
+    public ArrayList initArrayListVaiss() {
 
         tabImageVaiss.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-        tabImageVaiss.add(new ImageView(Path.vaissJ1BackTurnLeft2));
-        tabImageVaiss.add(new ImageView(Path.vaissJ1BackTurnLeft1));
+        tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
+        tabImageVaiss.add(new ImageView(Path.vaissJ2Back));
         tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
         tabImageVaiss.add(new ImageView(Path.stats4));
         return tabImageVaiss;
