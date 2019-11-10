@@ -32,6 +32,7 @@ public class VCorvette extends Vaisseaux {
         tabImageVaiss.add(new ImageView(Path.vaissJ2Back));
         tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
         tabImageVaiss.add(new ImageView(Path.stats4));
+
         return tabImageVaiss;
     }
 

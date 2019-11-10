@@ -77,6 +77,7 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
             setVaissJ2((VR22) launcher.getGame().getVaissJ2Obj());
         } else if (indiceJ2 == 3) {
             setVaissJ2((VFaucon) launcher.getGame().getVaissJ2Obj());
+
         }
 
 

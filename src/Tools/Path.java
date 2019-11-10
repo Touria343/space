@@ -85,4 +85,72 @@ public class Path {
     public static String exploFinale = "Asset//Images//explosion//exploFinale.gif";
 
 
+    public static String corvetteBG3 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0005.png";
+    public static String corvetteBG2 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0006.png";
+    public static String corvetteBG1 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0007.png";
+    public static String corvetteB = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0008.png";
+    public static String corvetteBD1 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0009.png";
+    public static String corvetteBD2 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0010.png";
+    public static String corvetteBD3 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0011.png";
+
+    public static String corvetteFG3 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0027.png";
+    public static String corvetteFG2 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0026.png";
+    public static String corvetteFG1 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0025.png";
+    public static String corvetteF = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0024.png";
+    public static String corvetteFD1 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0023.png";
+    public static String corvetteFD2 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0022.png";
+    public static String corvetteFD3 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0021.png";
+
+    public static String redBG3 = "Asset//Images//vaiss//red faucon//red-faucon-0013.png";
+    public static String redBG2 = "Asset//Images//vaiss//red faucon//red-faucon-0014.png";
+    public static String redBG1 = "Asset//Images//vaiss//red faucon//red-faucon-0015.png";
+    public static String redB = "Asset//Images//vaiss//red faucon//red-faucon-0016.png";
+    public static String redBD1 = "Asset//Images//vaiss//red faucon//red-faucon-0017.png";
+    public static String redBD2 = "Asset//Images//vaiss//red faucon//red-faucon-0018.png";
+    public static String redBD3 = "Asset//Images//vaiss//red faucon//red-faucon-0019.png";
+
+    public static String redFG3 = "Asset//Images//vaiss//red faucon//red-faucon-0001.png";
+    public static String redFG2 = "Asset//Images//vaiss//red faucon//red-faucon-0002.png";
+    public static String redFG1 = "Asset//Images//vaiss//red faucon//red-faucon-0003.png";
+    public static String redF = "Asset//Images//vaiss//red faucon//red-faucon-0004.png";
+    public static String redFD1 = "Asset//Images//vaiss//red faucon//red-faucon-0005.png";
+    public static String redFD2 = "Asset//Images//vaiss//red faucon//red-faucon-0006.png";
+    public static String redFD3 = "Asset//Images//vaiss//red faucon//red-faucon-0007.png";
+
+
+
+    public static String r22BG3 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0013.png";
+    public static String r22BG2 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0014.png";
+    public static String r22BG1 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0015.png";
+    public static String r22B = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0016.png";
+    public static String r22BD1 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0017.png";
+    public static String r22BD2 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0018.png";
+    public static String r22BD3 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0019.png";
+
+    public static String r22FG3 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0003.png";
+    public static String r22FG2 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0002.png";
+    public static String r22FG1 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0001.png";
+    public static String r22F = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0000.png";
+    public static String r22FD1 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-00001.png";
+    public static String r22FD2 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-00002.png";
+    public static String r22FD3 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-00003.png";
+
+    public static String croiBG3 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-00111.png";
+    public static String croiBG2 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0006.png";
+    public static String croiBG1 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0007.png";
+    public static String croiB = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0008.png";
+    public static String croiBD1 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0009.png";
+    public static String croiBD2 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0009.png";
+    public static String croiBD3 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-00011.png";
+
+    public static String croiFG3 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0027.png";
+    public static String croiFG2 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0027.png";
+    public static String croiFG1 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0025.png";
+    public static String croiF = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0024.png";
+    public static String croiFD1 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0023.png";
+    public static String croiFD2 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0012.png";
+    public static String croiFD3 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0012.png";
+
+
+
 }
