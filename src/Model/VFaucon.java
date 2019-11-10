@@ -1,13 +1,14 @@
 package Model;
 
 import Tools.Path;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
 public class VFaucon extends Vaisseaux {
 
-    private  ArrayList<ImageView> tabImageVaiss = new ArrayList<ImageView>();
+    private  ArrayList<Image> tabImageVaiss = new ArrayList<Image>();
 
     private double vitesse = 0.7;
     private String nomVaiss = "Red - Faucon";
@@ -26,13 +27,13 @@ public class VFaucon extends Vaisseaux {
 
     public ArrayList initArrayListVaiss(){
 
-        tabImageVaiss.add(new ImageView(Path.redBG3));
-        tabImageVaiss.add(new ImageView(Path.redBG2));
-        tabImageVaiss.add(new ImageView(Path.redBG1));
-        tabImageVaiss.add(new ImageView(Path.redB));
-        tabImageVaiss.add(new ImageView(Path.redBD1));
-        tabImageVaiss.add(new ImageView(Path.redBD2));
-        tabImageVaiss.add(new ImageView(Path.redBD3));
+        tabImageVaiss.add(new Image(Path.redBG3));
+        tabImageVaiss.add(new Image(Path.redBG2));
+        tabImageVaiss.add(new Image(Path.redBG1));
+        tabImageVaiss.add(new Image(Path.redB));
+        tabImageVaiss.add(new Image(Path.redBD1));
+        tabImageVaiss.add(new Image(Path.redBD2));
+        tabImageVaiss.add(new Image(Path.redBD3));
         return tabImageVaiss;
     }
 

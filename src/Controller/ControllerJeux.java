@@ -56,12 +56,6 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
         this.launcher = launcher;
         this.launcher.setEventHandlerGame(this);
 
-
-
-
-
-
-
     }
 
     @Override
@@ -75,7 +69,6 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
 
         if (indiceJ1 == 0) {
             VGeocroiseur j1geocroi = new VGeocroiseur();
-
 
             vitesseJ1 = j1geocroi.getVitesse();
             vieJ1 = j1geocroi.getLife();
@@ -103,8 +96,6 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
             vitesseJ1 = j1fauc.getVitesse();
             vieJ1 = j1fauc.getLife();
             puissanceTirJ1 = j1fauc.getPuissanceTir();
-
-
         }
 
         if (indiceJ2 == 0) {
@@ -120,34 +111,18 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
             vieJ2 = j2corv.getLife();
             puissanceTirJ2 = j2corv.getPuissanceTir();
 
-
         } else if (indiceJ2 == 2) {
             VR22 j2R22 = new VR22();
             vitesseJ2 = j2R22.getVitesse();
             vieJ2 = j2R22.getLife();
             puissanceTirJ2 = j2R22.getPuissanceTir();
 
-
         } else if (indiceJ2 == 3) {
             VFaucon j2fauc = new VFaucon();
             vitesseJ2 = j2fauc.getVitesse();
             vieJ2 = j2fauc.getLife();
             puissanceTirJ2 = j2fauc.getPuissanceTir();
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
         if (keyEvent.getEventType().equals(KeyEvent.KEY_PRESSED)) {
 
@@ -163,12 +138,10 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
 
             if (keyEvent.getCode() == KeyCode.O) {
                 launcher.getGame().tir(vieJ1, puissanceTirJ2, 2);
-                System.out.println("hello tir");
             }
 
             if (keyEvent.getCode() == KeyCode.V) {
                 launcher.getGame().tir(vieJ2, puissanceTirJ1, 1);
-                System.out.println("hello tir");
             }
 
             if (keyEvent.getCode() == KeyCode.D) {

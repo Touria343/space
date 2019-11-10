@@ -1,6 +1,7 @@
 package Model;
 
 import Tools.Path;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class VCorvette extends Vaisseaux {
     private String nomVaiss;
     private int life;
     private int puissanceTir;
-    private  ArrayList<ImageView> tabImageVaiss = new ArrayList<ImageView>();
+    private  ArrayList<Image> tabImageVaiss = new ArrayList<Image>();
 
 
 
@@ -28,13 +29,13 @@ public class VCorvette extends Vaisseaux {
 
     public ArrayList initArrayListVaiss() {
 
-        tabImageVaiss.add(new ImageView(Path.corvetteBG3));
-        tabImageVaiss.add(new ImageView(Path.corvetteBG2));
-        tabImageVaiss.add(new ImageView(Path.corvetteBG1));
-        tabImageVaiss.add(new ImageView(Path.corvetteB));
-        tabImageVaiss.add(new ImageView(Path.corvetteBD1));
-        tabImageVaiss.add(new ImageView(Path.corvetteBD2));
-        tabImageVaiss.add(new ImageView(Path.corvetteBD3));
+        tabImageVaiss.add(new Image(Path.corvetteBG3));
+        tabImageVaiss.add(new Image(Path.corvetteBG2));
+        tabImageVaiss.add(new Image(Path.corvetteBG1));
+        tabImageVaiss.add(new Image(Path.corvetteB));
+        tabImageVaiss.add(new Image(Path.corvetteBD1));
+        tabImageVaiss.add(new Image(Path.corvetteBD2));
+        tabImageVaiss.add(new Image(Path.corvetteBD3));
 
         return tabImageVaiss;
     }

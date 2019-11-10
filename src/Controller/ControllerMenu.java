@@ -92,6 +92,8 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
 
             launcher.getMo().changeChoixJoueur2();
             launcher.getMo().getVideoBackground().stop();
+            launcher.getMp().getVideoBackground().stop();
+
 
 
             launcher.getGame().initVaisseauxJ1();

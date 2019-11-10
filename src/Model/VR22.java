@@ -1,6 +1,7 @@
 package Model;
 
 import Tools.Path;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class VR22 extends Vaisseaux {
     private String nomVaiss;
     private int life;
     private int puissanceTir;
-    private  ArrayList<ImageView> tabImageVaiss = new ArrayList<ImageView>();
+    private  ArrayList<Image> tabImageVaiss = new ArrayList<Image>();
 
 
     public VR22() {
@@ -27,13 +28,13 @@ public class VR22 extends Vaisseaux {
 
     public ArrayList initArrayListVaiss(){
 
-        tabImageVaiss.add(new ImageView(Path.r22BG3));
-        tabImageVaiss.add(new ImageView(Path.r22BG2));
-        tabImageVaiss.add(new ImageView(Path.r22BG1));
-        tabImageVaiss.add(new ImageView(Path.r22B));
-        tabImageVaiss.add(new ImageView(Path.r22BD1));
-        tabImageVaiss.add(new ImageView(Path.r22BD2));
-        tabImageVaiss.add(new ImageView(Path.r22BD3));
+        tabImageVaiss.add(new Image(Path.r22BG3));
+        tabImageVaiss.add(new Image(Path.r22BG2));
+        tabImageVaiss.add(new Image(Path.r22BG1));
+        tabImageVaiss.add(new Image(Path.r22B));
+        tabImageVaiss.add(new Image(Path.r22BD1));
+        tabImageVaiss.add(new Image(Path.r22BD2));
+        tabImageVaiss.add(new Image(Path.r22BD3));
         return tabImageVaiss;
     }
     public double getVitesse() {
