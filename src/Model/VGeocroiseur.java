@@ -7,18 +7,19 @@ import java.util.ArrayList;
 
 public class VGeocroiseur extends Vaisseaux{
 
-    private int vitesse ;
+    private double vitesse ;
     private String nomVaiss;
     private int life;
     private int puissanceTir;
-    private ArrayList tabImageVaiss = new ArrayList<>();
+    private  ArrayList<ImageView> tabImageVaiss = new ArrayList<ImageView>();
+
 
 
 
 
     public VGeocroiseur() {
         super();
-        vitesse = 60;
+        vitesse = 0.8;
         nomVaiss = "Géo-croiseur génésis t-16";
         life = 1700;
         puissanceTir = 2;
@@ -37,7 +38,7 @@ public class VGeocroiseur extends Vaisseaux{
         return tabImageVaiss;
     }
 
-    public int getVitesse() {
+    public double getVitesse() {
         return vitesse;
     }
 

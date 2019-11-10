@@ -101,6 +101,7 @@ public class Path {
     public static String corvetteFD2 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0022.png";
     public static String corvetteFD3 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0021.png";
 
+
     public static String redBG3 = "Asset//Images//vaiss//red faucon//red-faucon-0013.png";
     public static String redBG2 = "Asset//Images//vaiss//red faucon//red-faucon-0014.png";
     public static String redBG1 = "Asset//Images//vaiss//red faucon//red-faucon-0015.png";
@@ -135,13 +136,13 @@ public class Path {
     public static String r22FD2 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-00002.png";
     public static String r22FD3 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-00003.png";
 
-    public static String croiBG3 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-00111.png";
-    public static String croiBG2 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0006.png";
+    public static String croiBG3 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0004.png";
+    public static String croiBG2 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0005.png";
     public static String croiBG1 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0007.png";
     public static String croiB = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0008.png";
     public static String croiBD1 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0009.png";
-    public static String croiBD2 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0009.png";
-    public static String croiBD3 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-00011.png";
+    public static String croiBD2 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0010.png";
+    public static String croiBD3 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0011.png";
 
     public static String croiFG3 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0027.png";
     public static String croiFG2 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0027.png";

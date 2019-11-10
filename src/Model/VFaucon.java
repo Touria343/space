@@ -7,8 +7,9 @@ import java.util.ArrayList;
 
 public class VFaucon extends Vaisseaux {
 
-    private ArrayList tabImageVaiss;
-    private int vitesse = 80;
+    private  ArrayList<ImageView> tabImageVaiss = new ArrayList<ImageView>();
+
+    private double vitesse = 0.7;
     private String nomVaiss = "Red - Faucon";
     private int life = 1000;
     private int puissanceTir = 1;
@@ -16,7 +17,7 @@ public class VFaucon extends Vaisseaux {
 
     public VFaucon() {
         super();
-        vitesse = 80;
+        vitesse = 0.7;
         nomVaiss = "Géo-croiseur génésis t-16";
         life = 1000;
         puissanceTir = 1;
@@ -36,7 +37,7 @@ public class VFaucon extends Vaisseaux {
     }
 
 
-    public int getVitesse() {
+    public double getVitesse() {
         return vitesse;
     }
 

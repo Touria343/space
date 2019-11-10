@@ -82,11 +82,30 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
             indiceVaissJ1 = launcher.getMo().getIndice();
             launcher.getMo().changeChoixJoueur();
             i = 1;
-        } else if (mouseEvent.getSource().equals(launcher.getMo().getImageChoisir()) && i == 1 && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+            launcher.getGame().setIndiVaissJ1(indiceVaissJ1);
+
+           // System.out.println("indice VaissJ1" = indiceVaissJ1);
+
+        }else if (mouseEvent.getSource().equals(launcher.getMo().getImageChoisir()) && i == 1 && mouseEvent.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
             indiceVaissJ2 = launcher.getMo().getIndice();
+            launcher.getGame().setIndiVaissJ2(indiceVaissJ2);
+
             launcher.getMo().changeChoixJoueur2();
             launcher.getMo().getVideoBackground().stop();
-            launcher.afficherGame(indiceVaissJ1, indiceVaissJ2);
+
+
+            launcher.getGame().initVaisseauxJ1();
+            launcher.getGame().initVaisseauxJ2();
+            launcher.getGame().initVaisseauxJ1Face();
+            launcher.getGame().initVaisseauxJ2Face();
+            launcher.getGame().initTextVieJ2();
+            launcher.getGame().initTextVieJ1();
+            launcher.getGame().initBackground();
+            launcher.getGame().initBarreCentrale();
+            launcher.getGame().setVueCompleteMenu();
+
+            launcher.afficherGame();
+
 
 
         }

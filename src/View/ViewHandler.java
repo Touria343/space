@@ -132,8 +132,8 @@ public class ViewHandler extends Application {
         mo.setVueCompleteMenu();
     }
 
-    public void afficherGame(int indiceVaissJ1, int indiceVaissJ2) {
-        game.setVueCompleteMenu(indiceVaissJ1, indiceVaissJ2);
+    public void afficherGame() {
+        game.setVueCompleteMenu();
     }
 
 

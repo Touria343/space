@@ -7,17 +7,18 @@ import java.util.ArrayList;
 
 public class VCorvette extends Vaisseaux {
 
-    private int vitesse;
+    private double vitesse;
     private String nomVaiss;
     private int life;
     private int puissanceTir;
-    private ArrayList tabImageVaiss = new ArrayList<>();
+    private  ArrayList<ImageView> tabImageVaiss = new ArrayList<ImageView>();
+
 
 
     public VCorvette() {
 
         super();
-        vitesse = 40;
+        vitesse = 1;
         nomVaiss = "Touria Corvette -9";
         life = 2000;
         puissanceTir = 2;
@@ -39,7 +40,7 @@ public class VCorvette extends Vaisseaux {
     }
 
 
-    public int getVitesse() {
+    public double getVitesse() {
         return vitesse;
     }
 

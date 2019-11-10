@@ -20,6 +20,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ViewGame {
 
@@ -29,8 +30,8 @@ public class ViewGame {
     private Menu model;
     private MediaView viewer;
     private ImageView barreCentrale;
-    private Text vieJ1;
-    private Text vieJ2;
+    private int vieJ1;
+    private int vieJ2;
     private double positionVaissJ1;
     private Timeline timelineGoLeftJ2 = null;
 
@@ -64,6 +65,29 @@ public class ViewGame {
     private VFaucon vaissJ1Faucon;
     private Object vaissJ2Obj;
     private Object vaissJ1Obj;
+    private ImageView vaissJ1F;
+    private VGeocroiseur vaissJ2geoF;
+    private VCorvette vaissJ2CorvF;
+    private VFaucon vaissJ2FauconF;
+    private VGeocroiseur vaissJ1geoF;
+    private VCorvette vaissJ1CorvF;
+    private VR22 vaissJ1R22F;
+    private VFaucon vaissJ1FauconF;
+    private ImageView vaissJ2F;
+    private Image imageVaiss;
+
+    public void setIndiVaissJ1(int indiVaissJ1) {
+        this.indiVaissJ1 = indiVaissJ1;
+    }
+
+    public void setIndiVaissJ2(int indiVaissJ2) {
+        this.indiVaissJ2 = indiVaissJ2;
+    }
+
+    private VR22 vaissJ2R22F;
+    private VFaucon vaissJ2ObjF;
+    private Text vieJ1Text;
+    private Text vieJ2Text;
 
     public int getIndiVaissJ1() {
         return indiVaissJ1;
@@ -117,20 +141,10 @@ public class ViewGame {
         this.root = root;
         this.model = model;
 
-        initBackground();
-        initBarreCentrale();
-        initTextVieJ1();
-        initTextVieJ2();
-        initVaisseauxJ1();
-        initVaisseauxJ2();
-        initVaisseauxJ1Face();
-        initVaisseauxJ2Face();
 
-
-        setVueCompleteMenu(indiVaissJ1, indiVaissJ2);
     }
 
-    private void initBarreCentrale() {
+    public void initBarreCentrale() {
         barreCentrale = new ImageView(Path.barreCentrale);
         barreCentrale.setX(700);
         barreCentrale.setY(0);
@@ -138,41 +152,45 @@ public class ViewGame {
         barreCentrale.setOpacity(0.5);
     }
 
-    private void initTextVieJ1() {
-        vieJ1 = new Text(50, 30, "Life : 1000");
-        vieJ1.setFont(Font.font("Dead Kansas", FontWeight.SEMI_BOLD, 25));
-        vieJ1.setFill(Color.WHITE);
-        vieJ1.setOpacity(0);
+    public void initTextVieJ1() {
+        vieJ1Text = new Text(50, 30, "Life :" + vieJ1);
+        vieJ1Text.setFont(Font.font("Dead Kansas", FontWeight.SEMI_BOLD, 25));
+        vieJ1Text.setFill(Color.WHITE);
+        vieJ1Text.setOpacity(0);
     }
 
-    private void initTextVieJ2() {
-        vieJ2 = new Text(1300, 30, "Life : 1000");
-        vieJ2.setFont(Font.font("Dead Kansas", FontWeight.SEMI_BOLD, 25));
-        vieJ2.setFill(Color.WHITE);
-        vieJ2.setOpacity(0);
+    public void initTextVieJ2() {
+        vieJ2Text = new Text(1300, 30, "Life :" + vieJ2);
+        vieJ2Text.setFont(Font.font("Dead Kansas", FontWeight.SEMI_BOLD, 25));
+        vieJ2Text.setFill(Color.WHITE);
+        vieJ2Text.setOpacity(0);
     }
 
-    private void initVaisseauxJ1() {
+    public void initVaisseauxJ1() {
         if (indiVaissJ1 == 0) {
             vaissJ1geo = new VGeocroiseur();
             vaissJ1Obj = vaissJ2geo;
 
-            vaissJ1 = (ImageView) vaissJ1geo.getTabImageVaiss().get(4);
+            vieJ1 = vaissJ1geo.getLife();
+            vaissJ1 = (ImageView) vaissJ1geo.getTabImageVaiss().get(3);
         } else if (indiVaissJ1 == 1) {
             vaissJ1Corv = new VCorvette();
             vaissJ1Obj = vaissJ2Corv;
 
-            vaissJ1 = (ImageView) vaissJ1Corv.getTabImageVaiss().get(4);
+            vieJ1 = vaissJ1Corv.getLife();
+            vaissJ1 = (ImageView) vaissJ1Corv.getTabImageVaiss().get(3);
         } else if (indiVaissJ1 == 2) {
             vaissJ1R22 = new VR22();
             vaissJ1Obj = vaissJ2R22;
 
-            vaissJ1 = (ImageView) vaissJ1R22.getTabImageVaiss().get(4);
+            vieJ1 = vaissJ1R22.getLife();
+            vaissJ1 = (ImageView) vaissJ1R22.getTabImageVaiss().get(3);
         } else if (indiVaissJ1 == 3) {
             vaissJ1Faucon = new VFaucon();
             vaissJ1Obj = vaissJ2Faucon;
 
-            vaissJ1 = (ImageView) vaissJ1Faucon.getTabImageVaiss().get(4);
+            vieJ1 = vaissJ1Faucon.getLife();
+            vaissJ1 = (ImageView) vaissJ1Faucon.getTabImageVaiss().get(3);
         }
         vaissJ1.setX(200);
         vaissJ1.setY(700);
@@ -182,24 +200,32 @@ public class ViewGame {
         vaissJ1.setPickOnBounds(false);
     }
 
-    private void initVaisseauxJ2() {
+    public Object initVaisseauxJ2() {
         if (indiVaissJ2 == 0) {
-            vaissJ2geo = new VGeocroiseur();
+            vaissJ2geoF = new VGeocroiseur();
             vaissJ2Obj = vaissJ2geo;
 
-            vaissJ2 = (ImageView) vaissJ2geo.getTabImageVaiss().get(4);
+            vieJ2 = vaissJ2geoF.getLife();
+
+            vaissJ2 = (ImageView) vaissJ2geoF.getTabImageVaiss().get(3);
         } else if (indiVaissJ2 == 1) {
-            vaissJ2Corv = new VCorvette();
+            vaissJ2CorvF = new VCorvette();
             vaissJ2Obj = vaissJ2Corv;
-            vaissJ2 = (ImageView) vaissJ2Corv.getTabImageVaiss().get(4);
+
+            vieJ2 = vaissJ2CorvF.getLife();
+            vaissJ2 = (ImageView) vaissJ2CorvF.getTabImageVaiss().get(3);
         } else if (indiVaissJ2 == 2) {
-            vaissJ2R22 = new VR22();
+            vaissJ2R22F = new VR22();
             vaissJ2Obj = vaissJ2R22;
-            vaissJ2 = (ImageView) vaissJ2R22.getTabImageVaiss().get(4);
+
+            vieJ2 = vaissJ2R22F.getLife();
+            vaissJ2 = (ImageView) vaissJ2R22F.getTabImageVaiss().get(3);
         } else if (indiVaissJ2 == 3) {
-          vaissJ2Faucon = new VFaucon();
-            vaissJ2Obj = vaissJ2Faucon;
-            vaissJ2 = (ImageView) vaissJ2Faucon.getTabImageVaiss().get(4);
+            vaissJ2FauconF = new VFaucon();
+            vaissJ2ObjF = vaissJ2Faucon;
+
+            vieJ2 = vaissJ2FauconF.getLife();
+            vaissJ2 = (ImageView) vaissJ2FauconF.getTabImageVaiss().get(3);
         }
         vaissJ2.setX(950);
         vaissJ2.setY(700);
@@ -207,28 +233,93 @@ public class ViewGame {
         vaissJ2.setPreserveRatio(true);
         vaissJ2.setOpacity(0);
         vaissJ2.setPickOnBounds(false);
+
+        return vaissJ2Obj;
     }
 
 
-    private void initVaisseauxJ1Face() {
-        vaissJ1Face = new ImageView(Path.vaissJ1Face);
-        vaissJ1Face.setX(1050);
-        vaissJ1Face.setY(300);
-        vaissJ1Face.setFitWidth(75);
-        vaissJ1Face.setPreserveRatio(true);
-        vaissJ1Face.setOpacity(0);
-        vaissJ1Face.setPickOnBounds(false);
+    public void initVaisseauxJ1Face() {
+
+        if (indiVaissJ1 == 0) {
+            vaissJ1geoF = new VGeocroiseur();
+            vaissJ1Obj = vaissJ1geo;
+
+            vieJ1 = vaissJ1geoF.getLife();
+
+            vaissJ1F = (ImageView) vaissJ1geoF.getTabImageVaiss().get(3);
+        } else if (indiVaissJ1 == 1) {
+            vaissJ1CorvF = new VCorvette();
+            vaissJ1Obj = vaissJ1Corv;
+
+            vieJ1 = vaissJ1Corv.getLife();
+
+            vaissJ1F = (ImageView) vaissJ1CorvF.getTabImageVaiss().get(3);
+        } else if (indiVaissJ1 == 2) {
+            vaissJ1R22F = new VR22();
+            vaissJ1Obj = vaissJ1R22;
+
+            vieJ1 = vaissJ1R22F.getLife();
+
+            vaissJ1F = (ImageView) vaissJ1R22F.getTabImageVaiss().get(3);
+        } else if (indiVaissJ1 == 3) {
+            vaissJ1FauconF = new VFaucon();
+            vaissJ1Obj = vaissJ1Faucon;
+
+            vieJ1 = vaissJ1FauconF.getLife();
+
+            vaissJ1F = (ImageView) vaissJ1FauconF.getTabImageVaiss().get(3);
+        }
+
+
+        vaissJ1F.setX(1050);
+        vaissJ1F.setY(300);
+        vaissJ1F.setFitWidth(75);
+        vaissJ1F.setPreserveRatio(true);
+        vaissJ1F.setOpacity(0);
+        vaissJ1F.setPickOnBounds(false);
 
     }
 
-    private void initVaisseauxJ2Face() {
-        vaissJ2Face = new ImageView(Path.vaissJ2Face);
-        vaissJ2Face.setX(300);
-        vaissJ2Face.setY(300);
-        vaissJ2Face.setFitWidth(75);
-        vaissJ2Face.setPreserveRatio(true);
-        vaissJ2Face.setOpacity(0);
-        vaissJ2Face.setPickOnBounds(false);
+    public void initVaisseauxJ2Face() {
+
+
+        if (indiVaissJ2 == 0) {
+            vaissJ2geoF = new VGeocroiseur();
+            vaissJ2Obj = vaissJ2geo;
+
+            vieJ2 = vaissJ2geoF.getLife();
+
+            vaissJ2F = (ImageView) vaissJ2geoF.getTabImageVaiss().get(3);
+        } else if (indiVaissJ2 == 1) {
+            vaissJ2CorvF = new VCorvette();
+            vaissJ2Obj = vaissJ2Corv;
+
+            vieJ2 = vaissJ2Corv.getLife();
+
+            vaissJ2F = (ImageView) vaissJ2CorvF.getTabImageVaiss().get(3);
+        } else if (indiVaissJ2 == 2) {
+            vaissJ2R22F = new VR22();
+            vaissJ2Obj = vaissJ2R22;
+
+            vieJ2 = vaissJ2R22F.getLife();
+
+            vaissJ2F = (ImageView) vaissJ2R22F.getTabImageVaiss().get(3);
+        } else if (indiVaissJ2 == 3) {
+            vaissJ2FauconF = new VFaucon();
+            vaissJ2Obj = vaissJ2Faucon;
+
+            vieJ2 = vaissJ2FauconF.getLife();
+
+            vaissJ2F = (ImageView) vaissJ2FauconF.getTabImageVaiss().get(3);
+        }
+
+
+        vaissJ2F.setX(300);
+        vaissJ2F.setY(300);
+        vaissJ2F.setFitWidth(75);
+        vaissJ2F.setPreserveRatio(true);
+        vaissJ2F.setOpacity(0);
+        vaissJ2F.setPickOnBounds(false);
 
     }
 
@@ -236,15 +327,15 @@ public class ViewGame {
         return videoBackground;
     }
 
-    public Text getVieJ1() {
-        return vieJ1;
+    public Text getVieJ1Text() {
+        return vieJ1Text;
     }
 
     public Text getVieJ2() {
-        return vieJ2;
+        return vieJ2Text;
     }
 
-    private void initBackground() {
+    public void initBackground() {
         videoBackground = new MediaPlayer(new Media(this.getClass().getResource(Path.videobackground4).toExternalForm()));
         videoBackground.setCycleCount(MediaPlayer.INDEFINITE);
         viewer = new MediaView(videoBackground);
@@ -260,19 +351,19 @@ public class ViewGame {
         viewer.setPreserveRatio(false);
     }
 
-    void setVueCompleteMenu(int indiceVaissJ1, int indiceVaissJ2) {
-        indiVaissJ1 = indiceVaissJ1;
-        indiVaissJ2 = indiceVaissJ2;
+    public void setVueCompleteMenu() {
 
         root.getChildren().clear();
         root.getChildren().add(viewer);
+
         root.getChildren().add(barreCentrale);
-        root.getChildren().add(vieJ1);
-        root.getChildren().add(vieJ2);
+
+        root.getChildren().add(vieJ1Text);
+        root.getChildren().add(vieJ2Text);
         root.getChildren().add(vaissJ1);
         root.getChildren().add(vaissJ2);
-        root.getChildren().add(vaissJ1Face);
-        root.getChildren().add(vaissJ2Face);
+        root.getChildren().add(vaissJ1F);
+        root.getChildren().add(vaissJ2F);
 
         final Animation animTextMenuArrivee = new Transition() {
             {
@@ -280,12 +371,12 @@ public class ViewGame {
             }
 
             protected void interpolate(double frac) {
-                vieJ1.setOpacity(frac);
-                vieJ2.setOpacity(frac);
+                vieJ1Text.setOpacity(frac);
+                vieJ2Text.setOpacity(frac);
                 vaissJ1.setOpacity(frac);
                 vaissJ2.setOpacity(frac);
-                vaissJ1Face.setOpacity(frac);
-                vaissJ2Face.setOpacity(frac);
+                vaissJ1F.setOpacity(frac);
+                vaissJ2F.setOpacity(frac);
             }
         };
         videoBackground.play();
@@ -307,74 +398,188 @@ public class ViewGame {
 
     }
 
-    public void j1goRight(int vitesse) {
+    public void j1goRight(double vitesse) {
+
+        if (indiVaissJ1 == 0) {
+            vaissJ1geo = new VGeocroiseur();
+        } else if (indiVaissJ1 == 1) {
+            vaissJ1Corv = new VCorvette();
+        } else if (indiVaissJ1 == 2) {
+            vaissJ1R22 = new VR22();
+        } else if (indiVaissJ2 == 3) {
+            vaissJ1Faucon = new VFaucon();
+        }
 
         if (vaissJ1.getX() <= 601) {
 
-            Image vaissJ2gauche1 = new Image(Path.vaissJ2BackTurnLeft1);
-            Image vaissJ2gauche2 = new Image(Path.vaissJ2BackTurnLeft2);
-            Image vaissJ2gauche3 = new Image(Path.vaissJ2BackTurnLeft3);
-
             if (vaissJ2.getX() < 150) {
-                vaissJ1.setImage(vaissJ2gauche3);
+
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(6);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(6);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(6);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(6);
+                }
+
+                vaissJ1.setImage(imageVaiss);
             } else if (vaissJ1.getX() < 350) {
-                vaissJ1.setImage(vaissJ2gauche2);
+
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(5);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(5);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(5);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(5);
+                }
+
+                vaissJ1.setImage(imageVaiss);
             } else {
-                vaissJ1.setImage(vaissJ2gauche1);
+
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(2);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(2);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(2);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(2);
+                }
+
+                vaissJ1.setImage(imageVaiss);
             }
 
             final KeyFrame goLeftStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ1.xProperty(), vaissJ1.getX()));
-            final KeyFrame goLeftEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ1.xProperty(), 500));
+            final KeyFrame goLeftEnd = new KeyFrame(Duration.seconds(vitesse), new KeyValue(vaissJ1.xProperty(), 500));
 
             final KeyFrame goLeftStartFace = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ1Face.xProperty(), vaissJ1Face.getX()));
-            final KeyFrame goLeftEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ1Face.xProperty(), 800));
+            final KeyFrame goLeftEndFace = new KeyFrame(Duration.seconds(vitesse), new KeyValue(vaissJ1Face.xProperty(), 800));
 
             timelineGoRightJ1 = new Timeline(goLeftStart, goLeftStartFace, goLeftEnd, goLeftEndFace);
             timelineGoRightJ1.setCycleCount(1);
         }
     }
 
-    public void j1goLeft(int vitesse) {
+    public void j1goLeft(double vitesse) {
+
+        if (indiVaissJ2 == 0) {
+            vaissJ2geo = new VGeocroiseur();
+        } else if (indiVaissJ2 == 1) {
+            vaissJ2Corv = new VCorvette();
+        } else if (indiVaissJ2 == 2) {
+            vaissJ2R22 = new VR22();
+        } else if (indiVaissJ2 == 3) {
+            vaissJ2Faucon = new VFaucon();
+        }
 
         if (vaissJ1.getX() >= -101) {
 
-            Image vaissJ2gauche1 = new Image(Path.vaissJ2BackTurnLeft1);
-            Image vaissJ2gauche2 = new Image(Path.vaissJ2BackTurnLeft2);
-            Image vaissJ2gauche3 = new Image(Path.vaissJ2BackTurnLeft3);
 
-            if (vaissJ2.getX() > 750) {
-                vaissJ1.setImage(vaissJ2gauche3);
+                if (indiVaissJ1 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(0);
+                } else if (indiVaissJ1 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(0);
+                } else if (indiVaissJ1 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(0);
+                } else if (indiVaissJ1 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(0);
+                }
+
+                vaissJ1.setImage(imageVaiss);
             } else if (vaissJ1.getX() > 550) {
-                vaissJ1.setImage(vaissJ2gauche2);
+
+                if (indiVaissJ1 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(1);
+                } else if (indiVaissJ1 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(1);
+                } else if (indiVaissJ1 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(1);
+                } else if (indiVaissJ1 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(1);
+                }
+
+                vaissJ1.setImage(imageVaiss);
             } else {
-                vaissJ1.setImage(vaissJ2gauche1);
+
+                if (indiVaissJ1 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(2);
+                } else if (indiVaissJ1 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(2);
+                } else if (indiVaissJ1 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(2);
+                } else if (indiVaissJ1 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(2);
+                }
+
+                vaissJ1.setImage(imageVaiss);
             }
 
             final KeyFrame goLeftStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ1.xProperty(), vaissJ1.getX()));
-            final KeyFrame goLeftEnd = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ1.xProperty(), -100));
+            final KeyFrame goLeftEnd = new KeyFrame(Duration.seconds(vitesse), new KeyValue(vaissJ1.xProperty(), -100));
 
             final KeyFrame goLeftStartFace = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ1Face.xProperty(), vaissJ1Face.getX()));
-            final KeyFrame goLeftEndFace = new KeyFrame(Duration.seconds(0.5), new KeyValue(vaissJ1Face.xProperty(), 1250));
+            final KeyFrame goLeftEndFace = new KeyFrame(Duration.seconds(vitesse), new KeyValue(vaissJ1Face.xProperty(), 1250));
 
             timelineGoLeftJ1 = new Timeline(goLeftStart, goLeftStartFace, goLeftEnd, goLeftEndFace);
             timelineGoLeftJ1.setCycleCount(1);
         }
-    }
 
-    public void j2goRight(int vitesse) {
+
+    public void j2goRight(double vitesse) {
+
+
+        if (indiVaissJ2 == 0) {
+            vaissJ2geo = new VGeocroiseur();
+        } else if (indiVaissJ2 == 1) {
+            vaissJ2Corv = new VCorvette();
+        } else if (indiVaissJ2 == 2) {
+            vaissJ2R22 = new VR22();
+        } else if (indiVaissJ2 == 3) {
+            vaissJ2Faucon = new VFaucon();
+        }
+
 
         if (vaissJ2.getX() <= 1251) {
 
-            Image vaissJ2droite1 = new Image(Path.vaissJ2BackTurnRight1);
-            Image vaissJ2droite2 = new Image(Path.vaissJ2BackTurnRight2);
-            Image vaissJ2droite3 = new Image(Path.vaissJ2BackTurnRight3);
-
             if (vaissJ2.getX() < 700) {
-                vaissJ2.setImage(vaissJ2droite3);
+
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(6);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(6);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(6);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(6);
+                }
+
+                vaissJ2.setImage(imageVaiss);
             } else if (vaissJ2.getX() < 850) {
-                vaissJ2.setImage(vaissJ2droite2);
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(5);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(5);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(5);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(5);
+                }
+                vaissJ2.setImage(imageVaiss);
             } else {
-                vaissJ2.setImage(vaissJ2droite1);
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(2);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(2);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(2);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(2);
+                }
+                vaissJ2.setImage(imageVaiss);
             }
 
             final KeyFrame goRightStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2.xProperty(), vaissJ2.getX()));
@@ -388,20 +593,60 @@ public class ViewGame {
         }
     }
 
-    public void j2goLeft(int vitesse) {
+    public void j2goLeft(double vitesse) {
+
+        if (indiVaissJ2 == 0) {
+            vaissJ2geo = new VGeocroiseur();
+        } else if (indiVaissJ2 == 1) {
+            vaissJ2Corv = new VCorvette();
+        } else if (indiVaissJ2 == 2) {
+            vaissJ2R22 = new VR22();
+        } else if (indiVaissJ2 == 3) {
+            vaissJ2Faucon = new VFaucon();
+        }
+
 
         if (vaissJ2.getX() >= 601) {
 
-            Image vaissJ2gauche1 = new Image(Path.vaissJ2BackTurnLeft1);
-            Image vaissJ2gauche2 = new Image(Path.vaissJ2BackTurnLeft2);
-            Image vaissJ2gauche3 = new Image(Path.vaissJ2BackTurnLeft3);
 
             if (vaissJ2.getX() > 1150) {
-                vaissJ2.setImage(vaissJ2gauche3);
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(0);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(0);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(0);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(0);
+                }
+
+                vaissJ2.setImage(imageVaiss);
+
             } else if (vaissJ2.getX() > 1000) {
-                vaissJ2.setImage(vaissJ2gauche2);
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(1);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(1);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(1);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(1);
+                }
+
+                vaissJ2.setImage(imageVaiss);
             } else {
-                vaissJ2.setImage(vaissJ2gauche1);
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJ2geo.getTabImageVaiss().get(2);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJ2Corv.getTabImageVaiss().get(2);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJ2R22.getTabImageVaiss().get(2);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJ2Faucon.getTabImageVaiss().get(2);
+                }
+
+                vaissJ2.setImage(imageVaiss);
+
             }
 
             final KeyFrame goLeftStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2.xProperty(), vaissJ2.getX()));
@@ -416,8 +661,25 @@ public class ViewGame {
         }
     }
 
-    public void retourNormalBack() {
-        Image vaissJ2normal = new Image(Path.vaissJ2Back);
+    public void retourNormalBackJ2() {
+        Image vaissJ2normal = null;
+        if (indiVaissJ2 == 0) {
+            vaissJ2geo = new VGeocroiseur();
+            vaissJ2normal = (Image) vaissJ2geo.getTabImageVaiss().get(4);
+        } else if (indiVaissJ2 == 1) {
+            vaissJ2Corv = new VCorvette();
+            vaissJ2normal = (Image) vaissJ2geo.getTabImageVaiss().get(4);
+        } else if (indiVaissJ2 == 2) {
+            vaissJ2R22 = new VR22();
+            vaissJ2normal = (Image) vaissJ2geo.getTabImageVaiss().get(4);
+
+        } else if (indiVaissJ2 == 3) {
+            vaissJ2Faucon = new VFaucon();
+            vaissJ2normal = (Image) vaissJ2geo.getTabImageVaiss().get(4);
+
+        }
+
+
         vaissJ2.setImage(vaissJ2normal);
     }
 
@@ -516,7 +778,7 @@ public class ViewGame {
                 if (tir.getBoundsInParent().intersects(vaissJ1Face.getBoundsInParent())) {
 
                     vieintJ1 = vieintJ1 - 30;
-                    getVieJ1().setText("Life :" + (vieintJ1));
+                    getVieJ1Text().setText("Life :" + (vieintJ1));
 
                     //  if(vieintJ1 <=0){
                     ImageView explosFinale = new ImageView(Path.exploFinale);
@@ -662,7 +924,7 @@ public class ViewGame {
                 if (tir.getBoundsInParent().intersects(vaissJ1Face.getBoundsInParent())) {
 
                     vieintJ1 = vieintJ1 - 30;
-                    getVieJ1().setText("Life :" + (vieintJ1));
+                    getVieJ1Text().setText("Life :" + (vieintJ1));
 
                     //  if(vieintJ1 <=0){
                     ImageView explosFinale = new ImageView(Path.exploFinale);
@@ -809,7 +1071,7 @@ public class ViewGame {
                 if (tir.getBoundsInParent().intersects(vaissJ1Face.getBoundsInParent())) {
 
                     vieintJ1 = vieintJ1 - 30;
-                    getVieJ1().setText("Life :" + (vieintJ1));
+                    getVieJ1Text().setText("Life :" + (vieintJ1));
 
                     //  if(vieintJ1 <=0){
                     ImageView explosFinale = new ImageView(Path.exploFinale);
@@ -955,7 +1217,7 @@ public class ViewGame {
                 if (tir.getBoundsInParent().intersects(vaissJ1Face.getBoundsInParent())) {
 
                     vieintJ1 = vieintJ1 - 30;
-                    getVieJ1().setText("Life :" + (vieintJ1));
+                    getVieJ1Text().setText("Life :" + (vieintJ1));
 
                     //  if(vieintJ1 <=0){
                     ImageView explosFinale = new ImageView(Path.exploFinale);
@@ -1011,7 +1273,24 @@ public class ViewGame {
     }
 
     public void retourNormalBackJ1() {
-        Image vaissJ1normal = new Image(Path.vaissJ1Back);
+        Image vaissJ1normal = null;
+        if (indiVaissJ1 == 0) {
+            vaissJ1geo = new VGeocroiseur();
+            vaissJ1normal = (Image) vaissJ1geo.getTabImageVaiss().get(4);
+        } else if (indiVaissJ1 == 1) {
+            vaissJ1Corv = new VCorvette();
+            vaissJ1normal = (Image) vaissJ1geo.getTabImageVaiss().get(4);
+        } else if (indiVaissJ1 == 2) {
+            vaissJ1R22 = new VR22();
+            vaissJ1normal = (Image) vaissJ1geo.getTabImageVaiss().get(4);
+
+        } else if (indiVaissJ1 == 3) {
+            vaissJ1Faucon = new VFaucon();
+            vaissJ1normal = (Image) vaissJ1geo.getTabImageVaiss().get(4);
+
+        }
+
+
         vaissJ1.setImage(vaissJ1normal);
 
     }

@@ -9,16 +9,16 @@ public class VR22 extends Vaisseaux {
 
 
 
-    private int vitesse;
+    private double vitesse;
     private String nomVaiss;
     private int life;
     private int puissanceTir;
-    private ArrayList tabImageVaiss;
+    private  ArrayList<ImageView> tabImageVaiss = new ArrayList<ImageView>();
 
 
     public VR22() {
         super();
-        vitesse = 100;
+        vitesse = 0.5;
         nomVaiss = "Géo-croiseur génésis t-16";
         life = 800;
         puissanceTir = 1;
@@ -36,7 +36,7 @@ public class VR22 extends Vaisseaux {
         tabImageVaiss.add(new ImageView(Path.r22BD3));
         return tabImageVaiss;
     }
-    public int getVitesse() {
+    public double getVitesse() {
         return vitesse;
     }
 
