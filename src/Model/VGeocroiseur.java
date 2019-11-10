@@ -27,11 +27,13 @@ public class VGeocroiseur extends Vaisseaux{
 
     public ArrayList initArrayListVaiss(){
 
-        tabImageVaiss.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-        tabImageVaiss.add(new ImageView(Path.vaissJ2Back));
-        tabImageVaiss.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-        tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
-        tabImageVaiss.add(new ImageView(Path.stats4));
+        tabImageVaiss.add(new ImageView(Path.croiBG3));
+        tabImageVaiss.add(new ImageView(Path.croiBG2));
+        tabImageVaiss.add(new ImageView(Path.croiBG1));
+        tabImageVaiss.add(new ImageView(Path.croiB));
+        tabImageVaiss.add(new ImageView(Path.croiBD1));
+        tabImageVaiss.add(new ImageView(Path.croiBD2));
+        tabImageVaiss.add(new ImageView(Path.croiBD3));
         return tabImageVaiss;
     }
 

@@ -27,11 +27,13 @@ public class VR22 extends Vaisseaux {
 
     public ArrayList initArrayListVaiss(){
 
-        tabImageVaiss.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-        tabImageVaiss.add(new ImageView(Path.vaissJ2Back));
-        tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
-        tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
-        tabImageVaiss.add(new ImageView(Path.stats4));
+        tabImageVaiss.add(new ImageView(Path.r22BG3));
+        tabImageVaiss.add(new ImageView(Path.r22BG2));
+        tabImageVaiss.add(new ImageView(Path.r22BG1));
+        tabImageVaiss.add(new ImageView(Path.r22B));
+        tabImageVaiss.add(new ImageView(Path.r22BD1));
+        tabImageVaiss.add(new ImageView(Path.r22BD2));
+        tabImageVaiss.add(new ImageView(Path.r22BD3));
         return tabImageVaiss;
     }
     public int getVitesse() {

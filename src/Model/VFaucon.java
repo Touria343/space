@@ -25,11 +25,13 @@ public class VFaucon extends Vaisseaux {
 
     public ArrayList initArrayListVaiss(){
 
-        tabImageVaiss.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-        tabImageVaiss.add(new ImageView(Path.vaissJ2Back));
-        tabImageVaiss.add(new ImageView(Path.vaissJ2Back));
-        tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
-        tabImageVaiss.add(new ImageView(Path.stats4));
+        tabImageVaiss.add(new ImageView(Path.redBG3));
+        tabImageVaiss.add(new ImageView(Path.redBG2));
+        tabImageVaiss.add(new ImageView(Path.redBG1));
+        tabImageVaiss.add(new ImageView(Path.redB));
+        tabImageVaiss.add(new ImageView(Path.redBD1));
+        tabImageVaiss.add(new ImageView(Path.redBD2));
+        tabImageVaiss.add(new ImageView(Path.redBD3));
         return tabImageVaiss;
     }
 

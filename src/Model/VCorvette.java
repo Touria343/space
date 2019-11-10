@@ -27,11 +27,13 @@ public class VCorvette extends Vaisseaux {
 
     public ArrayList initArrayListVaiss() {
 
-        tabImageVaiss.add(new ImageView(Path.vaissJ2BackTurnLeft1));
-        tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
-        tabImageVaiss.add(new ImageView(Path.vaissJ2Back));
-        tabImageVaiss.add(new ImageView(Path.vaissJ1Back));
-        tabImageVaiss.add(new ImageView(Path.stats4));
+        tabImageVaiss.add(new ImageView(Path.corvetteBG3));
+        tabImageVaiss.add(new ImageView(Path.corvetteBG2));
+        tabImageVaiss.add(new ImageView(Path.corvetteBG1));
+        tabImageVaiss.add(new ImageView(Path.corvetteB));
+        tabImageVaiss.add(new ImageView(Path.corvetteBD1));
+        tabImageVaiss.add(new ImageView(Path.corvetteBD2));
+        tabImageVaiss.add(new ImageView(Path.corvetteBD3));
 
         return tabImageVaiss;
     }
