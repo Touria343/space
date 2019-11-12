@@ -2,7 +2,6 @@ package Model;
 
 import Tools.Path;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
@@ -12,8 +11,8 @@ public class VCorvette extends Vaisseaux {
     private String nomVaiss;
     private int life;
     private int puissanceTir;
-    private  ArrayList<Image> tabImageVaiss = new ArrayList<Image>();
-
+    private  ArrayList<Image> tabImageVaissBack = new ArrayList<Image>();
+    private ArrayList<Image> tabImageVaissFace = new ArrayList<Image>();
 
 
     public VCorvette() {
@@ -23,21 +22,40 @@ public class VCorvette extends Vaisseaux {
         nomVaiss = "Touria Corvette -9";
         life = 2000;
         puissanceTir = 2;
-        tabImageVaiss = initArrayListVaiss();
+        tabImageVaissBack = initArrayListVaissBack();
+        tabImageVaissFace = initArrayListVaissFace();
+
 
     }
 
-    public ArrayList initArrayListVaiss() {
+    public ArrayList<Image> getTabImageVaissFace() {
+        return tabImageVaissFace;
+    }
 
-        tabImageVaiss.add(new Image(Path.corvetteBG3));
-        tabImageVaiss.add(new Image(Path.corvetteBG2));
-        tabImageVaiss.add(new Image(Path.corvetteBG1));
-        tabImageVaiss.add(new Image(Path.corvetteB));
-        tabImageVaiss.add(new Image(Path.corvetteBD1));
-        tabImageVaiss.add(new Image(Path.corvetteBD2));
-        tabImageVaiss.add(new Image(Path.corvetteBD3));
+    public ArrayList initArrayListVaissBack() {
 
-        return tabImageVaiss;
+        tabImageVaissBack.add(new Image(Path.corvetteBG3));
+        tabImageVaissBack.add(new Image(Path.corvetteBG2));
+        tabImageVaissBack.add(new Image(Path.corvetteBG1));
+        tabImageVaissBack.add(new Image(Path.corvetteB));
+        tabImageVaissBack.add(new Image(Path.corvetteBD1));
+        tabImageVaissBack.add(new Image(Path.corvetteBD2));
+        tabImageVaissBack.add(new Image(Path.corvetteBD3));
+
+        return tabImageVaissBack;
+    }
+
+    public ArrayList initArrayListVaissFace() {
+
+        tabImageVaissFace.add(new Image(Path.corvetteFG3));
+        tabImageVaissFace.add(new Image(Path.corvetteFG2));
+        tabImageVaissFace.add(new Image(Path.corvetteFG1));
+        tabImageVaissFace.add(new Image(Path.corvetteF));
+        tabImageVaissFace.add(new Image(Path.corvetteFD1));
+        tabImageVaissFace.add(new Image(Path.corvetteFD2));
+        tabImageVaissFace.add(new Image(Path.corvetteFD3));
+
+        return tabImageVaissFace;
     }
 
 
@@ -73,12 +91,12 @@ public class VCorvette extends Vaisseaux {
         this.puissanceTir = puissanceTir;
     }
 
-    public ArrayList getTabImageVaiss() {
-        return tabImageVaiss;
+    public ArrayList getTabImageVaissBack() {
+        return tabImageVaissBack;
     }
 
-    public void setTabImageVaiss(ArrayList tabImageVaiss) {
-        this.tabImageVaiss = tabImageVaiss;
+    public void setTabImageVaissBack(ArrayList tabImageVaissBack) {
+        this.tabImageVaissBack = tabImageVaissBack;
     }
 
 }

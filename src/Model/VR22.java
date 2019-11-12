@@ -15,6 +15,7 @@ public class VR22 extends Vaisseaux {
     private int life;
     private int puissanceTir;
     private  ArrayList<Image> tabImageVaiss = new ArrayList<Image>();
+    private  ArrayList<Image> tabImageVaissFace = new ArrayList<Image>();
 
 
     public VR22() {
@@ -24,6 +25,8 @@ public class VR22 extends Vaisseaux {
         life = 800;
         puissanceTir = 1;
         tabImageVaiss = initArrayListVaiss();
+        tabImageVaissFace = initArrayListVaissFace();
+
     }
 
     public ArrayList initArrayListVaiss(){
@@ -37,6 +40,24 @@ public class VR22 extends Vaisseaux {
         tabImageVaiss.add(new Image(Path.r22BD3));
         return tabImageVaiss;
     }
+
+    public ArrayList initArrayListVaissFace() {
+
+        tabImageVaissFace.add(new Image(Path.r22FG3));
+        tabImageVaissFace.add(new Image(Path.r22FG2));
+        tabImageVaissFace.add(new Image(Path.r22FG1));
+        tabImageVaissFace.add(new Image(Path.r22F));
+        tabImageVaissFace.add(new Image(Path.r22FD1));
+        tabImageVaissFace.add(new Image(Path.r22FD2));
+        tabImageVaissFace.add(new Image(Path.r22FD3));
+
+        return tabImageVaissFace;
+    }
+
+    public ArrayList<Image> getTabImageVaissFace() {
+        return tabImageVaissFace;
+    }
+
     public double getVitesse() {
         return vitesse;
     }

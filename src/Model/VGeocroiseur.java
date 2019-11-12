@@ -2,7 +2,6 @@ package Model;
 
 import Tools.Path;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
@@ -12,10 +11,8 @@ public class VGeocroiseur extends Vaisseaux{
     private String nomVaiss;
     private int life;
     private int puissanceTir;
-    private  ArrayList<Image> tabImageVaiss = new ArrayList<Image>();
-
-
-
+    private  ArrayList<Image> tabImageVaissBack = new ArrayList<Image>();
+    private ArrayList <Image> tabImageVaissFace = new ArrayList<Image>();
 
 
     public VGeocroiseur() {
@@ -24,19 +21,38 @@ public class VGeocroiseur extends Vaisseaux{
         nomVaiss = "Géo-croiseur génésis t-16";
         life = 1700;
         puissanceTir = 2;
-        tabImageVaiss = initArrayListVaiss();
+        tabImageVaissBack = initArrayListVaissBack();
+        tabImageVaissFace = initArrayListVaissFace();
+
     }
 
-    public ArrayList initArrayListVaiss(){
+    public ArrayList initArrayListVaissBack(){
 
-        tabImageVaiss.add(new Image(Path.croiBG3));
-        tabImageVaiss.add(new Image(Path.croiBG2));
-        tabImageVaiss.add(new Image(Path.croiBG1));
-        tabImageVaiss.add(new Image(Path.croiB));
-        tabImageVaiss.add(new Image(Path.croiBD1));
-        tabImageVaiss.add(new Image(Path.croiBD2));
-        tabImageVaiss.add(new Image(Path.croiBD3));
-        return tabImageVaiss;
+        tabImageVaissBack.add(new Image(Path.croiBG3));
+        tabImageVaissBack.add(new Image(Path.croiBG2));
+        tabImageVaissBack.add(new Image(Path.croiBG1));
+        tabImageVaissBack.add(new Image(Path.croiB));
+        tabImageVaissBack.add(new Image(Path.croiBD1));
+        tabImageVaissBack.add(new Image(Path.croiBD2));
+        tabImageVaissBack.add(new Image(Path.croiBD3));
+        return tabImageVaissBack;
+    }
+
+    public ArrayList<Image> getTabImageVaissFace() {
+        return tabImageVaissFace;
+    }
+
+    public ArrayList initArrayListVaissFace() {
+
+        tabImageVaissFace.add(new Image(Path.croiFG3));
+        tabImageVaissFace.add(new Image(Path.croiFG2));
+        tabImageVaissFace.add(new Image(Path.croiFG1));
+        tabImageVaissFace.add(new Image(Path.croiF));
+        tabImageVaissFace.add(new Image(Path.croiFD1));
+        tabImageVaissFace.add(new Image(Path.croiFD2));
+        tabImageVaissFace.add(new Image(Path.croiFD3));
+
+        return tabImageVaissFace;
     }
 
     public double getVitesse() {
@@ -71,12 +87,12 @@ public class VGeocroiseur extends Vaisseaux{
         this.puissanceTir = puissanceTir;
     }
 
-    public ArrayList getTabImageVaiss() {
-        return tabImageVaiss;
+    public ArrayList getTabImageVaissBack() {
+        return tabImageVaissBack;
     }
 
-    public void setTabImageVaiss(ArrayList tabImageVaiss) {
-        this.tabImageVaiss = tabImageVaiss;
+    public void setTabImageVaissBack(ArrayList tabImageVaissBack) {
+        this.tabImageVaissBack = tabImageVaissBack;
     }
 
 }

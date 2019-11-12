@@ -8,6 +8,14 @@ import javafx.scene.input.KeyEvent;
 
 public class ControllerJeux implements EventHandler<KeyEvent> {
 
+    private VR22 vaissJoueur1r22;
+    private VGeocroiseur vaissJoueur2geo;
+    private VFaucon vaissJoueur1fauc;
+    private VCorvette vaissJoueur2corv;
+    private VR22 vaissJoueur2r22;
+    private VFaucon vaissJoueur2fauc;
+    private VGeocroiseur vaissJoueur1geo;
+    private VCorvette vaissJoueur1corv;
     /**
      * Attributs du controleur du menu
      */
@@ -51,10 +59,28 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
      * @param launcher (Gestionnaire de vue)
      * @param model    (Modèle correcpondant au menu principal)
      */
-    public ControllerJeux(ViewHandler launcher, Menu model) {
+    public ControllerJeux(ViewHandler launcher, Menu model, VGeocroiseur geocJ1, VR22 r22J1, VCorvette corvJ1,VFaucon faucJ1,VGeocroiseur geocJ2, VR22 r22J2, VCorvette corvJ2, VFaucon faucJ2) {
         this.model = model;
         this.launcher = launcher;
         this.launcher.setEventHandlerGame(this);
+        vaissJoueur1geo = new VGeocroiseur();
+        this.vaissJoueur1geo = geocJ1;
+
+        vaissJoueur1corv= new VCorvette();
+        this.vaissJoueur1corv = corvJ1;
+        vaissJoueur1r22 = new VR22();
+        this.vaissJoueur1r22 = r22J1;
+        vaissJoueur1fauc = new VFaucon();
+        this.vaissJoueur1fauc = faucJ1;
+
+        vaissJoueur2geo = new VGeocroiseur();
+        this.vaissJoueur2geo = geocJ2;
+        vaissJoueur2corv= new VCorvette();
+        this.vaissJoueur2corv = corvJ2;
+        vaissJoueur2r22 = new VR22();
+        this.vaissJoueur2r22 = r22J2;
+        vaissJoueur2fauc = new VFaucon();
+        this.vaissJoueur2fauc = faucJ2;
 
     }
 
@@ -66,62 +92,45 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
         indiceJ2 = launcher.getGame().getIndiVaissJ2();
         System.out.println(indiceJ2);
 
-
         if (indiceJ1 == 0) {
-            VGeocroiseur j1geocroi = new VGeocroiseur();
-
-            vitesseJ1 = j1geocroi.getVitesse();
-            vieJ1 = j1geocroi.getLife();
-            puissanceTirJ1 = j1geocroi.getPuissanceTir();
+            vitesseJ1 = vaissJoueur1geo.getVitesse();
+            vieJ1 = vaissJoueur1geo.getLife();
+            puissanceTirJ1 = vaissJoueur1geo.getPuissanceTir();
 
         } else if (indiceJ1 == 1) {
-            VCorvette j1corv = new VCorvette();
-
-            vitesseJ1 = j1corv.getVitesse();
-            vieJ1 = j1corv.getLife();
-            puissanceTirJ1 = j1corv.getPuissanceTir();
-
-
+            vitesseJ1 = vaissJoueur1corv.getVitesse();
+            vieJ1 = vaissJoueur1corv.getLife();
+            puissanceTirJ1 = vaissJoueur1corv.getPuissanceTir();
         } else if (indiceJ1 == 2) {
-            VR22 j1R22 = new VR22();
-
-            vitesseJ1 = j1R22.getVitesse();
-            vieJ1 = j1R22.getLife();
-            puissanceTirJ1 = j1R22.getPuissanceTir();
-
+            vitesseJ1 = vaissJoueur1r22.getVitesse();
+            vieJ1 = vaissJoueur1r22.getLife();
+            puissanceTirJ1 = vaissJoueur1r22.getPuissanceTir();
 
         } else if (indiceJ1 == 3) {
-            VFaucon j1fauc = new VFaucon();
-
-            vitesseJ1 = j1fauc.getVitesse();
-            vieJ1 = j1fauc.getLife();
-            puissanceTirJ1 = j1fauc.getPuissanceTir();
+            vitesseJ1 = vaissJoueur1fauc.getVitesse();
+            vieJ1 = vaissJoueur1fauc.getLife();
+            puissanceTirJ1 = vaissJoueur1fauc.getPuissanceTir();
         }
 
         if (indiceJ2 == 0) {
-            VGeocroiseur j2geocroi = new VGeocroiseur();
-            vitesseJ2 = j2geocroi.getVitesse();
-            vieJ2 = j2geocroi.getLife();
-            puissanceTirJ2 = j2geocroi.getPuissanceTir();
-
+            vitesseJ2 = vaissJoueur2geo.getVitesse();
+            vieJ2 = vaissJoueur2geo.getLife();
+            puissanceTirJ2 = vaissJoueur2geo.getPuissanceTir();
 
         } else if (indiceJ2 == 1) {
-            VCorvette j2corv = new VCorvette();
-            vitesseJ2 = j2corv.getVitesse();
-            vieJ2 = j2corv.getLife();
-            puissanceTirJ2 = j2corv.getPuissanceTir();
+            vitesseJ2 = vaissJoueur2corv.getVitesse();
+            vieJ2 = vaissJoueur2corv.getLife();
+            puissanceTirJ2 = vaissJoueur2corv.getPuissanceTir();
 
         } else if (indiceJ2 == 2) {
-            VR22 j2R22 = new VR22();
-            vitesseJ2 = j2R22.getVitesse();
-            vieJ2 = j2R22.getLife();
-            puissanceTirJ2 = j2R22.getPuissanceTir();
+            vitesseJ2 = vaissJoueur2r22.getVitesse();
+            vieJ2 = vaissJoueur2r22.getLife();
+            puissanceTirJ2 = vaissJoueur2r22.getPuissanceTir();
 
         } else if (indiceJ2 == 3) {
-            VFaucon j2fauc = new VFaucon();
-            vitesseJ2 = j2fauc.getVitesse();
-            vieJ2 = j2fauc.getLife();
-            puissanceTirJ2 = j2fauc.getPuissanceTir();
+            vitesseJ2 = vaissJoueur2fauc.getVitesse();
+            vieJ2 = vaissJoueur2r22.getLife();
+            puissanceTirJ2 = vaissJoueur2r22.getPuissanceTir();
         }
 
         if (keyEvent.getEventType().equals(KeyEvent.KEY_PRESSED)) {

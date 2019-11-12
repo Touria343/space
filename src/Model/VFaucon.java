@@ -2,18 +2,18 @@ package Model;
 
 import Tools.Path;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
 public class VFaucon extends Vaisseaux {
 
-    private  ArrayList<Image> tabImageVaiss = new ArrayList<Image>();
+    private  ArrayList<Image> tabImageVaissBack = new ArrayList<Image>();
 
     private double vitesse = 0.7;
     private String nomVaiss = "Red - Faucon";
     private int life = 1000;
     private int puissanceTir = 1;
+    private ArrayList <Image> tabImageVaissFace = new ArrayList<Image>();
 
 
     public VFaucon() {
@@ -22,19 +22,38 @@ public class VFaucon extends Vaisseaux {
         nomVaiss = "Géo-croiseur génésis t-16";
         life = 1000;
         puissanceTir = 1;
-        tabImageVaiss = initArrayListVaiss();
+        tabImageVaissBack = initArrayListVaissBack();
+        tabImageVaissFace = initArrayListVaissFace();
+
     }
 
-    public ArrayList initArrayListVaiss(){
+    public ArrayList<Image> getTabImageVaissFace() {
+        return tabImageVaissFace;
+    }
 
-        tabImageVaiss.add(new Image(Path.redBG3));
-        tabImageVaiss.add(new Image(Path.redBG2));
-        tabImageVaiss.add(new Image(Path.redBG1));
-        tabImageVaiss.add(new Image(Path.redB));
-        tabImageVaiss.add(new Image(Path.redBD1));
-        tabImageVaiss.add(new Image(Path.redBD2));
-        tabImageVaiss.add(new Image(Path.redBD3));
-        return tabImageVaiss;
+    public ArrayList initArrayListVaissBack(){
+
+        tabImageVaissBack.add(new Image(Path.redBG3));
+        tabImageVaissBack.add(new Image(Path.redBG2));
+        tabImageVaissBack.add(new Image(Path.redBG1));
+        tabImageVaissBack.add(new Image(Path.redB));
+        tabImageVaissBack.add(new Image(Path.redBD1));
+        tabImageVaissBack.add(new Image(Path.redBD2));
+        tabImageVaissBack.add(new Image(Path.redBD3));
+        return tabImageVaissBack;
+    }
+
+    public ArrayList initArrayListVaissFace() {
+
+        tabImageVaissFace.add(new Image(Path.redFG3));
+        tabImageVaissFace.add(new Image(Path.redFG2));
+        tabImageVaissFace.add(new Image(Path.redFG1));
+        tabImageVaissFace.add(new Image(Path.redF));
+        tabImageVaissFace.add(new Image(Path.redFD1));
+        tabImageVaissFace.add(new Image(Path.redFD2));
+        tabImageVaissFace.add(new Image(Path.redFD3));
+
+        return tabImageVaissFace;
     }
 
 
@@ -70,8 +89,8 @@ public class VFaucon extends Vaisseaux {
         this.puissanceTir = puissanceTir;
     }
 
-    public ArrayList getTabImageVaiss() {
-        return tabImageVaiss;
+    public ArrayList getTabImageVaissBack() {
+        return tabImageVaissBack;
     }
 
 }

@@ -2,9 +2,8 @@ package View;
 
 import Controller.ControllerJeux;
 import Controller.ControllerMenu;
-import Model.Menu;
+import Model.*;
 import Music.MusicJeux;
-import Tools.Path;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -15,7 +14,6 @@ import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.media.Media;
 
 public class ViewHandler extends Application {
     private Stage primaryStage;
@@ -37,6 +35,14 @@ public class ViewHandler extends Application {
     private Scene menuDemarrage;
     private ViewGame game;
     private ControllerJeux controllerJeux;
+    private VGeocroiseur geocJ1;
+    private VCorvette corvJ1;
+    private VR22 r22J1;
+    private VFaucon faucJ1;
+    private VGeocroiseur geocJ2;
+    private VR22 r22J2;
+    private VCorvette corvJ2;
+    private VFaucon faucJ2;
 
 
     public Scene getMenuDemarrage() {
@@ -62,12 +68,23 @@ public class ViewHandler extends Application {
 
         mp = new ViewMenuPrincipal(model, root);
         mo = new ViewChoixVaisseaux(model, root);
-        game = new ViewGame(model, root);
+
+        geocJ1 = new VGeocroiseur();
+        r22J1 = new VR22();
+        corvJ1 = new VCorvette();
+        faucJ1 = new VFaucon();
+
+        geocJ2 = new VGeocroiseur();
+        r22J2 = new VR22();
+        corvJ2 = new VCorvette();
+        faucJ2 = new VFaucon();
+
+        game = new ViewGame(model, root, geocJ1, r22J1, corvJ1, faucJ1, geocJ2, r22J2, corvJ2, faucJ2);
 
 
 
         controllerMenu = new ControllerMenu(this, model);
-        controllerJeux = new ControllerJeux(this, model);
+        controllerJeux = new ControllerJeux(this, model, geocJ1, r22J1, corvJ1, faucJ1, geocJ2, r22J2, corvJ2, faucJ2);
 
         MusicJeux.startMainMenuMusic();
         afficherMenuPrincipal(true);
