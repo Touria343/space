@@ -189,6 +189,8 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
 
                     launcher.getGame().getTimelineGoRightJ2().stop();
                     launcher.getGame().retourNormalBackJ2();
+                    launcher.getGame().retourNormalFrontJ2();
+
                     presseRightJ2 = false;
                 }
 
@@ -196,6 +198,8 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
 
                     launcher.getGame().getTimelineGoLeftJ2().stop();
                     launcher.getGame().retourNormalBackJ2();
+                    launcher.getGame().retourNormalFrontJ2();
+
                     presseLeftJ2 = false;
                 }
 
@@ -203,6 +207,8 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
 
                     launcher.getGame().getTimelineGoRightJ1().stop();
                     launcher.getGame().retourNormalBackJ1();
+                    launcher.getGame().retourNormalFrontJ1();
+
                     presseRightJ1 = false;
                 }
 
@@ -210,6 +216,8 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
 
                     launcher.getGame().getTimelineGoLeftJ1().stop();
                     launcher.getGame().retourNormalBackJ1();
+                    launcher.getGame().retourNormalFrontJ1();
+
                     presseLeftJ1 = false;
 
 
