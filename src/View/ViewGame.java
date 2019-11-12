@@ -8,6 +8,7 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
+import javafx.scene.effect.Reflection;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -53,7 +54,7 @@ public class ViewGame {
     private PauseTransition delayExploTouch;
     private int puissanceTir;
     private int cote;
-    private Timeline timelineGoLeftJ1;
+    private Timeline timelineGoLeftJ1 = null;
     private int indiVaissJ1;
     private int indiVaissJ2;
     private ArrayList<ImageView> tabImageVaiss0J1;
@@ -80,9 +81,9 @@ public class ViewGame {
     private Image vaissJ1ggg;
     private Image vaissJ2ggg;
     private int vieintJ2;
-    private int viejoueur2 = 0;
+    private int viejoueur2 = 1000;
     private int degatJ2 = 0;
-    private int viejoueur1=0;
+    private int viejoueur1=1000;
     private int degatJ1=0;
     private VR22 vaissJ2R22F;
     private VFaucon vaissJ2ObjF;
@@ -92,6 +93,8 @@ public class ViewGame {
     private Image vaissJ2face;
     private Image vaissJ2ggg2;
     private int vieintJ22;
+    private Timeline timelineGoRightJ1 = null;
+    private boolean fin;
 
     public void setIndiVaissJ1(int indiVaissJ1) {        this.indiVaissJ1 = indiVaissJ1; }
     public void setIndiVaissJ2(int indiVaissJ2) { this.indiVaissJ2 = indiVaissJ2;}
@@ -105,7 +108,6 @@ public class ViewGame {
     }
     public Object getVaissJ1Obj() { return vaissJ1Obj; }
     public Timeline getTimelineGoRightJ1() {return timelineGoRightJ1; }
-    private Timeline timelineGoRightJ1;
     public Timeline getTimelineGoLeftJ1() {
         return timelineGoLeftJ1;
     }
@@ -401,10 +403,11 @@ public class ViewGame {
 
     public void j1goRight(double vitesse) {
 
+
+
         if (vaissJ1.getX() <= 601) {
 
             if (vaissJ1.getX() < 50) {
-
                 if (indiVaissJ1 == 0) {
                     imageVaiss = (Image) vaissJoueur1geo.getTabImageVaissBack().get(6);
                 } else if (indiVaissJ1 == 1) {
@@ -417,7 +420,6 @@ public class ViewGame {
 
                 vaissJ1.setImage(imageVaiss);
             } else if (vaissJ1.getX() < 150) {
-
                 if (indiVaissJ1 == 0) {
                     imageVaiss = (Image) vaissJoueur1geo.getTabImageVaissBack().get(5);
                 } else if (indiVaissJ1 == 1) {
@@ -635,6 +637,14 @@ public class ViewGame {
         vaissJ2.setImage(vaissJ2normal);
     }
 
+    public int getViejoueur2() {
+        return viejoueur2;
+    }
+
+    public int getViejoueur1() {
+        return viejoueur1;
+    }
+
     public void tir(int vieVaiss, int puissanceTir, int cote) {
 
         if (puissanceTir == 1 && cote == 2) {
@@ -732,10 +742,50 @@ public class ViewGame {
                     viejoueur1 = viejoueur1 - 30;
                     degatJ1 = degatJ1 +30;
 
-                    if(viejoueur2 > 0){
+                    if(viejoueur1 > 0){
                         getVieJ1Text().setText("Life :" + (viejoueur1));
                     }else{
                         getVieJ1Text().setText("You are DEAD!");
+
+                        Text t = new Text();
+                        t.setX(630);
+                        t.setY(550);
+                        t.setCache(true);
+                        t.setText("Le Joueur 1 ");
+                        t.setFill(Color.WHITE);
+                        t.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+                        Text t2 = new Text();
+                        t2.setX(570);
+                        t2.setY(600);
+                        t2.setCache(true);
+                        t2.setText("est mort carbonisé ");
+                        t2.setFill(Color.WHITE);
+                        t2.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+
+
+                        Reflection r = new Reflection();
+                        r.setFraction(0.5f);
+
+                        t.setEffect(r);
+                        t2.setEffect(r);
+                       // t.setTranslateY(400);
+
+                        ImageView gameOver = new ImageView("Asset//Images//gameover.png");
+                                gameOver.setX(200);
+                        gameOver.setY(300);
+                        gameOver.setFitWidth(1000);
+                        gameOver.setPreserveRatio(true);
+                        gameOver.setEffect(r);
+                   fin = true;
+                        root.getChildren().add(gameOver);
+                        root.getChildren().add(t);
+                        root.getChildren().add(t2);
+
+
                     }
 
                      if(viejoueur1 <=0){
@@ -892,6 +942,46 @@ public class ViewGame {
 
                     }else{
                         getVieJ1Text().setText("You are DEAD!");
+
+
+                        Text t = new Text();
+                        t.setX(630);
+                        t.setY(550);
+                        t.setCache(true);
+                        t.setText("Le Joueur 1 ");
+                        t.setFill(Color.WHITE);
+                        t.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+                        Text t2 = new Text();
+                        t2.setX(570);
+                        t2.setY(600);
+                        t2.setCache(true);
+                        t2.setText("est mort carbonisé ");
+                        t2.setFill(Color.WHITE);
+                        t2.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+
+
+                        Reflection r = new Reflection();
+                        r.setFraction(0.5f);
+
+                        t.setEffect(r);
+                        t2.setEffect(r);
+                        // t.setTranslateY(400);
+
+                        ImageView gameOver = new ImageView("Asset//Images//gameover.png");
+                        gameOver.setX(200);
+                        gameOver.setY(300);
+                        gameOver.setFitWidth(1000);
+                        gameOver.setPreserveRatio(true);
+                        gameOver.setEffect(r);
+                        fin = true;
+                        root.getChildren().add(gameOver);
+                        root.getChildren().add(t);
+                        root.getChildren().add(t2);
+
 
                     }
 
@@ -1051,6 +1141,47 @@ public class ViewGame {
                     }else{
                         getVieJ2Text().setText("You are DEAD!");
 
+                        vieJ2Text.setY(1250);
+
+                        Text t = new Text();
+                        t.setX(630);
+                        t.setY(550);
+                        t.setCache(true);
+                        t.setText("Le Joueur 2 ");
+                        t.setFill(Color.WHITE);
+                        t.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+                        Text t2 = new Text();
+                        t2.setX(570);
+                        t2.setY(600);
+                        t2.setCache(true);
+                        t2.setText("est mort déchiqueté");
+                        t2.setFill(Color.WHITE);
+                        t2.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+
+
+                        Reflection r = new Reflection();
+                        r.setFraction(0.5f);
+
+                        t.setEffect(r);
+                        t2.setEffect(r);
+                        // t.setTranslateY(400);
+
+                        ImageView gameOver = new ImageView("Asset//Images//gameover.png");
+                        gameOver.setX(200);
+                        gameOver.setY(300);
+                        gameOver.setFitWidth(1000);
+                        gameOver.setPreserveRatio(true);
+                        gameOver.setEffect(r);
+                        fin = true;
+                        root.getChildren().add(gameOver);
+                        root.getChildren().add(t);
+                        root.getChildren().add(t2);
+
+
                     }
 
                      if(viejoueur2 <=0){
@@ -1207,6 +1338,47 @@ public class ViewGame {
 
                     }else{
                         getVieJ2Text().setText("You are DEAD!");
+
+                        vieJ2Text.setY(1250);
+
+                        Text t = new Text();
+                        t.setX(630);
+                        t.setY(550);
+                        t.setCache(true);
+                        t.setText("Le Joueur 2 ");
+                        t.setFill(Color.WHITE);
+                        t.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+                        Text t2 = new Text();
+                        t2.setX(570);
+                        t2.setY(600);
+                        t2.setCache(true);
+                        t2.setText("est mort déchiqueté");
+                        t2.setFill(Color.WHITE);
+                        t2.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+
+
+                        Reflection r = new Reflection();
+                        r.setFraction(0.5f);
+
+                        t.setEffect(r);
+                        t2.setEffect(r);
+                        // t.setTranslateY(400);
+
+                        ImageView gameOver = new ImageView("Asset//Images//gameover.png");
+                        gameOver.setX(200);
+                        gameOver.setY(300);
+                        gameOver.setFitWidth(1000);
+                        gameOver.setPreserveRatio(true);
+                        gameOver.setEffect(r);
+                        fin = true;
+                        root.getChildren().add(gameOver);
+                        root.getChildren().add(t);
+                        root.getChildren().add(t2);
+
 
                     }
 

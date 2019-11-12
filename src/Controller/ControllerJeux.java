@@ -22,8 +22,8 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
     private ViewHandler launcher;
     private Menu model;
     private int i = 0;
-    private boolean presseRight = false;
-    private boolean presseLeft = false;
+    private boolean presseRightJ2 = false;
+    private boolean presseLeftJ2 = false;
     private Vaisseaux vaissJ1;
     private Vaisseaux vaissJ2;
 
@@ -36,6 +36,8 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
     private int puissanceTirJ1;
     private int vieJ2;
     private int puissanceTirJ2;
+    private boolean presseRightJ1 = false;
+    private boolean presseLeftJ1 = false;
 
     public Vaisseaux getVaissJ1() {
         return vaissJ1;
@@ -59,14 +61,14 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
      * @param launcher (Gestionnaire de vue)
      * @param model    (Modèle correcpondant au menu principal)
      */
-    public ControllerJeux(ViewHandler launcher, Menu model, VGeocroiseur geocJ1, VR22 r22J1, VCorvette corvJ1,VFaucon faucJ1,VGeocroiseur geocJ2, VR22 r22J2, VCorvette corvJ2, VFaucon faucJ2) {
+    public ControllerJeux(ViewHandler launcher, Menu model, VGeocroiseur geocJ1, VR22 r22J1, VCorvette corvJ1, VFaucon faucJ1, VGeocroiseur geocJ2, VR22 r22J2, VCorvette corvJ2, VFaucon faucJ2) {
         this.model = model;
         this.launcher = launcher;
         this.launcher.setEventHandlerGame(this);
         vaissJoueur1geo = new VGeocroiseur();
         this.vaissJoueur1geo = geocJ1;
 
-        vaissJoueur1corv= new VCorvette();
+        vaissJoueur1corv = new VCorvette();
         this.vaissJoueur1corv = corvJ1;
         vaissJoueur1r22 = new VR22();
         this.vaissJoueur1r22 = r22J1;
@@ -75,7 +77,7 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
 
         vaissJoueur2geo = new VGeocroiseur();
         this.vaissJoueur2geo = geocJ2;
-        vaissJoueur2corv= new VCorvette();
+        vaissJoueur2corv = new VCorvette();
         this.vaissJoueur2corv = corvJ2;
         vaissJoueur2r22 = new VR22();
         this.vaissJoueur2r22 = r22J2;
@@ -134,59 +136,85 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
         }
 
         if (keyEvent.getEventType().equals(KeyEvent.KEY_PRESSED)) {
+            if (launcher.getGame().getViejoueur1() > 0 && launcher.getGame().getViejoueur2() > 0 ) {
+                if (keyEvent.getCode() == KeyCode.RIGHT) {
+                    if (presseRightJ2 == false) {
+                        launcher.getGame().j2goRight(vitesseJ2);
+                        launcher.getGame().getTimelineGoRightJ2().playFromStart();
+                        presseRightJ2 = true;
+                    }
+                }
 
-            if (keyEvent.getCode() == KeyCode.RIGHT) {
-                launcher.getGame().j2goRight(vitesseJ2);
-                launcher.getGame().getTimelineGoRightJ2().playFromStart();
-            }
+                if (keyEvent.getCode() == KeyCode.LEFT) {
+                    if (presseLeftJ2 == false) {
+                        launcher.getGame().j2goLeft(vitesseJ2);
+                        launcher.getGame().getTimelineGoLeftJ2().playFromStart();
+                        presseLeftJ2 = true;
+                    }
+                }
 
-            if (keyEvent.getCode() == KeyCode.LEFT) {
-                launcher.getGame().j2goLeft(vitesseJ2);
-                launcher.getGame().getTimelineGoLeftJ2().playFromStart();
-            }
 
-            if (keyEvent.getCode() == KeyCode.O) {
-                launcher.getGame().tir(vieJ1, puissanceTirJ2, 2);
-            }
+                if (keyEvent.getCode() == KeyCode.D) {
+                    if (presseRightJ1 == false) {
+                        launcher.getGame().j1goRight(vitesseJ1);
+                        launcher.getGame().getTimelineGoRightJ1().playFromStart();
+                        presseRightJ1 = true;
+                    }
+                }
 
-            if (keyEvent.getCode() == KeyCode.V) {
-                launcher.getGame().tir(vieJ2, puissanceTirJ1, 1);
-            }
+                if (keyEvent.getCode() == KeyCode.Q) {
+                    if (presseLeftJ1 == false) {
+                        launcher.getGame().j1goLeft(vitesseJ1);
+                        launcher.getGame().getTimelineGoLeftJ1().playFromStart();
+                        presseLeftJ1 = true;
+                    }
+                }
 
-            if (keyEvent.getCode() == KeyCode.D) {
-                launcher.getGame().j1goRight(vitesseJ1);
-                launcher.getGame().getTimelineGoRightJ1().playFromStart();
-            }
+                if (keyEvent.getCode() == KeyCode.O) {
+                    launcher.getGame().tir(vieJ1, puissanceTirJ2, 2);
+                }
 
-            if (keyEvent.getCode() == KeyCode.Q) {
-                launcher.getGame().j1goLeft(vitesseJ1);
-                launcher.getGame().getTimelineGoLeftJ1().playFromStart();
+                if (keyEvent.getCode() == KeyCode.V) {
+                    launcher.getGame().tir(vieJ2, puissanceTirJ1, 1);
+                }
+
             }
         }
 
 
         if (keyEvent.getEventType().equals(KeyEvent.KEY_RELEASED)) {
+            if (launcher.getGame().getViejoueur1() > 0 && launcher.getGame().getViejoueur2() > 0 ) {
 
-            if (keyEvent.getCode() == KeyCode.RIGHT) {
-                launcher.getGame().getTimelineGoRightJ2().stop();
-                launcher.getGame().retourNormalBackJ2();
+                if (keyEvent.getCode() == KeyCode.RIGHT) {
+
+                    launcher.getGame().getTimelineGoRightJ2().stop();
+                    launcher.getGame().retourNormalBackJ2();
+                    presseRightJ2 = false;
+                }
+
+                if (keyEvent.getCode() == KeyCode.LEFT) {
+
+                    launcher.getGame().getTimelineGoLeftJ2().stop();
+                    launcher.getGame().retourNormalBackJ2();
+                    presseLeftJ2 = false;
+                }
+
+                if (keyEvent.getCode() == KeyCode.D) {
+
+                    launcher.getGame().getTimelineGoRightJ1().stop();
+                    launcher.getGame().retourNormalBackJ1();
+                    presseRightJ1 = false;
+                }
+
+                if (keyEvent.getCode() == KeyCode.Q) {
+
+                    launcher.getGame().getTimelineGoLeftJ1().stop();
+                    launcher.getGame().retourNormalBackJ1();
+                    presseLeftJ1 = false;
+
+
+                }
             }
-
-            if (keyEvent.getCode() == KeyCode.LEFT) {
-                launcher.getGame().getTimelineGoLeftJ2().stop();
-                launcher.getGame().retourNormalBackJ2();
-            }
-
-            if (keyEvent.getCode() == KeyCode.D) {
-                launcher.getGame().getTimelineGoRightJ1().stop();
-                launcher.getGame().retourNormalBackJ1();
-            }
-
-            if (keyEvent.getCode() == KeyCode.Q) {
-                launcher.getGame().getTimelineGoLeftJ1().stop();
-                launcher.getGame().retourNormalBackJ1();
-            }
-
         }
     }
 }
