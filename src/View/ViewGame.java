@@ -403,7 +403,7 @@ public class ViewGame {
 
         if (vaissJ1.getX() <= 601) {
 
-            if (vaissJ1.getX() < 150) {
+            if (vaissJ1.getX() < 50) {
 
                 if (indiVaissJ1 == 0) {
                     imageVaiss = (Image) vaissJoueur1geo.getTabImageVaissBack().get(6);
@@ -416,7 +416,7 @@ public class ViewGame {
                 }
 
                 vaissJ1.setImage(imageVaiss);
-            } else if (vaissJ1.getX() < 350) {
+            } else if (vaissJ1.getX() < 150) {
 
                 if (indiVaissJ1 == 0) {
                     imageVaiss = (Image) vaissJoueur1geo.getTabImageVaissBack().get(5);
@@ -458,7 +458,7 @@ public class ViewGame {
 
     public void j1goLeft(double vitesse) {
 
-         if (vaissJ1.getX() >= -101) {
+         if (vaissJ1.getX() >= 400) {
 
 
              if (indiVaissJ1 == 0) {
@@ -472,7 +472,7 @@ public class ViewGame {
              }
 
             vaissJ1.setImage(imageVaiss);
-        } else if (vaissJ1.getX() > 550) {
+        } else if (vaissJ1.getX() > 300) {
 
              if (indiVaissJ1 == 0) {
                  imageVaiss = (Image) vaissJoueur1geo.getTabImageVaissBack().get(1);
@@ -568,41 +568,41 @@ public class ViewGame {
 
         if (vaissJ2.getX() >= 601) {
 
-
-            if (indiVaissJ2 == 0) {
-                imageVaiss = (Image) vaissJoueur2geo.getTabImageVaissBack().get(0);
-            } else if (indiVaissJ2 == 1) {
-                imageVaiss = (Image) vaissJoueur2corv.getTabImageVaissBack().get(0);
-            } else if (indiVaissJ2 == 2) {
-                imageVaiss = (Image) vaissJoueur2r22.getTabImageVaiss().get(0);
-            } else if (indiVaissJ2 == 3) {
-                imageVaiss = (Image) vaissJoueur2fauc.getTabImageVaissBack().get(0);
-            }
+            if (vaissJ2.getX() > 1200) {
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJoueur2geo.getTabImageVaissBack().get(0);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJoueur2corv.getTabImageVaissBack().get(0);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJoueur2r22.getTabImageVaiss().get(0);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJoueur2fauc.getTabImageVaissBack().get(0);
+                }
 
                 vaissJ2.setImage(imageVaiss);
 
             } else if (vaissJ2.getX() > 1000) {
-            if (indiVaissJ2 == 0) {
-                imageVaiss = (Image) vaissJoueur2geo.getTabImageVaissBack().get(1);
-            } else if (indiVaissJ2 == 1) {
-                imageVaiss = (Image) vaissJoueur2corv.getTabImageVaissBack().get(1);
-            } else if (indiVaissJ2 == 2) {
-                imageVaiss = (Image) vaissJoueur2r22.getTabImageVaiss().get(1);
-            } else if (indiVaissJ2 == 3) {
-                imageVaiss = (Image) vaissJoueur2fauc.getTabImageVaissBack().get(1);
-            }
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJoueur2geo.getTabImageVaissBack().get(1);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJoueur2corv.getTabImageVaissBack().get(1);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJoueur2r22.getTabImageVaiss().get(1);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJoueur2fauc.getTabImageVaissBack().get(1);
+                }
 
                 vaissJ2.setImage(imageVaiss);
             } else {
-            if (indiVaissJ2 == 0) {
-                imageVaiss = (Image) vaissJoueur2geo.getTabImageVaissBack().get(2);
-            } else if (indiVaissJ2 == 1) {
-                imageVaiss = (Image) vaissJoueur2corv.getTabImageVaissBack().get(2);
-            } else if (indiVaissJ2 == 2) {
-                imageVaiss = (Image) vaissJoueur2r22.getTabImageVaiss().get(2);
-            } else if (indiVaissJ2 == 3) {
-                imageVaiss = (Image) vaissJoueur2fauc.getTabImageVaissBack().get(2);
-            }
+                if (indiVaissJ2 == 0) {
+                    imageVaiss = (Image) vaissJoueur2geo.getTabImageVaissBack().get(2);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaiss = (Image) vaissJoueur2corv.getTabImageVaissBack().get(2);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaiss = (Image) vaissJoueur2r22.getTabImageVaiss().get(2);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaiss = (Image) vaissJoueur2fauc.getTabImageVaissBack().get(2);
+                }
 
                 vaissJ2.setImage(imageVaiss);
 
@@ -618,7 +618,7 @@ public class ViewGame {
             timelineGoLeftJ2.setCycleCount(1);
 
         }
-
+    }
     public void retourNormalBackJ2() {
         Image vaissJ2normal = null;
         if (indiVaissJ2 == 0) {
@@ -676,7 +676,6 @@ public class ViewGame {
             }
 
             final KeyFrame tirStartY = new KeyFrame(Duration.ZERO, new KeyValue(tir.yProperty(), 700));
-            // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
             final KeyFrame tirEndY = new KeyFrame(Duration.seconds(1), new KeyValue(tir.yProperty(), 250));
 
             final KeyFrame tirStartWidth = new KeyFrame(Duration.ZERO, new KeyValue(tir.fitWidthProperty(), 80));
@@ -733,7 +732,11 @@ public class ViewGame {
                     viejoueur1 = viejoueur1 - 30;
                     degatJ1 = degatJ1 +30;
 
-                    getVieJ1Text().setText("Life :" + (viejoueur1));
+                    if(viejoueur2 > 0){
+                        getVieJ1Text().setText("Life :" + (viejoueur1));
+                    }else{
+                        getVieJ1Text().setText("You are DEAD!");
+                    }
 
                      if(viejoueur1 <=0){
                     ImageView explosFinale = new ImageView(Path.exploFinale);
@@ -799,27 +802,27 @@ public class ViewGame {
             final KeyFrame tirEndXajust;
 
             if (vaissJ2.getX() < 700) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
+                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 130));
                 tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX() + 200));
                 tir.setRotate(6);
             } else if (vaissJ2.getX() < 850) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
+                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 130));
                 tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX() + 190));
                 tir.setRotate(4);
             } else if (vaissJ2.getX() > 1050) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
+                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 130));
                 tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX() + 70));
                 tir.setRotate(-5);
 
             } else if (vaissJ2.getX() > 1200) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
+                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 130));
                 tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX() + 60));
                 tir.setRotate(-7);
             } else {
 
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
+                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 130));
                 tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ2.getX() + 140));
-                tir.setRotate(0);
+                tir.setRotate(-1);
 
             }
 
@@ -883,7 +886,16 @@ public class ViewGame {
                     viejoueur1 = viejoueur1 - 100;
                     degatJ1 = degatJ1 +100;
 
-                    getVieJ1Text().setText("Life :" + (viejoueur1));
+                    if(viejoueur1 > 0){
+                        getVieJ1Text().setText("Life :" + (viejoueur1));
+
+
+                    }else{
+                        getVieJ1Text().setText("You are DEAD!");
+
+                    }
+
+
 
                     if(viejoueur1 <=0){
                     ImageView explosFinale = new ImageView(Path.exploFinale);
@@ -951,7 +963,7 @@ public class ViewGame {
 
             if (vaissJ1.getX() < 50) {
                 tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 105));
-                tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ1.getX() + 200));
+                tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ1.getX() + 220));
                 tir.setRotate(6);
             } else if (vaissJ1.getX() < 150) {
                 tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 105));
@@ -1033,7 +1045,13 @@ public class ViewGame {
                     viejoueur2 = viejoueur2 - 30;
                     degatJ2 = degatJ2 +30;
 
-                    getVieJ2Text().setText("Life :" + (viejoueur2));
+                    if(viejoueur2 > 0){
+                        getVieJ2Text().setText("Life :" + (viejoueur2));
+
+                    }else{
+                        getVieJ2Text().setText("You are DEAD!");
+
+                    }
 
                      if(viejoueur2 <=0){
                     ImageView explosFinale = new ImageView(Path.exploFinale);
@@ -1099,25 +1117,25 @@ public class ViewGame {
             final KeyFrame tirEndXajust;
 
             if (vaissJ1.getX() < 50) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 105));
+                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
                 tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 200));
                 tir.setRotate(6);
             } else if (vaissJ1.getX() < 150) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 105));
+                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
                 tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 190));
                 tir.setRotate(4);
             } else if (vaissJ1.getX() > 350) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 105));
+                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
                 tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 70));
                 tir.setRotate(-5);
 
             } else if (vaissJ1.getX() > 450) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 105));
+                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
                 tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 60));
                 tir.setRotate(-7);
             } else {
 
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 105));
+                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
                 tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
                 tir.setRotate(0);
 
@@ -1183,7 +1201,15 @@ public class ViewGame {
                     viejoueur2 = viejoueur2 - 100;
                     degatJ2 = degatJ2 +100;
 
-                    getVieJ2Text().setText("Life :" + (viejoueur2));
+
+                    if(viejoueur2 > 0){
+                        getVieJ2Text().setText("Life :" + (viejoueur2));
+
+                    }else{
+                        getVieJ2Text().setText("You are DEAD!");
+
+                    }
+
 
 
                     if(viejoueur2 <=0){
