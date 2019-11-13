@@ -587,7 +587,7 @@ public class ViewGame {
 
 
                             Text forr = new Text();
-                            forr.setX(620);
+                            forr.setX(670);
                             forr.setY(780);
                             forr.setCache(true);
                             forr.setText("for");
@@ -595,10 +595,10 @@ public class ViewGame {
                             forr.setFont(Font.font(null, FontWeight.BOLD, 20));
 
                             Text pressEntrer = new Text();
-                            pressEntrer.setX(650);
+                            pressEntrer.setX(655);
                             pressEntrer.setY(900);
                             pressEntrer.setCache(true);
-                            pressEntrer.setText("press Entrance");
+                            pressEntrer.setText("press Enter");
                             pressEntrer.setFill(Color.WHITE);
                             pressEntrer.setFont(Font.font(null, FontWeight.BOLD, 20));
 
@@ -612,10 +612,6 @@ public class ViewGame {
                             root.getChildren().add(forr);
                             root.getChildren().add(pressEntrer);
                             root.getChildren().add(pressEscape);
-
-
-
-
 
                         }
 
@@ -645,12 +641,9 @@ public class ViewGame {
                         toucheExplosF.setPreserveRatio(true);
                         toucheExplosF.setOpacity(0.6);
 
-
-                        //root.getChildren().remove(vaissJ2);
                         root.getChildren().add(toucheExplosF);
                         root.getChildren().add(toucheExplos);
-                        //root.getChildren().add(vaissJ2);
-                        //game over
+
                         root.getChildren().remove(tir);
                         root.getChildren().remove(tirF);
 
@@ -835,7 +828,7 @@ public class ViewGame {
 
 
                             Text forr = new Text();
-                            forr.setX(620);
+                            forr.setX(670);
                             forr.setY(780);
                             forr.setCache(true);
                             forr.setText("for");
@@ -843,10 +836,10 @@ public class ViewGame {
                             forr.setFont(Font.font(null, FontWeight.BOLD, 20));
 
                             Text pressEntrer = new Text();
-                            pressEntrer.setX(650);
+                            pressEntrer.setX(655);
                             pressEntrer.setY(900);
                             pressEntrer.setCache(true);
-                            pressEntrer.setText("press Entrance");
+                            pressEntrer.setText("press Enter");
                             pressEntrer.setFill(Color.WHITE);
                             pressEntrer.setFont(Font.font(null, FontWeight.BOLD, 20));
 
@@ -1078,7 +1071,7 @@ public class ViewGame {
 
 
                             Text forr = new Text();
-                            forr.setX(620);
+                            forr.setX(670);
                             forr.setY(780);
                             forr.setCache(true);
                             forr.setText("for");
@@ -1086,10 +1079,10 @@ public class ViewGame {
                             forr.setFont(Font.font(null, FontWeight.BOLD, 20));
 
                             Text pressEntrer = new Text();
-                            pressEntrer.setX(650);
+                            pressEntrer.setX(655);
                             pressEntrer.setY(900);
                             pressEntrer.setCache(true);
-                            pressEntrer.setText("press Entrance");
+                            pressEntrer.setText("press Enter");
                             pressEntrer.setFill(Color.WHITE);
                             pressEntrer.setFont(Font.font(null, FontWeight.BOLD, 20));
 
@@ -1317,37 +1310,30 @@ public class ViewGame {
                             root.getChildren().add(t2);
 
                             playAgain = new ImageView("Asset//Images//playAgain.png");
-                            playAgain.setX(620);
+                            playAgain.setX(610);
                             playAgain.setY(800);
                             playAgain.setFitWidth(200);
                             playAgain.setPreserveRatio(true);
                             playAgain.setEffect(r);
                             root.getChildren().add(playAgain);
 
-                            Text forr = new Text();
-                            forr.setX(620);
-                            forr.setY(780);
-                            forr.setCache(true);
-                            forr.setText("for");
-                            forr.setFill(Color.WHITE);
-                            forr.setFont(Font.font(null, FontWeight.BOLD, 20));
+
 
                             Text pressEntrer = new Text();
-                            pressEntrer.setX(650);
-                            pressEntrer.setY(900);
+                            pressEntrer.setX(660);
+                            pressEntrer.setY(890);
                             pressEntrer.setCache(true);
-                            pressEntrer.setText("press Entrance");
+                            pressEntrer.setText("press Enter");
                             pressEntrer.setFill(Color.WHITE);
                             pressEntrer.setFont(Font.font(null, FontWeight.BOLD, 20));
 
                             Text pressEscape = new Text();
-                            pressEscape.setX(590);
+                            pressEscape.setX(580);
                             pressEscape.setY(925);
                             pressEscape.setCache(true);
                             pressEscape.setText("or Escape for stop the game");
                             pressEscape.setFill(Color.WHITE);
                             pressEscape.setFont(Font.font(null, FontWeight.BOLD, 20));
-                            root.getChildren().add(forr);
                             root.getChildren().add(pressEntrer);
                             root.getChildren().add(pressEscape);
 

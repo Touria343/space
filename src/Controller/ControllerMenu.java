@@ -49,8 +49,11 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
 
         if (mouseEvent.getSource().equals(launcher.getMp().getJouer())) {
             launcher.getMp().getVideoBackground().stop();
-            launcher.afficherJeux();
+            launcher.getMo().setIndice(0);
             launcher.getMo().getVideoBackground().play();
+
+            launcher.afficherJeux();
+
 
         }
 
@@ -107,7 +110,7 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
             launcher.getGame().setVueCompleteMenu();
 
             launcher.afficherGame();
-
+i=0;
 
 
         }

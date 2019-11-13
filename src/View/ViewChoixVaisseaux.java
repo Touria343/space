@@ -297,6 +297,18 @@ public class ViewChoixVaisseaux {
         root.getChildren().add(imageChoisir);
         root.getChildren().add(geoCroiseur);
 
+
+        spider.setX(600);
+        spider.setOpacity(0);
+
+        stats.setX(80);
+        stats.setOpacity(0);
+
+        imageChoisir.setX(180);
+
+        geoCroiseur.setX(180);
+        geoCroiseur.setOpacity(0);
+
         final Animation animTextMenuArrivee = new Transition() {
             {
                 setCycleDuration(Duration.millis(2500));
@@ -391,7 +403,15 @@ public class ViewChoixVaisseaux {
         return imageChoisir;
     }
 
+    public void setIndice(int indice) {
+        this.indice = indice;
+    }
+
     public void swipeVaisseaux(Boolean chevronDeDroite) {
+
+
+
+
 
         tabImageVaisseaux = new ArrayList<>();
         tabImageVaisseaux.add(new ImageView(Path.vaisseauxChoix1));
@@ -431,6 +451,8 @@ public class ViewChoixVaisseaux {
         tabTitreVaisseaux.add(new Text(50, 180, "- R E D  -\n     F  A  U  C  O  N -"));
 
         if (root.getChildren().contains(geoCroiseur)) {
+
+
 
             final KeyFrame keyFrameAt0s = new KeyFrame(Duration.ZERO, new KeyValue(spider.xProperty(), 600));
             final KeyFrame keyFrameAt1s = new KeyFrame(Duration.seconds(0.6), new KeyValue(spider.xProperty(), 2500));
@@ -607,6 +629,12 @@ public class ViewChoixVaisseaux {
         root.getChildren().remove(geoCroiseur);
     }
 
+    public void replacePremierVaisseauxDuRoot() {
+        root.getChildren().add(spider);
+        root.getChildren().add(stats);
+        root.getChildren().add(geoCroiseur);
+    }
+
     public void changeChoixJoueur() {
         root.getChildren().remove(joueurNum1);
         root.getChildren().add(joueurNum2);
@@ -617,10 +645,10 @@ public class ViewChoixVaisseaux {
 
     public void changeChoixJoueur2() {
 
-       /// MusicJeux.stopMainMenuMusic();
-        //     launcher.afficherGame();
-
-        //MusicJeux.playMusicGAme();
+        root.getChildren().remove(joueurNum2);
+        root.getChildren().add(joueurNum1);
+        Image vivii = new Image("Asset//Images//choisir.png");
+        imageChoisir.setImage(vivii);
 
 
     }

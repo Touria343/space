@@ -146,6 +146,7 @@ public class ViewHandler extends Application {
     }
 
     public void afficherJeux() {
+
         mo.setVueCompleteMenu();
     }
 
