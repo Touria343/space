@@ -1,13 +1,17 @@
 package Controller;
 
 import Model.*;
+import Music.MusicJeux;
 import View.ViewHandler;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 
 public class ControllerJeux implements EventHandler<KeyEvent> {
 
+
+    private Stage primaryStage;
     private VR22 vaissJoueur1r22;
     private VGeocroiseur vaissJoueur2geo;
     private VFaucon vaissJoueur1fauc;
@@ -172,6 +176,8 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
 
                 if (keyEvent.getCode() == KeyCode.O) {
                     launcher.getGame().tir(vieJ1, puissanceTirJ2, 2);
+
+
                 }
 
                 if (keyEvent.getCode() == KeyCode.V) {
@@ -180,7 +186,11 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
             }
 
             if (keyEvent.getCode() == KeyCode.ENTER) {
+                MusicJeux.stopMainMenuMusic();
+                MusicJeux.startMainMenuMusic();
+
                 launcher.afficherMenuPrincipal(true);
+
             }
 
             if (keyEvent.getCode() == KeyCode.ESCAPE) {

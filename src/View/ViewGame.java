@@ -2,6 +2,7 @@ package View;
 
 import Controller.ControllerJeux;
 import Model.*;
+import Music.MusicJeux;
 import Tools.Path;
 import javafx.animation.*;
 import javafx.beans.binding.Bindings;
@@ -440,6 +441,7 @@ public class ViewGame {
 
         if (puissanceTir == 1 && cote == 2) {
             if (tirEnCour1 == true) {
+                MusicJeux.effetSonorLaser();
                 tirEnCour1 = false;
                 ImageView tir = new ImageView(Path.laserBleu1Back);
                 tir.setX(vaissJ2.getX() + 130);
@@ -631,6 +633,15 @@ public class ViewGame {
                             explosFinale2.setOpacity(1);
                             root.getChildren().add(explosFinale2);
 
+                            PauseTransition delaySon = new PauseTransition(Duration.seconds(1));
+                            delaySon.setOnFinished(event2 -> {
+                                MusicJeux.effetexplo();
+                                MusicJeux.effetexplo2();
+                            });
+                            delaySon.play();
+
+
+
                             PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(4));
                             delayExplodispar.setOnFinished(event2 -> {
                                 root.getChildren().remove(explosFinale2);
@@ -688,6 +699,7 @@ public class ViewGame {
         else if (puissanceTir == 2 && cote == 2) {
 
             if (tirEnCour2 == true) {
+                MusicJeux.effetSonorRocket();
 
                 tirEnCour2 = false;
 
@@ -889,6 +901,14 @@ public class ViewGame {
                             explosFinale2.setOpacity(1);
                             root.getChildren().add(explosFinale2);
 
+                            PauseTransition delaySon = new PauseTransition(Duration.seconds(1));
+                            delaySon.setOnFinished(event2 -> {
+                                MusicJeux.effetexplo();
+                                MusicJeux.effetexplo2();
+                            });
+                            delaySon.play();
+
+
                             PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(4));
                             delayExplodispar.setOnFinished(event2 -> {
                                 root.getChildren().remove(explosFinale2);
@@ -947,6 +967,7 @@ public class ViewGame {
         }
         else if (puissanceTir == 1 && cote == 1) {
             if (tirEnCour3 == true) {
+                MusicJeux.effetSonorLaser();
 
                 tirEnCour3 = false;
 
@@ -1148,6 +1169,14 @@ public class ViewGame {
                             explosFinale2.setOpacity(1);
                             root.getChildren().add(explosFinale2);
 
+                            PauseTransition delaySon = new PauseTransition(Duration.seconds(1));
+                            delaySon.setOnFinished(event2 -> {
+                                MusicJeux.effetexplo();
+                                MusicJeux.effetexplo2();
+                            });
+                            delaySon.play();
+
+
                             PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(4));
                             delayExplodispar.setOnFinished(event2 -> {
                                 root.getChildren().remove(explosFinale2);
@@ -1208,6 +1237,7 @@ public class ViewGame {
         }
         else if (puissanceTir == 2 && cote == 1) {
             if (tirEnCour4 == true) {
+                MusicJeux.effetSonorRocket();
 
                 tirEnCour4 = false;
 
@@ -1401,6 +1431,16 @@ public class ViewGame {
                             explosFinale2.setPreserveRatio(true);
                             explosFinale2.setOpacity(1);
                             root.getChildren().add(explosFinale2);
+
+                            PauseTransition delaySon = new PauseTransition(Duration.seconds(1));
+                            delaySon.setOnFinished(event2 -> {
+                                MusicJeux.effetexplo();
+                                MusicJeux.effetexplo2();
+                            });
+                            delaySon.play();
+
+
+
 
                             PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(4));
                             delayExplodispar.setOnFinished(event2 -> {
