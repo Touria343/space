@@ -178,6 +178,18 @@ public class ControllerJeux implements EventHandler<KeyEvent> {
                     launcher.getGame().tir(vieJ2, puissanceTirJ1, 1);
                 }
 
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    launcher.getGame().getVideoBackground().stop();
+                    launcher.afficherJeux();
+                    launcher.getMo().getVideoBackground().play();
+                    System.out.println("affichage jeux 2");
+                }
+
+                if (keyEvent.getCode() == KeyCode.ESCAPE) {
+                    System.out.println("quitté");
+                    launcher.goQuitter();
+                }
+
             }
         }
 

@@ -32,7 +32,7 @@ public class ViewGame {
     private VCorvette vaissJoueur1corv;
     private VFaucon vaissJoueur1fauc;
     private VR22 vaissJoueur1r22;
-    private  VGeocroiseur vaissJoueur1geo;
+    private VGeocroiseur vaissJoueur1geo;
     private MediaPlayer videoBackground;
     private Group root;
     private Menu model;
@@ -83,8 +83,8 @@ public class ViewGame {
     private int vieintJ2;
     private int viejoueur2 = 1000;
     private int degatJ2 = 0;
-    private int viejoueur1=1000;
-    private int degatJ1=0;
+    private int viejoueur1 = 1000;
+    private int degatJ1 = 0;
     private VR22 vaissJ2R22F;
     private VFaucon vaissJ2ObjF;
     private Text vieJ1Text;
@@ -100,32 +100,60 @@ public class ViewGame {
     private boolean tirEnCour2 = true;
     private boolean tirEnCour3 = true;
     private boolean tirEnCour4 = true;
+    private ImageView playAgain;
 
-    public void setIndiVaissJ1(int indiVaissJ1) {        this.indiVaissJ1 = indiVaissJ1; }
-    public void setIndiVaissJ2(int indiVaissJ2) { this.indiVaissJ2 = indiVaissJ2;}
-    public int getIndiVaissJ1() { return indiVaissJ1; }
-    public int getIndiVaissJ2() { return indiVaissJ2; }
+    public void setIndiVaissJ1(int indiVaissJ1) {
+        this.indiVaissJ1 = indiVaissJ1;
+    }
+
+    public void setIndiVaissJ2(int indiVaissJ2) {
+        this.indiVaissJ2 = indiVaissJ2;
+    }
+
+    public int getIndiVaissJ1() {
+        return indiVaissJ1;
+    }
+
+    public int getIndiVaissJ2() {
+        return indiVaissJ2;
+    }
+
     public Group getRoot() {
         return root;
     }
+
     public Object getVaissJ2Obj() {
         return vaissJ2Obj;
     }
-    public Object getVaissJ1Obj() { return vaissJ1Obj; }
-    public Timeline getTimelineGoRightJ1() {return timelineGoRightJ1; }
+
+    public Object getVaissJ1Obj() {
+        return vaissJ1Obj;
+    }
+
+    public Timeline getTimelineGoRightJ1() {
+        return timelineGoRightJ1;
+    }
+
     public Timeline getTimelineGoLeftJ1() {
         return timelineGoLeftJ1;
     }
-    public Timeline getTimelineGoLeftJ2() { return timelineGoLeftJ2; }
+
+    public Timeline getTimelineGoLeftJ2() {
+        return timelineGoLeftJ2;
+    }
+
     public Animation getAnimTextMenuArrivee() {
         return animTextMenuArrivee;
     }
+
     public Timeline getTimelineGoRightJ2() {
         return timelineGoRightJ2;
     }
+
     public Text getVieJ1Text() {
         return vieJ1Text;
     }
+
     public Text getVieJ2() {
         return vieJ2Text;
     }
@@ -140,25 +168,25 @@ public class ViewGame {
         this.root = root;
         this.model = model;
 
-            vaissJoueur1geo = new VGeocroiseur();
-            this.vaissJoueur1geo = geocJ1;
-            vaissJoueur1corv= new VCorvette();
-            this.vaissJoueur1corv = corvJ1;
-            vaissJoueur1r22 = new VR22();
-            this.vaissJoueur1r22 = r22J1;
-            vaissJoueur1fauc = new VFaucon();
-            this.vaissJoueur1fauc = faucJ1;
+        vaissJoueur1geo = new VGeocroiseur();
+        this.vaissJoueur1geo = geocJ1;
+        vaissJoueur1corv = new VCorvette();
+        this.vaissJoueur1corv = corvJ1;
+        vaissJoueur1r22 = new VR22();
+        this.vaissJoueur1r22 = r22J1;
+        vaissJoueur1fauc = new VFaucon();
+        this.vaissJoueur1fauc = faucJ1;
 
-            vaissJoueur2geo = new VGeocroiseur();
-            this.vaissJoueur2geo = geocJ2;
-            vaissJoueur2corv= new VCorvette();
-            this.vaissJoueur2corv = corvJ2;
-            vaissJoueur2r22 = new VR22();
-            this.vaissJoueur2r22 = r22J2;
-            vaissJoueur2fauc = new VFaucon();
-            this.vaissJoueur2fauc = faucJ2;
+        vaissJoueur2geo = new VGeocroiseur();
+        this.vaissJoueur2geo = geocJ2;
+        vaissJoueur2corv = new VCorvette();
+        this.vaissJoueur2corv = corvJ2;
+        vaissJoueur2r22 = new VR22();
+        this.vaissJoueur2r22 = r22J2;
+        vaissJoueur2fauc = new VFaucon();
+        this.vaissJoueur2fauc = faucJ2;
 
-            }
+    }
 
     public void initBarreCentrale() {
         barreCentrale = new ImageView(Path.barreCentrale);
@@ -328,7 +356,6 @@ public class ViewGame {
         }
 
 
-
         vaissJ2F.setX(300);
         vaissJ2F.setY(300);
         vaissJ2F.setFitWidth(75);
@@ -405,199 +432,241 @@ public class ViewGame {
 
     }
 
+    public ImageView getPlayAgain() {
+        return playAgain;
+    }
+
     public void tir(int vieVaiss, int puissanceTir, int cote) {
 
         if (puissanceTir == 1 && cote == 2) {
-            if(tirEnCour1 == true){
-            tirEnCour1 = false;
-            ImageView tir = new ImageView(Path.laserBleu1Back);
-            tir.setX(vaissJ2.getX() + 130);
-            tir.setY(700);
-            tir.setFitWidth(80);
-            tir.setPreserveRatio(true);
-            root.getChildren().remove(vaissJ2);
-            root.getChildren().add(tir);
-            root.getChildren().add(vaissJ2);
+            if (tirEnCour1 == true) {
+                tirEnCour1 = false;
+                ImageView tir = new ImageView(Path.laserBleu1Back);
+                tir.setX(vaissJ2.getX() + 130);
+                tir.setY(700);
+                tir.setFitWidth(80);
+                tir.setPreserveRatio(true);
+                root.getChildren().remove(vaissJ2);
+                root.getChildren().add(tir);
+                root.getChildren().add(vaissJ2);
 
-            final KeyFrame tirStartXajust;
-            final KeyFrame tirEndXajust;
+                final KeyFrame tirStartXajust;
+                final KeyFrame tirEndXajust;
 
-            if (vaissJ2.getX() < 700) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
-                tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ2.getX() + 200));
-                tir.setRotate(6);
-            } else if (vaissJ2.getX() < 850) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
-                tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ2.getX() + 190));
-                tir.setRotate(4);
-            } else if (vaissJ2.getX() > 1050) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
-                tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ2.getX() + 70));
-                tir.setRotate(-5);
+                if (vaissJ2.getX() < 700) {
+                    tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
+                    tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ2.getX() + 200));
+                    tir.setRotate(6);
+                } else if (vaissJ2.getX() < 850) {
+                    tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
+                    tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ2.getX() + 190));
+                    tir.setRotate(4);
+                } else if (vaissJ2.getX() > 1050) {
+                    tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
+                    tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ2.getX() + 70));
+                    tir.setRotate(-5);
 
-            } else if (vaissJ2.getX() > 1200) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
-                tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ2.getX() + 60));
-                tir.setRotate(-7);
-            } else {
+                } else if (vaissJ2.getX() > 1200) {
+                    tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
+                    tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ2.getX() + 60));
+                    tir.setRotate(-7);
+                } else {
 
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
-                tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ2.getX() + 140));
-                tir.setRotate(0);
-
-            }
-
-            final KeyFrame tirStartY = new KeyFrame(Duration.ZERO, new KeyValue(tir.yProperty(), 700));
-            final KeyFrame tirEndY = new KeyFrame(Duration.seconds(1), new KeyValue(tir.yProperty(), 250));
-
-            final KeyFrame tirStartWidth = new KeyFrame(Duration.ZERO, new KeyValue(tir.fitWidthProperty(), 80));
-            final KeyFrame tirEndWidth = new KeyFrame(Duration.seconds(1), new KeyValue(tir.fitWidthProperty(), 1));
-
-            final Timeline timelineTir = new Timeline(tirStartY, tirStartWidth, tirStartXajust, tirEndY, tirEndWidth, tirEndXajust);
-
-            timelineTir.play();
-
-            ImageView tirF = new ImageView(Path.laserBleu1Back);
-            tirF.setX(vaissJ2F.getX() + 30);
-            tirF.setY(700);
-            tirF.setFitWidth(10);
-            tirF.setPreserveRatio(true);
-            tirF.setRotate(-2);
-            root.getChildren().remove(vaissJ2);
-            root.getChildren().remove(vaissJ1);
-
-            root.getChildren().add(tirF);
-            root.getChildren().add(vaissJ2);
-            root.getChildren().add(vaissJ1);
-
-
-            PauseTransition delayRemoveTir = new PauseTransition(Duration.seconds(3));
-            delayRemoveTir.setOnFinished(event -> {
-                root.getChildren().remove(tir);
-                root.getChildren().remove(tirF);
-            });
-            delayRemoveTir.play();
-
-
-            final KeyFrame tirStartYF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.yProperty(), 320));
-            // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
-            final KeyFrame tirEndYF = new KeyFrame(Duration.seconds(1.5), new KeyValue(tirF.yProperty(), 1100));
-
-            final KeyFrame tirStartXajustF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.xProperty(), vaissJ2F.getX() + 30));
-            final KeyFrame tirEndXajustF = new KeyFrame(Duration.seconds(1.5), new KeyValue(tirF.xProperty(), vaissJ2F.getX() + 10));
-
-            final KeyFrame tirStartWidthF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.fitWidthProperty(), 1));
-            final KeyFrame tirEndWidthF = new KeyFrame(Duration.seconds(1.5), new KeyValue(tirF.fitWidthProperty(), 60));
-
-            final Timeline timelineTirF = new Timeline(tirStartYF, tirStartWidthF, tirStartXajustF, tirEndYF, tirEndWidthF, tirEndXajustF);
-
-            timelineTirF.play();
-
-            tirFBound = tir.getBoundsInParent();
-
-            delayExploTouch = new PauseTransition(Duration.seconds(0.8));
-            delayExploTouch.setOnFinished(event -> {
-
-                if (tir.getBoundsInParent().intersects(vaissJ1F.getBoundsInParent())) {
-
-                    viejoueur1 = vieVaiss - degatJ1;
-                    viejoueur1 = viejoueur1 - 30;
-                    degatJ1 = degatJ1 +30;
-
-                    if(viejoueur1 > 0){
-                        getVieJ1Text().setText("Life :" + (viejoueur1));
-                    }else{
-                        getVieJ1Text().setText("You are DEAD!");
-
-                        Text t = new Text();
-                        t.setX(630);
-                        t.setY(550);
-                        t.setCache(true);
-                        t.setText("Le Joueur 1 ");
-                        t.setFill(Color.WHITE);
-                        t.setFont(Font.font(null, FontWeight.BOLD, 30));
-
-
-                        Text t2 = new Text();
-                        t2.setX(570);
-                        t2.setY(600);
-                        t2.setCache(true);
-                        t2.setText("est mort carbonisé ");
-                        t2.setFill(Color.WHITE);
-                        t2.setFont(Font.font(null, FontWeight.BOLD, 30));
-
-
-
-
-                        Reflection r = new Reflection();
-                        r.setFraction(0.4f);
-
-                        t.setEffect(r);
-                        t2.setEffect(r);
-                        // t.setTranslateY(400);
-
-                        ImageView gameOver = new ImageView("Asset//Images//gameover.png");
-                        gameOver.setX(200);
-                        gameOver.setY(300);
-                        gameOver.setFitWidth(1000);
-                        gameOver.setPreserveRatio(true);
-                        gameOver.setEffect(r);
-                        fin = true;
-                        root.getChildren().add(gameOver);
-                        root.getChildren().add(t);
-                        root.getChildren().add(t2);
-
-
-                    }
-
-                    if(viejoueur1 <=0){
-                        ImageView explosFinale = new ImageView(Path.exploFinale);
-                        explosFinale.setX(vaissJ1.getX());
-                        explosFinale.setY(750);
-                        explosFinale.setFitWidth(250);
-                        explosFinale.setPreserveRatio(true);
-                        explosFinale.setOpacity(0.6);
-                        root.getChildren().add(explosFinale);
-                    }
-
-
-                    ImageView toucheExplos = new ImageView(Path.toucheExploBleu1);
-                    toucheExplos.setX(vaissJ1.getX());
-                    toucheExplos.setY(670);
-                    toucheExplos.setFitWidth(300);
-                    toucheExplos.setPreserveRatio(true);
-                    toucheExplos.setOpacity(0.7);
-
-
-                    ImageView toucheExplosF = new ImageView(Path.toucheExploBleu1);
-                    toucheExplosF.setX(vaissJ1F.getX() + 10);
-                    toucheExplosF.setY(300);
-                    toucheExplosF.setFitWidth(40);
-                    toucheExplosF.setPreserveRatio(true);
-                    toucheExplosF.setOpacity(0.6);
-
-
-                    //root.getChildren().remove(vaissJ2);
-                    root.getChildren().add(toucheExplosF);
-                    root.getChildren().add(toucheExplos);
-                    //root.getChildren().add(vaissJ2);
-                    //game over
-                    root.getChildren().remove(tir);
-                    root.getChildren().remove(tirF);
-
-                    PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(0.8));
-                    delayExplodispar.setOnFinished(event2 -> {
-
-                        root.getChildren().remove(toucheExplos);
-                        root.getChildren().remove(toucheExplosF);
-
-                    });
-                    delayExplodispar.play();
-
+                    tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ2.getX() + 105));
+                    tirEndXajust = new KeyFrame(Duration.seconds(1), new KeyValue(tir.xProperty(), vaissJ2.getX() + 140));
+                    tir.setRotate(0);
 
                 }
-            });
-            delayExploTouch.play();
+
+                final KeyFrame tirStartY = new KeyFrame(Duration.ZERO, new KeyValue(tir.yProperty(), 700));
+                final KeyFrame tirEndY = new KeyFrame(Duration.seconds(1), new KeyValue(tir.yProperty(), 250));
+
+                final KeyFrame tirStartWidth = new KeyFrame(Duration.ZERO, new KeyValue(tir.fitWidthProperty(), 80));
+                final KeyFrame tirEndWidth = new KeyFrame(Duration.seconds(1), new KeyValue(tir.fitWidthProperty(), 1));
+
+                final Timeline timelineTir = new Timeline(tirStartY, tirStartWidth, tirStartXajust, tirEndY, tirEndWidth, tirEndXajust);
+
+                timelineTir.play();
+
+                ImageView tirF = new ImageView(Path.laserBleu1Back);
+                tirF.setX(vaissJ2F.getX() + 30);
+                tirF.setY(700);
+                tirF.setFitWidth(10);
+                tirF.setPreserveRatio(true);
+                tirF.setRotate(-2);
+                root.getChildren().remove(vaissJ2);
+                root.getChildren().remove(vaissJ1);
+
+                root.getChildren().add(tirF);
+                root.getChildren().add(vaissJ2);
+                root.getChildren().add(vaissJ1);
+
+
+                PauseTransition delayRemoveTir = new PauseTransition(Duration.seconds(3));
+                delayRemoveTir.setOnFinished(event -> {
+                    root.getChildren().remove(tir);
+                    root.getChildren().remove(tirF);
+                });
+                delayRemoveTir.play();
+
+
+                final KeyFrame tirStartYF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.yProperty(), 320));
+                // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
+                final KeyFrame tirEndYF = new KeyFrame(Duration.seconds(1.5), new KeyValue(tirF.yProperty(), 1100));
+
+                final KeyFrame tirStartXajustF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.xProperty(), vaissJ2F.getX() + 30));
+                final KeyFrame tirEndXajustF = new KeyFrame(Duration.seconds(1.5), new KeyValue(tirF.xProperty(), vaissJ2F.getX() + 10));
+
+                final KeyFrame tirStartWidthF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.fitWidthProperty(), 1));
+                final KeyFrame tirEndWidthF = new KeyFrame(Duration.seconds(1.5), new KeyValue(tirF.fitWidthProperty(), 60));
+
+                final Timeline timelineTirF = new Timeline(tirStartYF, tirStartWidthF, tirStartXajustF, tirEndYF, tirEndWidthF, tirEndXajustF);
+
+                timelineTirF.play();
+
+                tirFBound = tir.getBoundsInParent();
+
+                delayExploTouch = new PauseTransition(Duration.seconds(0.8));
+                delayExploTouch.setOnFinished(event -> {
+
+                    if (tir.getBoundsInParent().intersects(vaissJ1F.getBoundsInParent())) {
+
+                        viejoueur1 = vieVaiss - degatJ1;
+                        viejoueur1 = viejoueur1 - 30;
+                        degatJ1 = degatJ1 + 30;
+
+                        if (viejoueur1 > 0) {
+                            getVieJ1Text().setText("Life :" + (viejoueur1));
+                        } else {
+                            getVieJ1Text().setText("You are DEAD!");
+
+                            Text t = new Text();
+                            t.setX(630);
+                            t.setY(580);
+                            t.setCache(true);
+                            t.setText("Le Joueur 1 ");
+                            t.setFill(Color.WHITE);
+                            t.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+                            Text t2 = new Text();
+                            t2.setX(570);
+                            t2.setY(630);
+                            t2.setCache(true);
+                            t2.setText("est mort carbonisé ");
+                            t2.setFill(Color.WHITE);
+                            t2.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+                            Reflection r = new Reflection();
+                            r.setFraction(0.4f);
+
+                            t.setEffect(r);
+                            t2.setEffect(r);
+                            // t.setTranslateY(400);
+
+                            ImageView gameOver = new ImageView("Asset//Images//gameover.png");
+                            gameOver.setX(200);
+                            gameOver.setY(300);
+                            gameOver.setFitWidth(1000);
+                            gameOver.setPreserveRatio(true);
+                            gameOver.setEffect(r);
+                            fin = true;
+                            root.getChildren().add(gameOver);
+                            root.getChildren().add(t);
+                            root.getChildren().add(t2);
+
+                            playAgain = new ImageView("Asset//Images//playAgain.png");
+                            playAgain.setX(620);
+                            playAgain.setY(800);
+                            playAgain.setFitWidth(200);
+                            playAgain.setPreserveRatio(true);
+                            playAgain.setEffect(r);
+                            root.getChildren().add(playAgain);
+
+
+
+                            Text forr = new Text();
+                            forr.setX(620);
+                            forr.setY(780);
+                            forr.setCache(true);
+                            forr.setText("for");
+                            forr.setFill(Color.WHITE);
+                            forr.setFont(Font.font(null, FontWeight.BOLD, 20));
+
+                            Text pressEntrer = new Text();
+                            pressEntrer.setX(650);
+                            pressEntrer.setY(900);
+                            pressEntrer.setCache(true);
+                            pressEntrer.setText("press Entrance");
+                            pressEntrer.setFill(Color.WHITE);
+                            pressEntrer.setFont(Font.font(null, FontWeight.BOLD, 20));
+
+                            Text pressEscape = new Text();
+                            pressEscape.setX(590);
+                            pressEscape.setY(945);
+                            pressEscape.setCache(true);
+                            pressEscape.setText("or Escape for stop the game");
+                            pressEscape.setFill(Color.WHITE);
+                            pressEscape.setFont(Font.font(null, FontWeight.BOLD, 20));
+                            root.getChildren().add(forr);
+                            root.getChildren().add(pressEntrer);
+                            root.getChildren().add(pressEscape);
+
+
+
+
+
+                        }
+
+                        if (viejoueur1 <= 0) {
+                            ImageView explosFinale = new ImageView(Path.exploFinale);
+                            explosFinale.setX(vaissJ1.getX());
+                            explosFinale.setY(650);
+                            explosFinale.setFitWidth(250);
+                            explosFinale.setPreserveRatio(true);
+                            explosFinale.setOpacity(0.6);
+                            root.getChildren().add(explosFinale);
+                        }
+
+
+                        ImageView toucheExplos = new ImageView(Path.toucheExploBleu1);
+                        toucheExplos.setX(vaissJ1.getX());
+                        toucheExplos.setY(670);
+                        toucheExplos.setFitWidth(300);
+                        toucheExplos.setPreserveRatio(true);
+                        toucheExplos.setOpacity(0.7);
+
+
+                        ImageView toucheExplosF = new ImageView(Path.toucheExploBleu1);
+                        toucheExplosF.setX(vaissJ1F.getX() + 10);
+                        toucheExplosF.setY(300);
+                        toucheExplosF.setFitWidth(40);
+                        toucheExplosF.setPreserveRatio(true);
+                        toucheExplosF.setOpacity(0.6);
+
+
+                        //root.getChildren().remove(vaissJ2);
+                        root.getChildren().add(toucheExplosF);
+                        root.getChildren().add(toucheExplos);
+                        //root.getChildren().add(vaissJ2);
+                        //game over
+                        root.getChildren().remove(tir);
+                        root.getChildren().remove(tirF);
+
+                        PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(0.8));
+                        delayExplodispar.setOnFinished(event2 -> {
+
+                            root.getChildren().remove(toucheExplos);
+                            root.getChildren().remove(toucheExplosF);
+
+                        });
+                        delayExplodispar.play();
+
+
+                    }
+                });
+                delayExploTouch.play();
 
                 PauseTransition delayPourRetier1 = new PauseTransition(Duration.seconds(0.15));
                 delayPourRetier1.setOnFinished(event -> {
@@ -605,13 +674,13 @@ public class ViewGame {
                 });
                 delayPourRetier1.play();
 
-        }
+            }
 
 
         }
         else if (puissanceTir == 2 && cote == 2) {
 
-            if(tirEnCour2 == true) {
+            if (tirEnCour2 == true) {
 
                 tirEnCour2 = false;
 
@@ -722,7 +791,7 @@ public class ViewGame {
 
                             Text t = new Text();
                             t.setX(630);
-                            t.setY(550);
+                            t.setY(580);
                             t.setCache(true);
                             t.setText("Le Joueur 1 ");
                             t.setFill(Color.WHITE);
@@ -731,7 +800,7 @@ public class ViewGame {
 
                             Text t2 = new Text();
                             t2.setX(570);
-                            t2.setY(600);
+                            t2.setY(630);
                             t2.setCache(true);
                             t2.setText("est mort carbonisé ");
                             t2.setFill(Color.WHITE);
@@ -755,6 +824,43 @@ public class ViewGame {
                             root.getChildren().add(gameOver);
                             root.getChildren().add(t);
                             root.getChildren().add(t2);
+
+                            playAgain = new ImageView("Asset//Images//playAgain.png");
+                            playAgain.setX(620);
+                            playAgain.setY(800);
+                            playAgain.setFitWidth(200);
+                            playAgain.setPreserveRatio(true);
+                            playAgain.setEffect(r);
+                            root.getChildren().add(playAgain);
+
+
+                            Text forr = new Text();
+                            forr.setX(620);
+                            forr.setY(780);
+                            forr.setCache(true);
+                            forr.setText("for");
+                            forr.setFill(Color.WHITE);
+                            forr.setFont(Font.font(null, FontWeight.BOLD, 20));
+
+                            Text pressEntrer = new Text();
+                            pressEntrer.setX(650);
+                            pressEntrer.setY(900);
+                            pressEntrer.setCache(true);
+                            pressEntrer.setText("press Entrance");
+                            pressEntrer.setFill(Color.WHITE);
+                            pressEntrer.setFont(Font.font(null, FontWeight.BOLD, 20));
+
+                            Text pressEscape = new Text();
+                            pressEscape.setX(590);
+                            pressEscape.setY(945);
+                            pressEscape.setCache(true);
+                            pressEscape.setText("or Escape for stop the game");
+                            pressEscape.setFill(Color.WHITE);
+                            pressEscape.setFont(Font.font(null, FontWeight.BOLD, 20));
+                            root.getChildren().add(forr);
+                            root.getChildren().add(pressEntrer);
+                            root.getChildren().add(pressEscape);
+
 
 
                         }
@@ -818,7 +924,7 @@ public class ViewGame {
 
         }
         else if (puissanceTir == 1 && cote == 1) {
-            if(tirEnCour3 == true) {
+            if (tirEnCour3 == true) {
 
                 tirEnCour3 = false;
 
@@ -928,7 +1034,7 @@ public class ViewGame {
 
                             Text t = new Text();
                             t.setX(630);
-                            t.setY(550);
+                            t.setY(580);
                             t.setCache(true);
                             t.setText("Le Joueur 2 ");
                             t.setFill(Color.WHITE);
@@ -937,7 +1043,7 @@ public class ViewGame {
 
                             Text t2 = new Text();
                             t2.setX(570);
-                            t2.setY(600);
+                            t2.setY(630);
                             t2.setCache(true);
                             t2.setText("est mort déchiqueté");
                             t2.setFill(Color.WHITE);
@@ -961,6 +1067,44 @@ public class ViewGame {
                             root.getChildren().add(gameOver);
                             root.getChildren().add(t);
                             root.getChildren().add(t2);
+
+                            playAgain = new ImageView("Asset//Images//playAgain.png");
+                            playAgain.setX(620);
+                            playAgain.setY(800);
+                            playAgain.setFitWidth(200);
+                            playAgain.setPreserveRatio(true);
+                            playAgain.setEffect(r);
+                            root.getChildren().add(playAgain);
+
+
+                            Text forr = new Text();
+                            forr.setX(620);
+                            forr.setY(780);
+                            forr.setCache(true);
+                            forr.setText("for");
+                            forr.setFill(Color.WHITE);
+                            forr.setFont(Font.font(null, FontWeight.BOLD, 20));
+
+                            Text pressEntrer = new Text();
+                            pressEntrer.setX(650);
+                            pressEntrer.setY(900);
+                            pressEntrer.setCache(true);
+                            pressEntrer.setText("press Entrance");
+                            pressEntrer.setFill(Color.WHITE);
+                            pressEntrer.setFont(Font.font(null, FontWeight.BOLD, 20));
+
+                            Text pressEscape = new Text();
+                            pressEscape.setX(590);
+                            pressEscape.setY(945);
+                            pressEscape.setCache(true);
+                            pressEscape.setText("or Escape for stop the game");
+                            pressEscape.setFill(Color.WHITE);
+                            pressEscape.setFont(Font.font(null, FontWeight.BOLD, 20));
+                            root.getChildren().add(forr);
+                            root.getChildren().add(pressEntrer);
+                            root.getChildren().add(pressEscape);
+
+
 
 
                         }
@@ -1024,223 +1168,254 @@ public class ViewGame {
             }
 
 
-
         }
         else if (puissanceTir == 2 && cote == 1) {
-            if(tirEnCour4 == true) {
+            if (tirEnCour4 == true) {
 
                 tirEnCour4 = false;
 
                 ImageView tir = new ImageView(Path.missil1);
-            tir.setX(vaissJ1.getX() + 130);
-            tir.setY(700);
-            tir.setFitWidth(20);
-            tir.setPreserveRatio(true);
-            root.getChildren().remove(vaissJ1);
-            root.getChildren().add(tir);
-            root.getChildren().add(vaissJ1);
+                tir.setX(vaissJ1.getX() + 130);
+                tir.setY(700);
+                tir.setFitWidth(20);
+                tir.setPreserveRatio(true);
+                root.getChildren().remove(vaissJ1);
+                root.getChildren().add(tir);
+                root.getChildren().add(vaissJ1);
 
-            final KeyFrame tirStartXajust;
-            final KeyFrame tirEndXajust;
+                final KeyFrame tirStartXajust;
+                final KeyFrame tirEndXajust;
 
-            if (vaissJ1.getX() < 50) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
-                tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 200));
-                tir.setRotate(6);
-            } else if (vaissJ1.getX() < 150) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
-                tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 190));
-                tir.setRotate(4);
-            } else if (vaissJ1.getX() > 350) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
-                tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 70));
-                tir.setRotate(-5);
+                if (vaissJ1.getX() < 50) {
+                    tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
+                    tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 200));
+                    tir.setRotate(6);
+                } else if (vaissJ1.getX() < 150) {
+                    tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
+                    tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 190));
+                    tir.setRotate(4);
+                } else if (vaissJ1.getX() > 350) {
+                    tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
+                    tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 70));
+                    tir.setRotate(-5);
 
-            } else if (vaissJ1.getX() > 450) {
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
-                tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 60));
-                tir.setRotate(-7);
-            } else {
+                } else if (vaissJ1.getX() > 450) {
+                    tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
+                    tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 60));
+                    tir.setRotate(-7);
+                } else {
 
-                tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
-                tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
-                tir.setRotate(0);
+                    tirStartXajust = new KeyFrame(Duration.ZERO, new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
+                    tirEndXajust = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.xProperty(), vaissJ1.getX() + 130));
+                    tir.setRotate(0);
 
-            }
+                }
 
-            final KeyFrame tirStartY = new KeyFrame(Duration.ZERO, new KeyValue(tir.yProperty(), 700));
-            // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
-            final KeyFrame tirEndY = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.yProperty(), 250));
+                final KeyFrame tirStartY = new KeyFrame(Duration.ZERO, new KeyValue(tir.yProperty(), 700));
+                // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
+                final KeyFrame tirEndY = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.yProperty(), 250));
 
-            final KeyFrame tirStartWidth = new KeyFrame(Duration.ZERO, new KeyValue(tir.fitWidthProperty(), 20));
-            final KeyFrame tirEndWidth = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.fitWidthProperty(), 1));
+                final KeyFrame tirStartWidth = new KeyFrame(Duration.ZERO, new KeyValue(tir.fitWidthProperty(), 20));
+                final KeyFrame tirEndWidth = new KeyFrame(Duration.seconds(2.3), new KeyValue(tir.fitWidthProperty(), 1));
 
-            final Timeline timelineTir = new Timeline(tirStartY, tirStartWidth, tirStartXajust, tirEndY, tirEndWidth, tirEndXajust);
+                final Timeline timelineTir = new Timeline(tirStartY, tirStartWidth, tirStartXajust, tirEndY, tirEndWidth, tirEndXajust);
 
-            timelineTir.play();
+                timelineTir.play();
 
-            ImageView tirF = new ImageView(Path.missil1F);
-            tirF.setX(vaissJ1F.getX() + 60);
-            tirF.setY(700);
-            tirF.setFitWidth(10);
-            tirF.setPreserveRatio(true);
-            tirF.setRotate(-2);
-            root.getChildren().remove(vaissJ2);
-            root.getChildren().remove(vaissJ1);
+                ImageView tirF = new ImageView(Path.missil1F);
+                tirF.setX(vaissJ1F.getX() + 60);
+                tirF.setY(700);
+                tirF.setFitWidth(10);
+                tirF.setPreserveRatio(true);
+                tirF.setRotate(-2);
+                root.getChildren().remove(vaissJ2);
+                root.getChildren().remove(vaissJ1);
 
-            root.getChildren().add(tirF);
-            root.getChildren().add(vaissJ2);
-            root.getChildren().add(vaissJ1);
-
-
-            PauseTransition delayRemoveTir = new PauseTransition(Duration.seconds(3));
-            delayRemoveTir.setOnFinished(event -> {
-                root.getChildren().remove(tir);
-                root.getChildren().remove(tirF);
+                root.getChildren().add(tirF);
+                root.getChildren().add(vaissJ2);
+                root.getChildren().add(vaissJ1);
 
 
-            });
-            delayRemoveTir.play();
-
-
-            final KeyFrame tirStartYF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.yProperty(), 320));
-            // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
-            final KeyFrame tirEndYF = new KeyFrame(Duration.seconds(4.7), new KeyValue(tirF.yProperty(), 1100));
-
-            final KeyFrame tirStartXajustF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.xProperty(), vaissJ1F.getX() + 60));
-            final KeyFrame tirEndXajustF = new KeyFrame(Duration.seconds(4), new KeyValue(tirF.xProperty(), vaissJ1F.getX() + 40));
-
-            final KeyFrame tirStartWidthF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.fitWidthProperty(), 1));
-            final KeyFrame tirEndWidthF = new KeyFrame(Duration.seconds(4), new KeyValue(tirF.fitWidthProperty(), 25));
-
-            final Timeline timelineTirF = new Timeline(tirStartYF, tirStartWidthF, tirStartXajustF, tirEndYF, tirEndWidthF, tirEndXajustF);
-
-            timelineTirF.play();
-
-            tirFBound = tirF.getBoundsInParent();
-
-            delayExploTouch = new PauseTransition(Duration.seconds(2));
-            delayExploTouch.setOnFinished(event -> {
-
-                if (tir.getBoundsInParent().intersects(vaissJ2F.getBoundsInParent())) {
-
-                    viejoueur2 = vieVaiss - degatJ2;
-                    viejoueur2 = viejoueur2 - 100;
-                    degatJ2 = degatJ2 +100;
-
-
-                    if(viejoueur2 > 0){
-                        getVieJ2Text().setText("Life :" + (viejoueur2));
-
-                    }else{
-                        getVieJ2Text().setText("You are DEAD!");
-
-                        vieJ2Text.setX(1250);
-
-                        Text t = new Text();
-                        t.setX(630);
-                        t.setY(550);
-                        t.setCache(true);
-                        t.setText("Le Joueur 2 ");
-                        t.setFill(Color.WHITE);
-                        t.setFont(Font.font(null, FontWeight.BOLD, 30));
-
-
-                        Text t2 = new Text();
-                        t2.setX(570);
-                        t2.setY(600);
-                        t2.setCache(true);
-                        t2.setText("est mort déchiqueté");
-                        t2.setFill(Color.WHITE);
-                        t2.setFont(Font.font(null, FontWeight.BOLD, 30));
-
-
-
-
-                        Reflection r = new Reflection();
-                        r.setFraction(0.4f);
-
-                        t.setEffect(r);
-                        t2.setEffect(r);
-                        // t.setTranslateY(400);
-
-                        ImageView gameOver = new ImageView("Asset//Images//gameover.png");
-                        gameOver.setX(200);
-                        gameOver.setY(300);
-                        gameOver.setFitWidth(1000);
-                        gameOver.setPreserveRatio(true);
-                        gameOver.setEffect(r);
-                        fin = true;
-                        root.getChildren().add(gameOver);
-                        root.getChildren().add(t);
-                        root.getChildren().add(t2);
-
-
-                    }
-
-
-
-                    if(viejoueur2 <=0){
-                        ImageView explosFinale = new ImageView(Path.exploFinale);
-                        explosFinale.setX(vaissJ2.getX() + 50);
-                        explosFinale.setY(650);
-                        explosFinale.setFitWidth(250);
-                        explosFinale.setPreserveRatio(true);
-                        explosFinale.setOpacity(0.6);
-                        root.getChildren().add(explosFinale);
-                    }
-
-
-                    ImageView toucheExplos = new ImageView(Path.toucheExplo1);
-                    toucheExplos.setX(vaissJ2.getX()+10);
-                    toucheExplos.setY(600);
-                    toucheExplos.setFitWidth(300);
-                    toucheExplos.setPreserveRatio(true);
-                    toucheExplos.setOpacity(0.7);
-
-
-                    ImageView toucheExplosF = new ImageView(Path.toucheExplo1);
-                    toucheExplosF.setX(vaissJ2F.getX() -10);
-                    toucheExplosF.setY(250);
-                    toucheExplosF.setFitWidth(100);
-                    toucheExplosF.setPreserveRatio(true);
-                    toucheExplosF.setOpacity(0.6);
-
-
-                    //root.getChildren().remove(vaissJ2);
-                    root.getChildren().add(toucheExplosF);
-                    root.getChildren().add(toucheExplos);
-                    //root.getChildren().add(vaissJ2);
-                    //game over
+                PauseTransition delayRemoveTir = new PauseTransition(Duration.seconds(3));
+                delayRemoveTir.setOnFinished(event -> {
                     root.getChildren().remove(tir);
                     root.getChildren().remove(tirF);
 
-                    PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(0.8));
-                    delayExplodispar.setOnFinished(event2 -> {
 
-                        root.getChildren().remove(toucheExplos);
-                        root.getChildren().remove(toucheExplosF);
-
-                    });
-                    delayExplodispar.play();
+                });
+                delayRemoveTir.play();
 
 
-                }
-            });
-            delayExploTouch.play();
+                final KeyFrame tirStartYF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.yProperty(), 320));
+                // final KeyFrame changeVaisse = new KeyFrame(Duration.seconds(0.25), new KeyValue(vaissJ2.imageProperty(), vaissJ2droite2));
+                final KeyFrame tirEndYF = new KeyFrame(Duration.seconds(4.7), new KeyValue(tirF.yProperty(), 1100));
+
+                final KeyFrame tirStartXajustF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.xProperty(), vaissJ1F.getX() + 60));
+                final KeyFrame tirEndXajustF = new KeyFrame(Duration.seconds(4), new KeyValue(tirF.xProperty(), vaissJ1F.getX() + 40));
+
+                final KeyFrame tirStartWidthF = new KeyFrame(Duration.ZERO, new KeyValue(tirF.fitWidthProperty(), 1));
+                final KeyFrame tirEndWidthF = new KeyFrame(Duration.seconds(4), new KeyValue(tirF.fitWidthProperty(), 25));
+
+                final Timeline timelineTirF = new Timeline(tirStartYF, tirStartWidthF, tirStartXajustF, tirEndYF, tirEndWidthF, tirEndXajustF);
+
+                timelineTirF.play();
+
+                tirFBound = tirF.getBoundsInParent();
+
+                delayExploTouch = new PauseTransition(Duration.seconds(2));
+                delayExploTouch.setOnFinished(event -> {
+
+                    if (tir.getBoundsInParent().intersects(vaissJ2F.getBoundsInParent())) {
+
+                        viejoueur2 = vieVaiss - degatJ2;
+                        viejoueur2 = viejoueur2 - 100;
+                        degatJ2 = degatJ2 + 100;
+
+
+                        if (viejoueur2 > 0) {
+                            getVieJ2Text().setText("Life :" + (viejoueur2));
+
+                        } else {
+                            getVieJ2Text().setText("You are DEAD!");
+
+                            vieJ2Text.setX(1250);
+
+                            Text t = new Text();
+                            t.setX(630);
+                            t.setY(580);
+                            t.setCache(true);
+                            t.setText("Le Joueur 2 ");
+                            t.setFill(Color.WHITE);
+                            t.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+                            Text t2 = new Text();
+                            t2.setX(570);
+                            t2.setY(630);
+                            t2.setCache(true);
+                            t2.setText("est mort déchiqueté");
+                            t2.setFill(Color.WHITE);
+                            t2.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+
+                            Reflection r = new Reflection();
+                            r.setFraction(0.4f);
+
+                            t.setEffect(r);
+                            t2.setEffect(r);
+                            // t.setTranslateY(400);
+
+                            ImageView gameOver = new ImageView("Asset//Images//gameover.png");
+                            gameOver.setX(200);
+                            gameOver.setY(300);
+                            gameOver.setFitWidth(1000);
+                            gameOver.setPreserveRatio(true);
+                            gameOver.setEffect(r);
+                            fin = true;
+                            root.getChildren().add(gameOver);
+                            root.getChildren().add(t);
+                            root.getChildren().add(t2);
+
+                            playAgain = new ImageView("Asset//Images//playAgain.png");
+                            playAgain.setX(620);
+                            playAgain.setY(800);
+                            playAgain.setFitWidth(200);
+                            playAgain.setPreserveRatio(true);
+                            playAgain.setEffect(r);
+                            root.getChildren().add(playAgain);
+
+                            Text forr = new Text();
+                            forr.setX(620);
+                            forr.setY(780);
+                            forr.setCache(true);
+                            forr.setText("for");
+                            forr.setFill(Color.WHITE);
+                            forr.setFont(Font.font(null, FontWeight.BOLD, 20));
+
+                            Text pressEntrer = new Text();
+                            pressEntrer.setX(650);
+                            pressEntrer.setY(900);
+                            pressEntrer.setCache(true);
+                            pressEntrer.setText("press Entrance");
+                            pressEntrer.setFill(Color.WHITE);
+                            pressEntrer.setFont(Font.font(null, FontWeight.BOLD, 20));
+
+                            Text pressEscape = new Text();
+                            pressEscape.setX(590);
+                            pressEscape.setY(945);
+                            pressEscape.setCache(true);
+                            pressEscape.setText("or Escape for stop the game");
+                            pressEscape.setFill(Color.WHITE);
+                            pressEscape.setFont(Font.font(null, FontWeight.BOLD, 20));
+                            root.getChildren().add(forr);
+                            root.getChildren().add(pressEntrer);
+                            root.getChildren().add(pressEscape);
+
+
+
+                        }
+
+
+                        if (viejoueur2 <= 0) {
+                            ImageView explosFinale = new ImageView(Path.exploFinale);
+                            explosFinale.setX(vaissJ2.getX() + 50);
+                            explosFinale.setY(650);
+                            explosFinale.setFitWidth(250);
+                            explosFinale.setPreserveRatio(true);
+                            explosFinale.setOpacity(0.6);
+                            root.getChildren().add(explosFinale);
+                        }
+
+
+                        ImageView toucheExplos = new ImageView(Path.toucheExplo1);
+                        toucheExplos.setX(vaissJ2.getX() + 10);
+                        toucheExplos.setY(600);
+                        toucheExplos.setFitWidth(300);
+                        toucheExplos.setPreserveRatio(true);
+                        toucheExplos.setOpacity(0.7);
+
+
+                        ImageView toucheExplosF = new ImageView(Path.toucheExplo1);
+                        toucheExplosF.setX(vaissJ2F.getX() - 10);
+                        toucheExplosF.setY(250);
+                        toucheExplosF.setFitWidth(100);
+                        toucheExplosF.setPreserveRatio(true);
+                        toucheExplosF.setOpacity(0.6);
+
+
+                        //root.getChildren().remove(vaissJ2);
+                        root.getChildren().add(toucheExplosF);
+                        root.getChildren().add(toucheExplos);
+                        //root.getChildren().add(vaissJ2);
+                        //game over
+                        root.getChildren().remove(tir);
+                        root.getChildren().remove(tirF);
+
+                        PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(0.8));
+                        delayExplodispar.setOnFinished(event2 -> {
+
+                            root.getChildren().remove(toucheExplos);
+                            root.getChildren().remove(toucheExplosF);
+
+                        });
+                        delayExplodispar.play();
+
+
+                    }
+                });
+                delayExploTouch.play();
                 PauseTransition delayPourRetier4 = new PauseTransition(Duration.seconds(0.6));
                 delayPourRetier4.setOnFinished(event -> {
                     tirEnCour4 = true;
                 });
                 delayPourRetier4.play();
-        }
+            }
 
 
         }
     }
 
     public void j1goRight(double vitesse) {
-
 
 
         if (vaissJ1.getX() <= 601) {
@@ -1335,43 +1510,43 @@ public class ViewGame {
 
     public void j1goLeft(double vitesse) {
 
-         if (vaissJ1.getX() >= 400) {
+        if (vaissJ1.getX() >= 400) {
 
-             if (indiVaissJ1 == 0) {
-                 imageVaiss = (Image) vaissJoueur1geo.getTabImageVaissBack().get(0);
-             } else if (indiVaissJ1 == 1) {
-                 imageVaiss = (Image) vaissJoueur1corv.getTabImageVaissBack().get(0);
-             } else if (indiVaissJ1 == 2) {
-                 imageVaiss = (Image) vaissJoueur1r22.getTabImageVaissBack().get(0);
-             } else if (indiVaissJ1 == 3) {
-                 imageVaiss = (Image) vaissJoueur1fauc.getTabImageVaissBack().get(0);
-             }
+            if (indiVaissJ1 == 0) {
+                imageVaiss = (Image) vaissJoueur1geo.getTabImageVaissBack().get(0);
+            } else if (indiVaissJ1 == 1) {
+                imageVaiss = (Image) vaissJoueur1corv.getTabImageVaissBack().get(0);
+            } else if (indiVaissJ1 == 2) {
+                imageVaiss = (Image) vaissJoueur1r22.getTabImageVaissBack().get(0);
+            } else if (indiVaissJ1 == 3) {
+                imageVaiss = (Image) vaissJoueur1fauc.getTabImageVaissBack().get(0);
+            }
             vaissJ1.setImage(imageVaiss);
 
         } else if (vaissJ1.getX() > 300) {
 
-             if (indiVaissJ1 == 0) {
-                 imageVaiss = (Image) vaissJoueur1geo.getTabImageVaissBack().get(1);
-             } else if (indiVaissJ1 == 1) {
-                 imageVaiss = (Image) vaissJoueur1corv.getTabImageVaissBack().get(1);
-             } else if (indiVaissJ1 == 2) {
-                 imageVaiss = (Image) vaissJoueur1r22.getTabImageVaissBack().get(1);
-             } else if (indiVaissJ1 == 3) {
-                 imageVaiss = (Image) vaissJoueur1fauc.getTabImageVaissBack().get(1);
-             }
+            if (indiVaissJ1 == 0) {
+                imageVaiss = (Image) vaissJoueur1geo.getTabImageVaissBack().get(1);
+            } else if (indiVaissJ1 == 1) {
+                imageVaiss = (Image) vaissJoueur1corv.getTabImageVaissBack().get(1);
+            } else if (indiVaissJ1 == 2) {
+                imageVaiss = (Image) vaissJoueur1r22.getTabImageVaissBack().get(1);
+            } else if (indiVaissJ1 == 3) {
+                imageVaiss = (Image) vaissJoueur1fauc.getTabImageVaissBack().get(1);
+            }
 
             vaissJ1.setImage(imageVaiss);
         } else {
 
-             if (indiVaissJ1 == 0) {
-                 imageVaiss = (Image) vaissJoueur1geo.getTabImageVaissBack().get(2);
-             } else if (indiVaissJ1 == 1) {
-                 imageVaiss = (Image) vaissJoueur1corv.getTabImageVaissBack().get(2);
-             } else if (indiVaissJ1 == 2) {
-                 imageVaiss = (Image) vaissJoueur1r22.getTabImageVaissBack().get(2);
-             } else if (indiVaissJ1 == 3) {
-                 imageVaiss = (Image) vaissJoueur1fauc.getTabImageVaissBack().get(2);
-             }
+            if (indiVaissJ1 == 0) {
+                imageVaiss = (Image) vaissJoueur1geo.getTabImageVaissBack().get(2);
+            } else if (indiVaissJ1 == 1) {
+                imageVaiss = (Image) vaissJoueur1corv.getTabImageVaissBack().get(2);
+            } else if (indiVaissJ1 == 2) {
+                imageVaiss = (Image) vaissJoueur1r22.getTabImageVaissBack().get(2);
+            } else if (indiVaissJ1 == 3) {
+                imageVaiss = (Image) vaissJoueur1fauc.getTabImageVaissBack().get(2);
+            }
 
             vaissJ1.setImage(imageVaiss);
         }
@@ -1409,8 +1584,7 @@ public class ViewGame {
                 imageVaissF = (Image) vaissJoueur1fauc.getTabImageVaissFace().get(6);
             }
         }
-            vaissJ1F.setImage(imageVaissF);
-
+        vaissJ1F.setImage(imageVaissF);
 
 
         final KeyFrame goLeftStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ1.xProperty(), vaissJ1.getX()));
@@ -1525,7 +1699,7 @@ public class ViewGame {
     public void j2goLeft(double vitesse) {
 
 
-            if (vaissJ2.getX() >= 601) {
+        if (vaissJ2.getX() >= 601) {
 
             if (vaissJ2.getX() > 1200) {
                 if (indiVaissJ2 == 0) {
@@ -1579,41 +1753,41 @@ public class ViewGame {
             }
 
 
-                if (vaissJ2F.getX() < 150) {
-                    if (indiVaissJ2 == 0) {
-                        imageVaissF = (Image) vaissJoueur2geo.getTabImageVaissFace().get(6);
-                    } else if (indiVaissJ2 == 1) {
-                        imageVaissF = (Image) vaissJoueur2corv.getTabImageVaissFace().get(6);
-                    } else if (indiVaissJ2 == 2) {
-                        imageVaissF = (Image) vaissJoueur2r22.getTabImageVaissFace().get(6);
-                    } else if (indiVaissJ2 == 3) {
-                        imageVaissF = (Image) vaissJoueur2fauc.getTabImageVaissFace().get(6);
-                    }
-                    vaissJ2F.setImage(imageVaissF);
-                } else if (vaissJ2F.getX() < 350) {
-                    if (indiVaissJ2 == 0) {
-                        imageVaissF = (Image) vaissJoueur2geo.getTabImageVaissFace().get(5);
-                    } else if (indiVaissJ2 == 1) {
-                        imageVaissF = (Image) vaissJoueur2corv.getTabImageVaissFace().get(5);
-                    } else if (indiVaissJ2 == 2) {
-                        imageVaissF = (Image) vaissJoueur2r22.getTabImageVaissFace().get(5);
-                    } else if (indiVaissJ2 == 3) {
-                        imageVaissF = (Image) vaissJoueur2fauc.getTabImageVaissFace().get(5);
-                    }
-                    vaissJ2F.setImage(imageVaissF);
-                } else {
-                    if (indiVaissJ2 == 0) {
-                        imageVaissF = (Image) vaissJoueur2geo.getTabImageVaissFace().get(4);
-                    } else if (indiVaissJ2 == 1) {
-                        imageVaissF = (Image) vaissJoueur2corv.getTabImageVaissFace().get(4);
-                    } else if (indiVaissJ2 == 2) {
-                        imageVaissF = (Image) vaissJoueur2r22.getTabImageVaissFace().get(4);
-                    } else if (indiVaissJ2 == 3) {
-                        imageVaissF = (Image) vaissJoueur2fauc.getTabImageVaissFace().get(4);
-                    }
-                    vaissJ2F.setImage(imageVaissF);
-
+            if (vaissJ2F.getX() < 150) {
+                if (indiVaissJ2 == 0) {
+                    imageVaissF = (Image) vaissJoueur2geo.getTabImageVaissFace().get(6);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaissF = (Image) vaissJoueur2corv.getTabImageVaissFace().get(6);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaissF = (Image) vaissJoueur2r22.getTabImageVaissFace().get(6);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaissF = (Image) vaissJoueur2fauc.getTabImageVaissFace().get(6);
                 }
+                vaissJ2F.setImage(imageVaissF);
+            } else if (vaissJ2F.getX() < 350) {
+                if (indiVaissJ2 == 0) {
+                    imageVaissF = (Image) vaissJoueur2geo.getTabImageVaissFace().get(5);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaissF = (Image) vaissJoueur2corv.getTabImageVaissFace().get(5);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaissF = (Image) vaissJoueur2r22.getTabImageVaissFace().get(5);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaissF = (Image) vaissJoueur2fauc.getTabImageVaissFace().get(5);
+                }
+                vaissJ2F.setImage(imageVaissF);
+            } else {
+                if (indiVaissJ2 == 0) {
+                    imageVaissF = (Image) vaissJoueur2geo.getTabImageVaissFace().get(4);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaissF = (Image) vaissJoueur2corv.getTabImageVaissFace().get(4);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaissF = (Image) vaissJoueur2r22.getTabImageVaissFace().get(4);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaissF = (Image) vaissJoueur2fauc.getTabImageVaissFace().get(4);
+                }
+                vaissJ2F.setImage(imageVaissF);
+
+            }
 
             final KeyFrame goLeftStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ2.xProperty(), vaissJ2.getX()));
             final KeyFrame goLeftEnd = new KeyFrame(Duration.seconds(vitesse), new KeyValue(vaissJ2.xProperty(), 600, Interpolator.LINEAR));
@@ -1659,7 +1833,6 @@ public class ViewGame {
         vaissJ2F.setImage(vaissJ2Fnormal);
     }
 
-
     public int getViejoueur2() {
         return viejoueur2;
     }
@@ -1668,11 +1841,9 @@ public class ViewGame {
         return viejoueur1;
     }
 
-
-
     private Text getVieJ2Text() {
-            return vieJ2Text;
-        }
+        return vieJ2Text;
+    }
 
     public void retourNormalBackJ1() {
         Image vaissJ1normal = null;
