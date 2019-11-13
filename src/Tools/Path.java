@@ -31,7 +31,7 @@ public class Path {
     public static final String stats4 = "Asset//Images//Sans titre 1.png";
 
     public static String joueur1 = "Asset//Images//Joueur1.png";
-    public static String joueur2 = "Asset//Images//Joueur2.png";
+    public static String joueur2 = "Asset//Images//Joueur2b.png";
 
 
     public static final String chevrongauche = "Asset//Images//chevrongauche.png";

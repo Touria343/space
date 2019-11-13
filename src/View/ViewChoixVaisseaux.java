@@ -10,6 +10,7 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Group;
 import javafx.scene.effect.Reflection;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -609,6 +610,9 @@ public class ViewChoixVaisseaux {
     public void changeChoixJoueur() {
         root.getChildren().remove(joueurNum1);
         root.getChildren().add(joueurNum2);
+        Image vivi = new Image("Asset//Images//choisir22.png");
+
+        imageChoisir.setImage(vivi);
     }
 
     public void changeChoixJoueur2() {
