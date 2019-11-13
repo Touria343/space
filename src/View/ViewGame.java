@@ -97,7 +97,7 @@ public class ViewGame {
     private boolean fin;
     private Image imageVaissF;
 
-    public void setIndiVaissJ1(int indiVaissJ1) {        this.indiVaissJ1 = indiVaissJ1; }
+    public void setIndiVaissJ1(int indiVaissJ1) {this.indiVaissJ1 = indiVaissJ1; }
     public void setIndiVaissJ2(int indiVaissJ2) { this.indiVaissJ2 = indiVaissJ2;}
     public int getIndiVaissJ1() { return indiVaissJ1; }
     public int getIndiVaissJ2() { return indiVaissJ2; }

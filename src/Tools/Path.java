@@ -46,6 +46,10 @@ public class Path {
     public static final String fontRiesling = "../Asset/Font/riesling.ttf";
     public static final String fontMotionPicture =  "../Asset/Font/MotionPicture.ttf";
     public static final String fontNGage =  "../Asset/Font/N-Gage.ttf";
+    public static final String fontclonewars2 =  "../Asset/Font/clonewars2.ttf";
+    public static final String fontdroid=  "../Asset/Font/droid.ttf";
+    public static final String fontFuturisticArmour =  "../Asset/Font/FuturisticArmour.otf";
+    public static final String fontOxanium =  "../Asset/Font/Oxanium-SemiBold.ttf";
 
     public static final String videobackground1 = "..//Asset//Video//TypoYellow_27791.mp4";
     public static final String videobackground2 = "../Asset//Video//Yellow - 27792.mp4";
