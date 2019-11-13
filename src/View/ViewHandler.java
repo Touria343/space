@@ -95,7 +95,7 @@ public class ViewHandler extends Application {
         //   primaryStage.setFullScreenExitHint("");
         primaryStage.setResizable(true);
         primaryStage.setMaxHeight(980);
-        primaryStage.setMaxWidth(1520);
+        primaryStage.setMaxWidth(1450);
         primaryStage.setFullScreen(true);
         // primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
