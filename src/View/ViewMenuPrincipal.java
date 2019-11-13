@@ -80,24 +80,26 @@ public class ViewMenuPrincipal {
 
     private void initTexteQuitter() {
         quitter = new Text(1025, 770, "Quitter");
-        quitter.setFont(Font.font("Dead Kansas", 35));
+        Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontclonewars2 ), 55);
+        quitter.setFont(policeTitre);
         quitter.setFill(Color.WHITE);
-        quitter.setOpacity(0);
     }
+
 
     private void initTextOption() {
 
         choixVaiss = new Text(297, 770, "Option");
-        choixVaiss.setFont(Font.font("Dead Kansas", 35));
+        Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontclonewars2 ), 55);
+        choixVaiss.setFont(policeTitre);
         choixVaiss.setFill(Color.WHITE);
-        choixVaiss.setOpacity(0);
 
     }
 
     private void initTextJouer() {
 
         jouer = new Text(675, 850, "Jouer");
-        jouer.setFont(Font.font("Dead Kansas", 35));
+        Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontclonewars2 ), 55);
+        jouer.setFont(policeTitre);
         jouer.setFill(Color.WHITE);
         jouer.setOpacity(0);
 

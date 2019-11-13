@@ -84,8 +84,9 @@ public class ViewChoixVaisseaux {
     }
 
     private void initTextGeoCroiseur() {
-        geoCroiseur = new Text(50, 180, "- G  é  o  -  c  r  o  i  s  e  u  r \n      G  é  n  é  s  i  s   T-16 -");
-        geoCroiseur.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
+        geoCroiseur = new Text(50, 180, "-  G  é  o  -  C  r  o  i  s  e  u  r  \n  G  é  n  é  s  i  s  T - 16 -");
+        Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontdroid), 75);
+        geoCroiseur.setFont(policeTitre);
         geoCroiseur.setFill(Color.WHITE);
         geoCroiseur.setOpacity(0);
         Reflection r = new Reflection();
@@ -235,8 +236,9 @@ public class ViewChoixVaisseaux {
 
     private void initTextChangerVaisseaux() {
 
-        joueur1 = new Text(640, 820, "Vaisseau suivant");
-        joueur1.setFont(Font.font("Dead Kansas", SEMI_BOLD, 28));
+        joueur1 = new Text(560, 820, "Vaisseau suivant");
+        Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontFuturisticArmour), 40);
+        joueur1.setFont(policeTitre);
         joueur1.setFill(Color.LIGHTGREEN);
         joueur1.setOpacity(0);
 
@@ -524,8 +526,11 @@ public class ViewChoixVaisseaux {
         statsSelectionne.setOpacity(0);
         statsSelectionne.setPreserveRatio(true);
 
+
+
         titreSelectionne = tabTitreVaisseaux.get(indice);
-        titreSelectionne.setFont(Font.font("Dead Kansas", EXTRA_BOLD, 60));
+        Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontdroid), 75);
+        titreSelectionne.setFont(policeTitre);
         titreSelectionne.setFill(Color.WHITE);
         titreSelectionne.setOpacity(0);
         titreSelectionne.setEffect(r);
