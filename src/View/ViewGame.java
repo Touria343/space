@@ -447,6 +447,41 @@ public class ViewGame {
                 vaissJ1.setImage(imageVaiss);
             }
 
+            if (vaissJ1F.getX() > 1200) {
+                if (indiVaissJ1 == 0) {
+                    imageVaissF = (Image) vaissJoueur1geo.getTabImageVaissFace().get(6);
+                } else if (indiVaissJ1 == 1) {
+                    imageVaissF = (Image) vaissJoueur1corv.getTabImageVaissFace().get(6);
+                } else if (indiVaissJ1 == 2) {
+                    imageVaissF = (Image) vaissJoueur1r22.getTabImageVaissFace().get(6);
+                } else if (indiVaissJ1 == 3) {
+                    imageVaissF = (Image) vaissJoueur1fauc.getTabImageVaissFace().get(6);
+                }
+                vaissJ1F.setImage(imageVaissF);
+            } else if (vaissJ1F.getX() > 1000) {
+                if (indiVaissJ1 == 0) {
+                    imageVaissF = (Image) vaissJoueur1geo.getTabImageVaissFace().get(5);
+                } else if (indiVaissJ1 == 1) {
+                    imageVaissF = (Image) vaissJoueur1corv.getTabImageVaissFace().get(5);
+                } else if (indiVaissJ1 == 2) {
+                    imageVaissF = (Image) vaissJoueur1r22.getTabImageVaissFace().get(5);
+                } else if (indiVaissJ1 == 3) {
+                    imageVaissF = (Image) vaissJoueur1fauc.getTabImageVaissFace().get(5);
+                }
+                vaissJ2F.setImage(imageVaissF);
+
+            } else {
+                if (indiVaissJ2 == 0) {
+                    imageVaissF = (Image) vaissJoueur2geo.getTabImageVaissFace().get(4);
+                } else if (indiVaissJ2 == 1) {
+                    imageVaissF = (Image) vaissJoueur2corv.getTabImageVaissFace().get(4);
+                } else if (indiVaissJ2 == 2) {
+                    imageVaissF = (Image) vaissJoueur2r22.getTabImageVaissFace().get(4);
+                } else if (indiVaissJ2 == 3) {
+                    imageVaissF = (Image) vaissJoueur2fauc.getTabImageVaissFace().get(4);
+                }
+                vaissJ2F.setImage(imageVaissF);
+
             final KeyFrame goLeftStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ1.xProperty(), vaissJ1.getX()));
             final KeyFrame goLeftEnd = new KeyFrame(Duration.seconds(vitesse), new KeyValue(vaissJ1.xProperty(), 500, Interpolator.LINEAR));
 
@@ -458,6 +493,7 @@ public class ViewGame {
             timelineGoRightJ1.setCycleCount(1);
         }
     }
+}
 
     public void j1goLeft(double vitesse) {
 
@@ -502,6 +538,44 @@ public class ViewGame {
 
             vaissJ1.setImage(imageVaiss);
         }
+
+        if (vaissJ1F.getX() < 1200) {
+            if (indiVaissJ1 == 0) {
+                imageVaissF = (Image) vaissJoueur1geo.getTabImageVaissFace().get(6);
+            } else if (indiVaissJ1 == 1) {
+                imageVaissF = (Image) vaissJoueur1corv.getTabImageVaissFace().get(6);
+            } else if (indiVaissJ1 == 2) {
+                imageVaissF = (Image) vaissJoueur1r22.getTabImageVaissFace().get(6);
+            } else if (indiVaissJ1 == 3) {
+                imageVaissF = (Image) vaissJoueur1fauc.getTabImageVaissFace().get(6);
+            }
+            vaissJ1F.setImage(imageVaissF);
+        } else if (vaissJ1F.getX() < 1000) {
+            if (indiVaissJ1 == 0) {
+                imageVaissF = (Image) vaissJoueur1geo.getTabImageVaissFace().get(5);
+            } else if (indiVaissJ1 == 1) {
+                imageVaissF = (Image) vaissJoueur1corv.getTabImageVaissFace().get(5);
+            } else if (indiVaissJ1 == 2) {
+                imageVaissF = (Image) vaissJoueur1r22.getTabImageVaissFace().get(5);
+            } else if (indiVaissJ1 == 3) {
+                imageVaissF = (Image) vaissJoueur1fauc.getTabImageVaissFace().get(5);
+            }
+            vaissJ2F.setImage(imageVaissF);
+
+        } else {
+            if (indiVaissJ2 == 0) {
+                imageVaissF = (Image) vaissJoueur2geo.getTabImageVaissFace().get(4);
+            } else if (indiVaissJ2 == 1) {
+                imageVaissF = (Image) vaissJoueur2corv.getTabImageVaissFace().get(4);
+            } else if (indiVaissJ2 == 2) {
+                imageVaissF = (Image) vaissJoueur2r22.getTabImageVaissFace().get(4);
+            } else if (indiVaissJ2 == 3) {
+                imageVaissF = (Image) vaissJoueur2fauc.getTabImageVaissFace().get(4);
+            }
+            vaissJ2F.setImage(imageVaissF);
+
+        }
+
 
         final KeyFrame goLeftStart = new KeyFrame(Duration.ZERO, new KeyValue(vaissJ1.xProperty(), vaissJ1.getX()));
         final KeyFrame goLeftEnd = new KeyFrame(Duration.seconds(vitesse), new KeyValue(vaissJ1.xProperty(), -100, Interpolator.LINEAR));
@@ -596,14 +670,6 @@ public class ViewGame {
     }
 
     public void j2goLeft(double vitesse) {
-
-
-
-
-
-
-
-
 
 
             if (vaissJ2.getX() >= 601) {

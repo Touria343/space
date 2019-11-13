@@ -14,6 +14,7 @@ import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class ViewHandler extends Application {
     private Stage primaryStage;
@@ -69,6 +70,7 @@ public class ViewHandler extends Application {
         mp = new ViewMenuPrincipal(model, root);
         mo = new ViewChoixVaisseaux(model, root);
 
+
         geocJ1 = new VGeocroiseur();
         r22J1 = new VR22();
         corvJ1 = new VCorvette();
@@ -95,8 +97,9 @@ public class ViewHandler extends Application {
         //   primaryStage.setFullScreenExitHint("");
         primaryStage.setResizable(true);
         primaryStage.setMaxHeight(980);
-        primaryStage.setMaxWidth(1520);
+        primaryStage.setMaxWidth(1450);
         primaryStage.setFullScreen(true);
+
         // primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
     }
@@ -110,6 +113,7 @@ public class ViewHandler extends Application {
     public void setEventHandlerMenu(ControllerMenu cm) {
         mp.setEvents(cm);
         mo.setEvents(cm);
+
         // game.setEvents(cm);
 
     }
@@ -152,6 +156,8 @@ public class ViewHandler extends Application {
     public void afficherGame() {
         game.setVueCompleteMenu();
     }
+
+
 
 
 }

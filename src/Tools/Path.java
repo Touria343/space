@@ -19,8 +19,8 @@ public class Path {
     public static final String map = "Asset/Images/map.jpg";
     public static final String spiderr = "Asset/Images/spider.png";
 
-    public static final String vaisseauxChoix1 = "Asset//Images//geocroiseur-genesis_t-16-0025.png";
-    public static final String vaisseauxChoix2 = "Asset//Images//touria-corvette-9-0022.png";
+    public static final String vaisseauxChoix1 = "Asset//Images//géocroiseur-génésis_t-16-0025.png";
+    public static final String vaisseauxChoix2 = "Asset//Images//touria-corvette-9-0026.png";
     public static final String vaisseauxChoix3 = "Asset//Images//intercepteur_max_r22-0002.png";
     public static final String vaisseauxChoix4 = "Asset//Images//red-faucon-0002.png";
 
@@ -44,6 +44,8 @@ public class Path {
     public static final String fontOneStarryNight = "../Asset/Font/OneStarryNight.ttf";
     public static final String fontRemacineScript = "../Asset/Font/RemachineScript.ttf";
     public static final String fontRiesling = "../Asset/Font/riesling.ttf";
+    public static final String fontMotionPicture =  "../Asset/Font/MotionPicture.ttf";
+    public static final String fontNGage =  "../Asset/Font/N-Gage.ttf";
 
     public static final String videobackground1 = "..//Asset//Video//TypoYellow_27791.mp4";
     public static final String videobackground2 = "../Asset//Video//Yellow - 27792.mp4";
@@ -98,7 +100,7 @@ public class Path {
     public static String corvetteFG1 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0025.png";
     public static String corvetteF = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0024.png";
     public static String corvetteFD1 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0023.png";
-    public static String corvetteFD2 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0022.png";
+    public static String corvetteFD2 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0026.png";
     public static String corvetteFD3 = "Asset//Images//vaiss//touria corvette//touria-corvette-9-0021.png";
 
 
@@ -151,6 +153,10 @@ public class Path {
     public static String croiFD1 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0023.png";
     public static String croiFD2 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0012.png";
     public static String croiFD3 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0012.png";
+
+
+    public static final String planete = "Asset//Images//planete.jpg";
+    public static final String speaker = "Asset//Images//speaker.gif";
 
 
 
