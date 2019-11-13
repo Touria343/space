@@ -604,7 +604,7 @@ public class ViewGame {
 
                             Text pressEscape = new Text();
                             pressEscape.setX(590);
-                            pressEscape.setY(945);
+                            pressEscape.setY(925);
                             pressEscape.setCache(true);
                             pressEscape.setText("or Escape for stop the game");
                             pressEscape.setFill(Color.WHITE);
@@ -852,7 +852,7 @@ public class ViewGame {
 
                             Text pressEscape = new Text();
                             pressEscape.setX(590);
-                            pressEscape.setY(945);
+                            pressEscape.setY(925);
                             pressEscape.setCache(true);
                             pressEscape.setText("or Escape for stop the game");
                             pressEscape.setFill(Color.WHITE);
@@ -1095,7 +1095,7 @@ public class ViewGame {
 
                             Text pressEscape = new Text();
                             pressEscape.setX(590);
-                            pressEscape.setY(945);
+                            pressEscape.setY(925);
                             pressEscape.setCache(true);
                             pressEscape.setText("or Escape for stop the game");
                             pressEscape.setFill(Color.WHITE);
@@ -1342,7 +1342,7 @@ public class ViewGame {
 
                             Text pressEscape = new Text();
                             pressEscape.setX(590);
-                            pressEscape.setY(945);
+                            pressEscape.setY(925);
                             pressEscape.setCache(true);
                             pressEscape.setText("or Escape for stop the game");
                             pressEscape.setFill(Color.WHITE);
