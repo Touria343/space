@@ -617,7 +617,7 @@ public class ViewChoixVaisseaux {
 
     public void changeChoixJoueur2() {
 
-       // MusicJeux.stopMainMenuMusic();
+       /// MusicJeux.stopMainMenuMusic();
         //     launcher.afficherGame();
 
         //MusicJeux.playMusicGAme();
