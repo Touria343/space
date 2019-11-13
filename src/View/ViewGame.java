@@ -622,7 +622,21 @@ public class ViewGame {
                             explosFinale.setFitWidth(250);
                             explosFinale.setPreserveRatio(true);
                             explosFinale.setOpacity(0.6);
-                            root.getChildren().add(explosFinale);
+
+                            ImageView explosFinale2 = new ImageView("Asset//Images//explosion//explo.gif");
+                            explosFinale2.setX(vaissJ1.getX() -180);
+                            explosFinale2.setY(650);
+                            explosFinale2.setFitWidth(600);
+                            explosFinale2.setPreserveRatio(true);
+                            explosFinale2.setOpacity(1);
+                            root.getChildren().add(explosFinale2);
+
+                            PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(4));
+                            delayExplodispar.setOnFinished(event2 -> {
+                                root.getChildren().remove(explosFinale2);
+                                root.getChildren().add(explosFinale);
+                            });
+                            delayExplodispar.play();
                         }
 
 
@@ -866,7 +880,22 @@ public class ViewGame {
                             explosFinale.setFitWidth(250);
                             explosFinale.setPreserveRatio(true);
                             explosFinale.setOpacity(0.6);
-                            root.getChildren().add(explosFinale);
+
+                            ImageView explosFinale2 = new ImageView("Asset//Images//explosion//explo.gif");
+                            explosFinale2.setX(vaissJ1.getX() -180);
+                            explosFinale2.setY(650);
+                            explosFinale2.setFitWidth(600);
+                            explosFinale2.setPreserveRatio(true);
+                            explosFinale2.setOpacity(1);
+                            root.getChildren().add(explosFinale2);
+
+                            PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(4));
+                            delayExplodispar.setOnFinished(event2 -> {
+                                root.getChildren().remove(explosFinale2);
+                                root.getChildren().add(explosFinale);
+                            });
+                            delayExplodispar.play();
+
                         }
 
 
@@ -1110,6 +1139,21 @@ public class ViewGame {
                             explosFinale.setPreserveRatio(true);
                             explosFinale.setOpacity(0.6);
                             root.getChildren().add(explosFinale);
+
+                            ImageView explosFinale2 = new ImageView("Asset//Images//explosion//explo.gif");
+                            explosFinale2.setX(vaissJ2.getX() -180);
+                            explosFinale2.setY(650);
+                            explosFinale2.setFitWidth(600);
+                            explosFinale2.setPreserveRatio(true);
+                            explosFinale2.setOpacity(1);
+                            root.getChildren().add(explosFinale2);
+
+                            PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(4));
+                            delayExplodispar.setOnFinished(event2 -> {
+                                root.getChildren().remove(explosFinale2);
+                                root.getChildren().add(explosFinale);
+                            });
+                            delayExplodispar.play();
                         }
 
 
@@ -1349,7 +1393,22 @@ public class ViewGame {
                             explosFinale.setFitWidth(250);
                             explosFinale.setPreserveRatio(true);
                             explosFinale.setOpacity(0.6);
-                            root.getChildren().add(explosFinale);
+
+                            ImageView explosFinale2 = new ImageView("Asset//Images//explosion//explo.gif");
+                            explosFinale2.setX(vaissJ2.getX() -180);
+                            explosFinale2.setY(650);
+                            explosFinale2.setFitWidth(600);
+                            explosFinale2.setPreserveRatio(true);
+                            explosFinale2.setOpacity(1);
+                            root.getChildren().add(explosFinale2);
+
+                            PauseTransition delayExplodispar = new PauseTransition(Duration.seconds(4));
+                            delayExplodispar.setOnFinished(event2 -> {
+                                root.getChildren().remove(explosFinale2);
+                                root.getChildren().add(explosFinale);
+                            });
+                            delayExplodispar.play();
+
                         }
 
 
