@@ -19,7 +19,7 @@ public class Path {
     public static final String map = "Asset/Images/map.jpg";
     public static final String spiderr = "Asset/Images/spider.png";
 
-    public static final String vaisseauxChoix1 = "Asset//Images//géocroiseur-génésis_t-16-0025.png";
+    public static final String vaisseauxChoix1 = "Asset//Images//géocroiseur-génésis_t-16-0025.png";
     public static final String vaisseauxChoix2 = "Asset//Images//touria-corvette-9-0022.png";
     public static final String vaisseauxChoix3 = "Asset//Images//intercepteur_max_r22-0002.png";
     public static final String vaisseauxChoix4 = "Asset//Images//red-faucon-0002.png";
