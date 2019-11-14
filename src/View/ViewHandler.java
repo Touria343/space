@@ -2,6 +2,7 @@ package View;
 
 import Controller.ControllerJeux;
 import Controller.ControllerMenu;
+import Controller.ControllerOption;
 import Model.*;
 import Music.MusicJeux;
 import javafx.application.Application;
@@ -19,8 +20,10 @@ public class ViewHandler extends Application {
     private Stage primaryStage;
     private ViewMenuPrincipal mp;
     private ViewChoixVaisseaux mo;
+    private ViewOption mt;
     private Menu model;
     private ControllerMenu controllerMenu;
+    private ControllerOption controllerOption;
     private String Dir = System.getProperty("user.dir");
     private MediaPlayer videoBackground;
     private Button btn;
@@ -81,10 +84,11 @@ public class ViewHandler extends Application {
 
         game = new ViewGame(model, root, geocJ1, r22J1, corvJ1, faucJ1, geocJ2, r22J2, corvJ2, faucJ2);
 
-
+        mt = new ViewOption(model, root);
 
         controllerMenu = new ControllerMenu(this, model);
         controllerJeux = new ControllerJeux(this, model, geocJ1, r22J1, corvJ1, faucJ1, geocJ2, r22J2, corvJ2, faucJ2);
+        controllerOption = new ControllerOption(this, model);
 
         MusicJeux.startMainMenuMusic();
         afficherMenuPrincipal(true);
@@ -114,13 +118,21 @@ public class ViewHandler extends Application {
 
     }
 
+
     public void setEventHandlerGame(ControllerJeux cj) {
 
         game.setEvents(cj);
 
     }
 
+    public void setEventHandlerOption(ControllerOption co)   {
+                 mt.setEvents(co);
+          }
+
     public void afficherOption() {
+
+        mt.setVueCompleteMenu();
+
     }
 
 
@@ -143,6 +155,11 @@ public class ViewHandler extends Application {
 
     public ViewChoixVaisseaux getMo() {
         return mo;
+    }
+
+    public ViewOption getMt()   {
+        return mt;
+
     }
 
     public void afficherJeux() {

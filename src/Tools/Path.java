@@ -19,7 +19,7 @@ public class Path {
     public static final String map = "Asset/Images/map.jpg";
     public static final String spiderr = "Asset/Images/spider.png";
 
-    public static final String vaisseauxChoix1 = "Asset//Images//geocroiseur-genesis_t-16-0025.png";
+    public static final String vaisseauxChoix1 = "Asset//Images//géocroiseur-génésis_t-16-0025.png";
     public static final String vaisseauxChoix2 = "Asset//Images//touria-corvette-9-0022.png";
     public static final String vaisseauxChoix3 = "Asset//Images//intercepteur_max_r22-0002.png";
     public static final String vaisseauxChoix4 = "Asset//Images//red-faucon-0002.png";
@@ -43,7 +43,9 @@ public class Path {
     public static final String fontMontionPicture = "../Asset/Font/MotionPicture.ttf";
     public static final String fontOneStarryNight = "../Asset/Font/OneStarryNight.ttf";
     public static final String fontRemacineScript = "../Asset/Font/RemachineScript.ttf";
-    public static final String fontRiesling = "../Asset/Font/riesling.ttf";
+    public static final String fontFuturisticArmour = "../Asset/Font/FuturisticArmour.otf";
+    public static final String fontclonewars2 = "../Asset/Font/clonewars2.ttf";
+    public static final String fontdroid = "../Asset/Font/droid.ttf";
 
     public static final String videobackground1 = "..//Asset//Video//TypoYellow_27791.mp4";
     public static final String videobackground2 = "../Asset//Video//Yellow - 27792.mp4";
@@ -118,7 +120,9 @@ public class Path {
     public static String redFD2 = "Asset//Images//vaiss//red faucon//red-faucon-0006.png";
     public static String redFD3 = "Asset//Images//vaiss//red faucon//red-faucon-0007.png";
 
-
+    public static final String planete = "Asset//Images//planete.png";
+    public static final String speaker = "Asset//Images//speaker.gif";
+    public static final String barre = "Asset//Images//barre.png";
 
     public static String r22BG3 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0013.png";
     public static String r22BG2 = "Asset//Images//vaiss//intercepteur_max_r22//intercepteur_max_r22-0014.png";
@@ -151,7 +155,5 @@ public class Path {
     public static String croiFD1 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0023.png";
     public static String croiFD2 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0012.png";
     public static String croiFD3 = "Asset//Images//vaiss//géocroiseur-génésis/géocroiseur-génésis_t-16-0012.png";
-
-
 
 }

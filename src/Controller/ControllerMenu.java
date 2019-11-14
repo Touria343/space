@@ -47,6 +47,11 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
             launcher.goQuitter();
         }
 
+        if (mouseEvent.getSource().equals(launcher.getMt().getTitre())) {
+            launcher.getMt();
+            launcher.afficherOption();
+        }
+
         if (mouseEvent.getSource().equals(launcher.getMp().getJouer())) {
             launcher.getMp().getVideoBackground().stop();
             launcher.getMo().setIndice(0);
